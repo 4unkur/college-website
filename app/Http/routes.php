@@ -15,7 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group([
+    'prefix' => 'admin',
+//    'middleware' => 'auth',
+    'namespace' => 'Admin',
+], function () {
     Route::get('/', function () {
         return view('admin.dashboard');
     });
