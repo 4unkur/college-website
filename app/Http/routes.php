@@ -15,14 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group([
-    'prefix' => 'admin',
-    'middleware' => 'Admin',
-    'namespace' => 'Admin',
-], function () {
-    Route::get('/', function () {
-        return view('admin.dashboard');
-    });
+//php artisan make:controller Admin/NewsController should be executed
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admin'], function() {
+    Route::get('',  'DashboardControler@index');
+    Route::resource('news', 'NewsController');
 });
 
 // Authentication routes...

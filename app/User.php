@@ -36,4 +36,10 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    /**
+     * Returns a type of user (admin, teacher, student)
+     */
+    public function type()
+    {}
 }
