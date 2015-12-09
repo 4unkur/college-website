@@ -11,7 +11,7 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="AdminLTE/all.css">
+    <link rel="stylesheet" href="/AdminLTE/all.css">
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -57,7 +57,7 @@
 @include('admin.footer')
 
 
-<script src="AdminLTE/all.js"></script>
+<script src="/AdminLTE/all.js"></script>
 
 </body>
 </html>
