@@ -1,7 +1,7 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('', function () {
+    return view('layouts.master');
 });
 
 Route::group(
@@ -11,8 +11,11 @@ Route::group(
         'namespace' => 'Admin'
     ],
     function() {
-        Route::get('',  'DashboardControler@index');
+        Route::get('',  function () {
+            return view('admin.master');
+        });
         Route::resource('news', 'NewsController');
+        Route::resource('page', 'PagesController');
     }
 );
 
@@ -22,3 +25,5 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+Route::resource('page', 'PagesController');

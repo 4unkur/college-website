@@ -1,7 +1,7 @@
 <section class="slider">
     <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
-            <div class="item"> <img data-src="images/slider/slider.jpg" alt="First slide" src="images/slider/slider.jpg">
+            <div class="item"> <img data-src="front/images/slider/slider.jpg" alt="First slide" src="front/images/slider/slider.jpg">
                 <div class="container">
                     <div class="carousel-caption">
                         <p class="little"><span>Quisque et tellus lorem</span></p>
@@ -11,7 +11,7 @@
                     </div>
                 </div>
             </div>
-            <div class="item active"> <img data-src="images/slider/slider1.jpg" alt="Second slide" src="images/slider/slider1.jpg">
+            <div class="item active"> <img data-src="front/images/slider/slider1.jpg" alt="Second slide" src="front/images/slider/slider1.jpg">
                 <div class="container">
                     <div class="carousel-caption">
                         <p class="little"><span>Lorem ipsum dolor site.</span></p>

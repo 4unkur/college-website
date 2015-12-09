@@ -4,9 +4,8 @@
     <title>Diploma</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/all.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -68,19 +67,19 @@
             <h2>OUR CREATIVE SERVICES</h2>
             <span class="separator"></span>
             <p class="small-paragraph">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
-            <div class="col-md-4 img-rounded"> <img src="images/content__images/img1.jpg" alt="image" class="img-responsive img-rounded">
+            <div class="col-md-4 img-rounded"> <img src="front/images/content__images/img1.jpg" alt="image" class="img-responsive img-rounded">
                 <h3><a href="#">Creative Design</a></h3>
                 <p class="smaller">Vestibulum auctor dapibus neque.</p>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
                 <p><a class="btn btn-info btn-lg" href="#" role="button">Learn more</a>
             </div>
-            <div class="col-md-4 img-rounded middle"> <img src="images/content__images/img2.jpg" alt="image" class="img-responsive img-rounded">
+            <div class="col-md-4 img-rounded middle"> <img src="front/images/content__images/img2.jpg" alt="image" class="img-responsive img-rounded">
                 <h3><a href="#">ONLINE MARKETING</a></h3>
                 <p class="smaller">Vestibulum auctor dapibus neque.</p>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
                 <p><a class="btn btn-info btn-lg" href="#" role="button">Learn more</a>
             </div>
-            <div class="col-md-4 img-rounded"> <img src="images/content__images/img3.jpg" alt="image" class="img-responsive img-rounded">
+            <div class="col-md-4 img-rounded"> <img src="front/images/content__images/img3.jpg" alt="image" class="img-responsive img-rounded">
                 <h3><a href="#">SOCIAL MEDIA</a></h3>
                 <p class="smaller">Vestibulum auctor dapibus neque.</p>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
@@ -102,13 +101,13 @@
             <h2>WHAT WE DO</h2>
             <span class="separator"></span>
             <p class="small-paragraph">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
-            <div class="col-md-6 img-rounded"> <img src="images/content__images/pic1.jpg" alt="pic" class="img-rounded img-responsive">
+            <div class="col-md-6 img-rounded"> <img src="front/images/content__images/pic1.jpg" alt="pic" class="img-rounded img-responsive">
                 <h3>Commodo id natoque malesuada sollicitudin elit suscipit.</h3>
                 <p class="smaller">Praesent semper mod quis eget mi. Etiam eu ante risus.</p>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
                 <p><a href="#" class="btn btn-info btn-lg">Learn more</a></p>
             </div>
-            <div class="col-md-6 img-rounded"> <img src="images/content__images/pic2.jpg" alt="pic" class="img-rounded img-responsive">
+            <div class="col-md-6 img-rounded"> <img src="front/images/content__images/pic2.jpg" alt="pic" class="img-rounded img-responsive">
                 <h3>Aliquam luctus et mattis lectus Nam nec turpis consequat.</h3>
                 <p class="smaller">Praesent semper mod quis eget mi. Etiam eu ante risus.</p>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
@@ -164,15 +163,10 @@
 </footer>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/all.js"></script>
 <script type="text/javascript">
 
-    $('.carousel').carousel({
-        interval: 3500, // in milliseconds
-        pause: 'none' // set to 'true' to pause slider on mouse hover
-    })
+
 </script>
 </body>
 </html>
