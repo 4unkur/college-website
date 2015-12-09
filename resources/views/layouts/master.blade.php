@@ -4,11 +4,8 @@
     <title>Reponsive HTML Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
-    <link href="css/style.css" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    {!! Html::style('css/all.css') !!}
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -51,55 +48,9 @@
 </header>
 <!--end of slider section-->
 <section class="main__middle__container">
-    <section class="recent-posts">
-        <div class="container">
-            <h2 class="text-center">our blog</h2>
-            <span class="text-center separator"></span>
-            <p class="small-paragraph text-center">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
-            <div class="row no_padding">
-                <div class="col-md-9">
-                    <article> <img src="images/content__images/post1.jpg" alt="pic1" class="pull-left img-responsive">
-                        <div class="text">
-                            <h3><a href="#">Lorem ipsum dolor sit consectetuer adipiscing elit. Donec odio.</a></h3>
-                            <p class="small-paragraph">Lorem ipsum dolor sit amet</p>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus. Nullam malesuada erat ut turpis.Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </article>
-                    <article> <img src="images/content__images/post2.jpg" alt="pic2" class="pull-left img-responsive">
-                        <div class="text">
-                            <h3><a href="#">Lorem ipsum dolor sit consectetuer adipiscing elit. Donec odio.</a></h3>
-                            <p class="small-paragraph">Lorem ipsum dolor sit amet</p>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus. Nullam malesuada erat ut turpis.Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </article>
-                    <article> <img src="images/content__images/post3.jpg" alt="pic3" class="pull-left img-responsive">
-                        <div class="text">
-                            <h3><a href="#">Lorem ipsum dolor sit consectetuer adipiscing elit. Donec odio.</a></h3>
-                            <p class="small-paragraph">Lorem ipsum dolor sit amet</p>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus. Nullam malesuada erat ut turpis.Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </article>
-                </div>
-                <div class="col-md-3">
-                    <div class="icon-item"> <img src="images/content__images/small_post1.jpg" alt="small-post-img" class="img-responsive">
-                        <h4><a href="#">Donec odio. Quisque volutpat mattis eros.</a></h4>
-                    </div>
-                    <div class="icon-item"> <img src="images/content__images/small_post2.jpg" alt="small-post-img" class="img-responsive">
-                        <h4><a href="#">Lorem ipsum dolor sit consectetuer adipiscing elit. Donec odio.</a></h4>
-                    </div>
-                    <div class="icon-item"> <img src="images/content__images/small_post3.jpg" alt="small-post-img" class="img-responsive">
-                        <h4><a href="#">Quisque volutpat mattis eros. Aliquam erat volutpat. Nam dui mi.</a></h4>
-                    </div>
-                    <div class="icon-item"> <img src="images/content__images/small_post4.jpg" alt="small-post-img" class="img-responsive">
-                        <h4><a href="#">Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus.</a></h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
+    @yield('content')
+
 </section>
 <footer>
     <div class="container">
@@ -147,9 +98,6 @@
     </div>
 </footer>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
+{!! Html::script('js/all.js') !!}
 </body>
 </html>

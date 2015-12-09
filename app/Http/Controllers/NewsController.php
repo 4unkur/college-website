@@ -16,7 +16,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::all();
+        $news = News::paginate(5); //TODO: change it to value of config
 
         return view('news.list', compact('news'));
     }

@@ -1,7 +1,7 @@
 <?php
 
 Route::get('', function () {
-    return view('layouts.master');
+    return view('layouts.index');
 });
 
 Route::group(

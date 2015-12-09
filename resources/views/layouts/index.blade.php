@@ -6,8 +6,6 @@
     <!-- Bootstrap -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
     <link href="css/all.css" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -17,8 +15,6 @@
 <header class="main__header">
     <div class="container">
         <nav class="navbar navbar-default" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="navbar-header">
                 <h1 class="navbar-brand"><a href="index.html">UNIVERSITY</a></h1>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1,#bs-example-navbar-collapse-2"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
@@ -67,19 +63,19 @@
             <h2>OUR CREATIVE SERVICES</h2>
             <span class="separator"></span>
             <p class="small-paragraph">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
-            <div class="col-md-4 img-rounded"> <img src="front/images/content__images/img1.jpg" alt="image" class="img-responsive img-rounded">
+            <div class="col-md-4 img-rounded"> <img src="/front/images/content__images/img1.jpg" alt="image" class="img-responsive img-rounded">
                 <h3><a href="#">Creative Design</a></h3>
                 <p class="smaller">Vestibulum auctor dapibus neque.</p>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
                 <p><a class="btn btn-info btn-lg" href="#" role="button">Learn more</a>
             </div>
-            <div class="col-md-4 img-rounded middle"> <img src="front/images/content__images/img2.jpg" alt="image" class="img-responsive img-rounded">
+            <div class="col-md-4 img-rounded middle"> <img src="/front/images/content__images/img2.jpg" alt="image" class="img-responsive img-rounded">
                 <h3><a href="#">ONLINE MARKETING</a></h3>
                 <p class="smaller">Vestibulum auctor dapibus neque.</p>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
                 <p><a class="btn btn-info btn-lg" href="#" role="button">Learn more</a>
             </div>
-            <div class="col-md-4 img-rounded"> <img src="front/images/content__images/img3.jpg" alt="image" class="img-responsive img-rounded">
+            <div class="col-md-4 img-rounded"> <img src="/front/images/content__images/img3.jpg" alt="image" class="img-responsive img-rounded">
                 <h3><a href="#">SOCIAL MEDIA</a></h3>
                 <p class="smaller">Vestibulum auctor dapibus neque.</p>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
@@ -101,13 +97,13 @@
             <h2>WHAT WE DO</h2>
             <span class="separator"></span>
             <p class="small-paragraph">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
-            <div class="col-md-6 img-rounded"> <img src="front/images/content__images/pic1.jpg" alt="pic" class="img-rounded img-responsive">
+            <div class="col-md-6 img-rounded"> <img src="/front/images/content__images/pic1.jpg" alt="pic" class="img-rounded img-responsive">
                 <h3>Commodo id natoque malesuada sollicitudin elit suscipit.</h3>
                 <p class="smaller">Praesent semper mod quis eget mi. Etiam eu ante risus.</p>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
                 <p><a href="#" class="btn btn-info btn-lg">Learn more</a></p>
             </div>
-            <div class="col-md-6 img-rounded"> <img src="front/images/content__images/pic2.jpg" alt="pic" class="img-rounded img-responsive">
+            <div class="col-md-6 img-rounded"> <img src="/front/images/content__images/pic2.jpg" alt="pic" class="img-rounded img-responsive">
                 <h3>Aliquam luctus et mattis lectus Nam nec turpis consequat.</h3>
                 <p class="smaller">Praesent semper mod quis eget mi. Etiam eu ante risus.</p>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
