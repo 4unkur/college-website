@@ -17,19 +17,24 @@ elixir(function(mix) {
         'slider.js'
     ]);
 
-    //login page assets:
+    //admin login/registration page assets:
     mix.styles([
-        'bootstrap.min.css',
-        'login.css'
+        'bootstrap/css/bootstrap.min.css',
+        'login.css',
+        'dist/css/AdminLTE.min.css',
+        'plugins/iCheck/square/blue.css'
     ],
-    'public/css/login.css');
+    'public/css/login.css',
+    'resources/assets/AdminLTE');
 
     mix.scripts([
-        'jquery.min.js',
-        //'bootstrap.min.js',
+        'plugins/jQuery/jQuery-2.1.4.min.js',
+        'bootstrap/js/bootstrap.min.js',
+        'plugins/iCheck/icheck.min.js',
         'login.js'
     ],
-    'public/js/login.js');
+    'public/js/login.js',
+    'resources/assets/AdminLTE');
 
     //admin panel's assets
     mix.styles([
