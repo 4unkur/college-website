@@ -27,3 +27,5 @@ Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::resource('page', 'PagesController');
+
+Route::resource('news', 'NewsController', ['only' => ['index', 'show']]);

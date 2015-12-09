@@ -1,12 +1,11 @@
 <!doctype html>
 <html>
 <head>
-    <title>Reponsive HTML Template</title>
+    <title>Diploma</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/all.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -15,7 +14,7 @@
     <![endif]-->
 </head>
 <body>
-<header class="sub__header">
+<header class="main__header">
     <div class="container">
         <nav class="navbar navbar-default" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -49,57 +48,73 @@
         </nav>
     </div>
 </header>
-<!--end of slider section-->
-<section class="main__middle__container">
-    <section class="recent-posts">
+
+@include('partials.slider')
+
+<section class="main__middle__container homepage13">
+    <div class="row text-center no-margin nothing">
+        <div class="container headings">
+            <p class="little"><span>Lorem ipsum dolor site</span></p>
+            <h2 class="page_title">PARALLAX ELEMENTS<br />
+                <span>clean</span> and <span>high quality
+                    </sapn>
+                    website.</h2>
+            <p class="small-paragraph">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+        </div>
+    </div>
+    <div class="row  three__blocks text-center no_padding no-margin">
         <div class="container">
-            <h2 class="text-center">our blog</h2>
-            <span class="text-center separator"></span>
-            <p class="small-paragraph text-center">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
-            <div class="row no_padding">
-                <div class="col-md-9">
-                    <article> <img src="images/content__images/post1.jpg" alt="pic1" class="pull-left img-responsive">
-                        <div class="text">
-                            <h3><a href="#">Lorem ipsum dolor sit consectetuer adipiscing elit. Donec odio.</a></h3>
-                            <p class="small-paragraph">Lorem ipsum dolor sit amet</p>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus. Nullam malesuada erat ut turpis.Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </article>
-                    <article> <img src="images/content__images/post2.jpg" alt="pic2" class="pull-left img-responsive">
-                        <div class="text">
-                            <h3><a href="#">Lorem ipsum dolor sit consectetuer adipiscing elit. Donec odio.</a></h3>
-                            <p class="small-paragraph">Lorem ipsum dolor sit amet</p>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus. Nullam malesuada erat ut turpis.Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </article>
-                    <article> <img src="images/content__images/post3.jpg" alt="pic3" class="pull-left img-responsive">
-                        <div class="text">
-                            <h3><a href="#">Lorem ipsum dolor sit consectetuer adipiscing elit. Donec odio.</a></h3>
-                            <p class="small-paragraph">Lorem ipsum dolor sit amet</p>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus. Nullam malesuada erat ut turpis.Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </article>
-                </div>
-                <div class="col-md-3">
-                    <div class="icon-item"> <img src="images/content__images/small_post1.jpg" alt="small-post-img" class="img-responsive">
-                        <h4><a href="#">Donec odio. Quisque volutpat mattis eros.</a></h4>
-                    </div>
-                    <div class="icon-item"> <img src="images/content__images/small_post2.jpg" alt="small-post-img" class="img-responsive">
-                        <h4><a href="#">Lorem ipsum dolor sit consectetuer adipiscing elit. Donec odio.</a></h4>
-                    </div>
-                    <div class="icon-item"> <img src="images/content__images/small_post3.jpg" alt="small-post-img" class="img-responsive">
-                        <h4><a href="#">Quisque volutpat mattis eros. Aliquam erat volutpat. Nam dui mi.</a></h4>
-                    </div>
-                    <div class="icon-item"> <img src="images/content__images/small_post4.jpg" alt="small-post-img" class="img-responsive">
-                        <h4><a href="#">Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus.</a></h4>
-                    </div>
-                </div>
+            <h2>OUR CREATIVE SERVICES</h2>
+            <span class="separator"></span>
+            <p class="small-paragraph">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
+            <div class="col-md-4 img-rounded"> <img src="front/images/content__images/img1.jpg" alt="image" class="img-responsive img-rounded">
+                <h3><a href="#">Creative Design</a></h3>
+                <p class="smaller">Vestibulum auctor dapibus neque.</p>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
+                <p><a class="btn btn-info btn-lg" href="#" role="button">Learn more</a>
+            </div>
+            <div class="col-md-4 img-rounded middle"> <img src="front/images/content__images/img2.jpg" alt="image" class="img-responsive img-rounded">
+                <h3><a href="#">ONLINE MARKETING</a></h3>
+                <p class="smaller">Vestibulum auctor dapibus neque.</p>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
+                <p><a class="btn btn-info btn-lg" href="#" role="button">Learn more</a>
+            </div>
+            <div class="col-md-4 img-rounded"> <img src="front/images/content__images/img3.jpg" alt="image" class="img-responsive img-rounded">
+                <h3><a href="#">SOCIAL MEDIA</a></h3>
+                <p class="smaller">Vestibulum auctor dapibus neque.</p>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
+                <p><a class="btn btn-info btn-lg" href="#" role="button">Learn more</a>
             </div>
         </div>
-    </section>
+    </div>
+    <div class="text-center three-blocks">
+        <div class="container">
+            <div class="row white__heading">
+                <h2>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi Sed arcu. Cras consequat.</h2>
+                <p class="little">Richard Johnson</p>
+                <p><a class="btn btn-info btn-lg" href="#">read more</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="row  three__blocks text-center no_padding no-margin">
+        <div class="container">
+            <h2>WHAT WE DO</h2>
+            <span class="separator"></span>
+            <p class="small-paragraph">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
+            <div class="col-md-6 img-rounded"> <img src="front/images/content__images/pic1.jpg" alt="pic" class="img-rounded img-responsive">
+                <h3>Commodo id natoque malesuada sollicitudin elit suscipit.</h3>
+                <p class="smaller">Praesent semper mod quis eget mi. Etiam eu ante risus.</p>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+                <p><a href="#" class="btn btn-info btn-lg">Learn more</a></p>
+            </div>
+            <div class="col-md-6 img-rounded"> <img src="front/images/content__images/pic2.jpg" alt="pic" class="img-rounded img-responsive">
+                <h3>Aliquam luctus et mattis lectus Nam nec turpis consequat.</h3>
+                <p class="smaller">Praesent semper mod quis eget mi. Etiam eu ante risus.</p>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+                <p><a href="#" class="btn btn-info btn-lg">Learn more</a></p>
+            </div>
+        </div>
+    </div>
 </section>
 <footer>
     <div class="container">
@@ -148,8 +163,10 @@
 </footer>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/all.js"></script>
+<script type="text/javascript">
+
+
+</script>
 </body>
 </html>
