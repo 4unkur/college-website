@@ -13,7 +13,7 @@
                     <article>
                         <img src="images/content__images/post1.jpg" alt="pic1" class="pull-left img-responsive">
                         <div class="text">
-                            <h3><a href="#">{{ $entry->title }}</a></h3>
+                            <h3>{!! link_to_route('news.show', $entry->title, $entry->slug) !!}</h3>
                             <p class="small-paragraph">{{ $entry->created_at->diffForHumans() }}</p>
                             <p>{!! str_limit($entry->body, 100, '...') !!}</p>
                         </div>
