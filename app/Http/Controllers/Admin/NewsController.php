@@ -5,6 +5,7 @@ namespace College\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use College\Http\Requests;
 use College\Http\Controllers\Controller;
+use College\News;
 
 class NewsController extends Controller
 {
@@ -15,7 +16,9 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view('admin.news');
+        $news = News::all();
+
+        return view('admin.news', compact('news'));
     }
 
     /**
@@ -25,7 +28,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.news-create');
     }
 
     /**
@@ -36,7 +39,9 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        News::create($request->all());
+
+        return \Redirect::route('admin.news.index');
     }
 
     /**
@@ -58,7 +63,9 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $news = News::find($id);
+
+        return view('admin.news-edit', compact('news'));
     }
 
     /**
@@ -70,7 +77,10 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $news = News::find($id);
+        $news->update($request->all());
+
+        return \Redirect::route('admin.news.index');
     }
 
     /**
@@ -81,6 +91,6 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        News::destroy($id);
     }
 }

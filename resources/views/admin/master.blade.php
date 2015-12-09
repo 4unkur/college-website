@@ -59,5 +59,7 @@
 
 <script src="/AdminLTE/all.js"></script>
 
+@yield('footer')
+
 </body>
 </html>
