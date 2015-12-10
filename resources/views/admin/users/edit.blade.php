@@ -11,7 +11,7 @@
     </div><!-- /.box-header -->
     <div class="box-body pad">
         {!! Form::model($news, ['route' => ['admin.news.update', $news->id], 'method' => 'put']) !!}
-            @include('admin.news-form', ['buttonText' => 'Update'])
+            @include('admin.news.form', ['buttonText' => 'Update'])
         {!! Form::close() !!}
     </div>
 </div><!-- /.box -->

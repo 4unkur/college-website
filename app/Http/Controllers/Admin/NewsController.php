@@ -18,7 +18,7 @@ class NewsController extends Controller
     {
         $news = News::all();
 
-        return view('admin.news', compact('news'));
+        return view('admin.news.list', compact('news'));
     }
 
     /**
@@ -28,7 +28,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('admin.news-create');
+        return view('admin.news.create');
     }
 
     /**
@@ -65,7 +65,7 @@ class NewsController extends Controller
     {
         $news = News::find($id);
 
-        return view('admin.news-edit', compact('news'));
+        return view('admin.news.edit', compact('news'));
     }
 
     /**

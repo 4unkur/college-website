@@ -16,8 +16,8 @@ Route::group(
         });
         Route::resource('news', 'NewsController');
         Route::resource('page', 'PagesController');
-        Route::resource('user', 'UserController');
-        Route::get('users', ['as' => 'users.index', 'uses' => 'UserController@index']);
+        Route::resource('user', 'UsersController', ['except' => 'index']);
+        Route::get('users', ['as' => 'admin.users.index', 'uses' => 'UsersController@index']);
     }
 );
 

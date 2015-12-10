@@ -11,19 +11,10 @@ use Validator;
 //use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 
-class UserController extends Controller
+class UsersController extends Controller
 {
 //    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-    /**
-     * Create a new authentication controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest', ['except' => 'getLogout']);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -31,7 +22,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('admin.users.list', compact('users'));
     }
 
     /**
@@ -56,16 +48,11 @@ class UserController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
+    protected function create()
     {
-        return User::create([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        return view('admin.users.create');
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -74,7 +61,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $a = $this->validator($request->all());
+        dd($a);
+        return User::create([
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+        ]);
     }
 
     /**
