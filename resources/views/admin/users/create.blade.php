@@ -1,6 +1,11 @@
 @extends('admin.master')
 
 @section('content')
+    @if($errors->any())
+        @foreach($errors as $error)
+            <p>{{ $error }}</p>
+            @endforeach
+        @endif
 <div class="box box-success">
     <div class="box-header">
         <h3 class="box-title">Create User</h3>
@@ -10,8 +15,8 @@
         </div><!-- /. tools -->
     </div><!-- /.box-header -->
     <div class="box-body pad">
-        {!! Form::open(['route' => 'admin.news.store']) !!}
-            @include('admin.news.form', ['buttonText' => 'Add'])
+        {!! Form::open(['route' => 'admin.user.store']) !!}
+            @include('admin.users.form', ['buttonText' => 'Add'])
         {!! Form::close() !!}
     </div>
 </div><!-- /.box -->

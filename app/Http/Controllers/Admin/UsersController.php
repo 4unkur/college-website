@@ -2,18 +2,15 @@
 
 namespace College\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use College\Http\Requests\UserAdditionResponse;
 use College\Http\Requests;
 use College\Http\Controllers\Controller;
 use College\User;
 use Validator;
-//use Illuminate\Foundation\Auth\ThrottlesLogins;
-//use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 
 class UsersController extends Controller
 {
-//    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
     /**
      * Display a listing of the resource.
@@ -27,48 +24,26 @@ class UsersController extends Controller
     }
 
     /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'first_name' => 'required|max:255|min:3',
-            'last_name' => 'required|max:255|min:3',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:4',
-        ]);
-    }
-
-    /**
      * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
      * @return User
+     * @internal param array $data
      */
     protected function create()
     {
         return view('admin.users.create');
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param UserAdditionResponse|\Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserAdditionResponse $request)
     {
-        $a = $this->validator($request->all());
-        dd($a);
-        return User::create([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        User::create($this->assignData($request->all()));
+
+        return redirect(route('admin.users.index'));
     }
 
     /**
@@ -90,19 +65,25 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        return view('admin.users.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param UserAdditionResponse|\Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserAdditionResponse $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $user->update($this->assignData($request->all()));
+
+        return redirect(route('admin.users.index'));
     }
 
     /**
@@ -114,5 +95,17 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function assignData($data)
+    {
+        return [
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'email' => $data['email'],
+            'type' => $data['type'],
+            'status' => $data['status'],
+            'password' => bcrypt($data['password']),
+        ];
     }
 }

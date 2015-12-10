@@ -33,7 +33,7 @@
                     <td>{{ $user->last_name }}</td>
                     <td>{{ $user->email }}</td>
                     <td><span class="badge status-{{ $user->status }}">{{ $user->status }}</span></td>
-                    <td><a href="{!! route('admin.news.edit', [$user]) !!}"><i class="fa fa-pencil-square-o"></i></a></td>
+                    <td><a href="{!! route('admin.user.edit', [$user]) !!}"><i class="fa fa-pencil-square-o"></i></a></td>
                     <td><i class="fa fa-trash-o"></i></td>
                 </tr>
                 @endforeach
