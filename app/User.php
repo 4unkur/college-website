@@ -28,7 +28,14 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = [ //TODO: create a middleware which will check for admin, i.e. only admin will be able to change the type of user
+        'first_name',
+        'last_name',
+        'email',
+        'type',
+        'password',
+        'status',
+    ];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -36,10 +43,4 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
-
-    /**
-     * Returns a type of user (admin, teacher, student)
-     */
-    public function type()
-    {}
 }

@@ -8,7 +8,7 @@
 
     <div class="register-box-body">
         <p class="login-box-msg">Register a new membership</p>
-        <form action="../../index.html" method="post">
+        {!! Form::open(['url' => 'auth/register', 'method' => 'post']) !!}
             <div class="form-group has-feedback">
                 <input type="text" name="first_name" class="form-control" placeholder="Firts name">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -26,7 +26,7 @@
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" name="password_confirm" class="form-control" placeholder="Retype password">
+                <input type="password" name="password_confirmation" class="form-control" placeholder="Retype password">
                 <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
             </div>
             <div class="row">
@@ -41,7 +41,7 @@
                     <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
                 </div><!-- /.col -->
             </div>
-        </form>
+        {!! Form::close() !!}
 
         <div class="social-auth-links text-center">
             <p>- OR -</p>
@@ -52,4 +52,5 @@
         {!! link_to('auth/login', 'I already have a membership', ['class' => 'text-center']) !!}
     </div><!-- /.form-box -->
 </div><!-- /.register-box -->
+    {!! dd($errors) !!}
 @stop

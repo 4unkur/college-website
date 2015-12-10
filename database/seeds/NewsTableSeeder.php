@@ -20,7 +20,8 @@ class NewsTableSeeder extends Seeder
         for ($i = 0; $i < 30; $i++) {
             College\News::create([
                 'title' => $faker->unique()->sentence(2),
-                'body' => $faker->text(1000),
+                'body' => $faker->paragraphs(10, true),
+                'status' => 'active',
             ]);
         }
     }

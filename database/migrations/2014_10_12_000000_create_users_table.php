@@ -16,11 +16,13 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('type');
+            $table->enum('type', ['admin', 'teacher', 'student', 'user'])->default('user');
             $table->string('email')->unique();
+            $table->enum('status', ['active', 'inactive', 'uncomfirmed'])->default('uncomfirmed');
             $table->string('password', 60);
             $table->rememberToken();
             $table->timestamps();
+            $table->unique(['first_name', 'last_name'], 'fullname');
         });
     }
 

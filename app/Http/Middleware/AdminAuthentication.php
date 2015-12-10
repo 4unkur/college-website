@@ -28,8 +28,9 @@ class AdminAuthentication
             if ($this->auth->user()->type == 'admin') {
                 return $next($request);
             }
+            abort(403, 'Unauthorized action.');
         }
 
-        return new RedirectResponse(url('auth/login'));
+        return \Redirect::guest('auth/login');
     }
 }

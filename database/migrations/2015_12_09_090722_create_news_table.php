@@ -16,6 +16,8 @@ class CreateNewsTable extends Migration
             $table->increments('id');
             $table->string('title')->unique();
             $table->text('body');
+            $table->string('slug');
+            $table->enum('status', ['active', 'inactive', 'draft'])->default('inactive');
             $table->timestamps();
         });
     }

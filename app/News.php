@@ -15,6 +15,7 @@ class News extends Model implements SluggableInterface
     protected $fillable = [
         'title',
         'body',
+        'status',
     ];
 
     protected $sluggable = [
