@@ -17,7 +17,9 @@ Route::group(
         Route::resource('news', 'NewsController');
         Route::resource('page', 'PagesController');
         Route::resource('user', 'UsersController', ['except' => 'index']);
-        Route::get('users', ['as' => 'admin.users.index', 'uses' => 'UsersController@index']);
+        Route::get('users', ['as' => 'admin.users.index', 'uses' => 'UsersController@index']); //TODO: check this for controller namespace
+        Route::resource('recipe', 'RecipesController', ['except' => 'index']);
+        Route::get('recipes', ['as' => 'admin.recipes.index', 'uses' => 'RecipesController@index']);//TODO: check this for controller namespace
     }
 );
 
