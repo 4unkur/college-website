@@ -31,3 +31,6 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::resource('page', 'PagesController');
 
 Route::resource('news', 'NewsController', ['only' => ['index', 'show']]);
+
+Route::get('user/{id}', ['as' => 'user.show', 'uses' => 'UsersController@show']);
+Route::get('users', ['as' => 'users.index', 'uses' => 'UsersController@index']);

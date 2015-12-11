@@ -36,21 +36,6 @@ class AuthController extends Controller
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
-
-    public function index()
-    {
-        $users = User::paginate(20);
-
-        return view('users.list', compact('users'));
-    }
-
-    public function show($id)
-    {
-        $user = User::findOrFail($id);
-
-        return view('users.view', compact('user'));
-    }
-
     /**
      * Get a validator for an incoming registration request.
      *
