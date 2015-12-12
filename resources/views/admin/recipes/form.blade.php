@@ -4,6 +4,10 @@
 </div>
 {!! Form::textarea('body', null, ['required', 'rows' => 10, 'cols' => 80, 'id' => 'editor1']) !!}
 <div class="form-group">
+    {!! Form::label('status', 'Status') !!}
+    {!! Form::select('status', config('college.recipe_statuses'), null, ['class' => 'form-control']) !!}
+</div>
+<div class="form-group">
     {!! Form::submit($buttonText, ['class' => 'btn btn-success pull-right', 'style' => 'margin-top: 20px;']) !!}
 </div>
 

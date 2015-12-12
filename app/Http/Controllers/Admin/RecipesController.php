@@ -2,6 +2,7 @@
 
 namespace College\Http\Controllers\Admin;
 
+use College\Recipe;
 use Illuminate\Http\Request;
 
 use College\Http\Requests;
@@ -16,7 +17,9 @@ class RecipesController extends Controller
      */
     public function index()
     {
-        //
+        $recipes = Recipe::all();
+
+        return view('admin.recipes.list', compact('recipes'));
     }
 
     /**
@@ -26,7 +29,7 @@ class RecipesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.recipes.create');
     }
 
     /**
@@ -37,7 +40,14 @@ class RecipesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required',
+            'status' => 'required',
+        ]);
+        Recipe::create($request->all());
+
+        return redirect(route('admin.recipes.index'));
     }
 
     /**

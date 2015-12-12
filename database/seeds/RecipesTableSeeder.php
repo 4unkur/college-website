@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class NewsTableSeeder extends Seeder
+class RecipesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,10 +14,10 @@ class NewsTableSeeder extends Seeder
 
         $faker = Faker\Factory::create();
 
-        College\News::truncate();
+        College\Recipe::truncate();
 
         for ($i = 0; $i < 30; $i++) {
-            College\News::create([
+            College\Recipe::create([
                 'title' => $faker->unique()->sentence(2),
                 'body' => $faker->paragraphs(10, true),
                 'status' => 'active',
