@@ -33,7 +33,7 @@ Route::resource('page', 'PagesController');
 
 Route::resource('news', 'NewsController', ['only' => ['index', 'show']]);
 
-//Route::get('user/recipes', ['as' => 'user.recipes', 'uses' => 'UsersController@recipes']);
+Route::get('user/{id}/recipes', ['as' => 'user.recipes', 'uses' => 'UsersController@recipes']);
 Route::get('user/{id}', ['as' => 'user.show', 'uses' => 'UsersController@show']);
 Route::get('users', ['as' => 'users.index', 'uses' => 'UsersController@index']);
 

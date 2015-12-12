@@ -11,9 +11,9 @@
                     @if (count($recipes))
                         @foreach ($recipes as $recipe)
                             <article>
-                                <img src="images/content__images/post1.jpg" alt="pic1" class="pull-left img-responsive">
+                                <img src="http://lorempixel.com/400/200/cats" alt="pic1" class="pull-left img-responsive">
                                 <div class="text">
-                                    <h3>{!! link_to_route('news.show', $recipe->title, $recipe->slug) !!}</h3>
+                                    <h3>{!! link_to_route('recipe.show', $recipe->title, $recipe->slug) !!}</h3>
                                     <p class="small-paragraph">{{ $recipe->created_at->diffForHumans() }}</p>
                                     <p>{!! str_limit($recipe->body, 100, '...') !!}</p>
                                 </div>
@@ -22,7 +22,7 @@
                         @endforeach
                     @endif
 
-                    {!! $recipe->render() !!}
+                    {!! $recipes->render() !!}
                 </div>
             </div>
         </div>

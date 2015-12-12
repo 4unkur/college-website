@@ -91,7 +91,7 @@ class RecipesController extends Controller
         ]);
         $recipe->update($request->all());
 
-        return view('admin.recipes.list');
+        return redirect(route('admin.recipes.index'));
     }
 
     /**
