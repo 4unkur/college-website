@@ -69,7 +69,9 @@ class RecipesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $recipe = Recipe::findOrFail($id);
+
+        return view('admin.recipes.edit', compact('recipe'));
     }
 
     /**
@@ -81,7 +83,15 @@ class RecipesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $recipe = Recipe::findOrFail($id);
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required',
+            'status' => 'required',
+        ]);
+        $recipe->update($request->all());
+
+        return view('admin.recipes.list');
     }
 
     /**

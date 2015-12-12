@@ -31,7 +31,7 @@
                     <td>{{ $recipe->title }}</td>
                     <td>{{ $recipe->slug }}</td>
                     <td><span class="badge status-{{ $recipe->status }}">{{ $recipe->status }}</span></td>
-                    <td><a href="{!! route('admin.news.edit', [$recipe]) !!}"><i class="fa fa-pencil-square-o"></i></a></td>
+                    <td><a href="{!! route('admin.recipe.edit', [$recipe]) !!}"><i class="fa fa-pencil-square-o"></i></a></td>
                     <td><i class="fa fa-trash-o"></i></td>
                 </tr>
                 @endforeach
