@@ -10,7 +10,7 @@
         </div><!-- /. tools -->
     </div><!-- /.box-header -->
     <div class="box-body pad">
-        {!! Form::open(['route' => 'admin.news.store']) !!}
+        {!! Form::open(['route' => 'admin.news.store', 'class' => 'test']) !!}
             @include('admin.news.form', ['buttonText' => 'Add'])
         {!! Form::close() !!}
     </div>

@@ -2,6 +2,7 @@
 
 namespace College\Http\Controllers;
 
+use College\Recipe;
 use Illuminate\Http\Request;
 
 use College\Http\Requests;
@@ -16,7 +17,9 @@ class RecipesController extends Controller
      */
     public function index()
     {
-        //
+        $recipes = Recipe::paginate(5);
+
+        return view('recipes.list', compact('recipes'));
     }
 
     /**
@@ -48,7 +51,9 @@ class RecipesController extends Controller
      */
     public function show($id)
     {
-        //
+        $recipe = Recipe::findOrFail($id);
+
+        return view('recipes.view', compact('recipe'));
     }
 
     /**
@@ -70,17 +75,6 @@ class RecipesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
     {
         //
     }

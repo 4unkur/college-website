@@ -9,8 +9,7 @@ Route::group(
         'prefix' => 'admin',
         'middleware' => 'admin',
         'namespace' => 'Admin'
-    ],
-    function() {
+    ], function() {
         Route::get('',  function () {
             return view('admin.master');
         });
@@ -34,5 +33,9 @@ Route::resource('page', 'PagesController');
 
 Route::resource('news', 'NewsController', ['only' => ['index', 'show']]);
 
+//Route::get('user/recipes', ['as' => 'user.recipes', 'uses' => 'UsersController@recipes']);
 Route::get('user/{id}', ['as' => 'user.show', 'uses' => 'UsersController@show']);
 Route::get('users', ['as' => 'users.index', 'uses' => 'UsersController@index']);
+
+Route::resource('recipe', 'RecipesController', ['except' => ['index', 'destroy']]);
+Route::get('recipes', ['as' => 'recipes.index', 'uses' => 'RecipesController@index']);

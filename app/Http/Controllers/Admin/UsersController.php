@@ -2,11 +2,10 @@
 
 namespace College\Http\Controllers\Admin;
 
-use College\Http\Requests\UserAdditionResponse;
+use College\Http\Requests\UserAdditionRequest;
 use College\Http\Requests;
 use College\Http\Controllers\Controller;
 use College\User;
-use Validator;
 
 
 class UsersController extends Controller
@@ -36,10 +35,10 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param UserAdditionResponse|\Illuminate\Http\Request $request
+     * @param UserAdditionRequest|\Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserAdditionResponse $request)
+    public function store(UserAdditionRequest $request)
     {
         User::create($this->assignData($request->all()));
 
@@ -73,11 +72,11 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param UserAdditionResponse|\Illuminate\Http\Request $request
+     * @param UserAdditionRequest|\Illuminate\Http\Request $request
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserAdditionResponse $request, $id)
+    public function update(UserAdditionRequest $request, $id)
     {
         $user = User::findOrFail($id);
 

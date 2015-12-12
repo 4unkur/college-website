@@ -17,7 +17,7 @@ class CreateNewsTable extends Migration
             $table->string('title')->unique();
             $table->text('body');
             $table->string('slug');
-            $table->enum('status', ['active', 'inactive', 'draft'])->default('inactive');
+            $table->enum('status', config('college.news_statuses'))->default('inactive');
             $table->timestamps();
         });
     }

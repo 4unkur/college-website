@@ -14,10 +14,13 @@ class CreateRecipesTable extends Migration
     {
         Schema::create('recipes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
+            $table->string('title')->unique;
             $table->text('body');
+            $table->string('slug');
+            $table->integer('user_id')->unsigned();
             $table->enum('status', config('college.recipe_statuses'))->default('inactive');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

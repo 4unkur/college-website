@@ -20,6 +20,7 @@
                 <th style="width: 10px">#</th>
                 <th>Title</th>
                 <th>Path</th>
+                <th>Author</th>
                 <th style="width: 40px">Status</th>
                 <th>edit</th>
                 <th>delete</th>
@@ -30,6 +31,7 @@
                     <td>{{ $recipe->id }}</td>
                     <td>{{ $recipe->title }}</td>
                     <td>{{ $recipe->slug }}</td>
+                    <td>{{ $recipe->user->first_name }}</td>
                     <td><span class="badge status-{{ $recipe->status }}">{{ $recipe->status }}</span></td>
                     <td><a href="{!! route('admin.recipe.edit', [$recipe]) !!}"><i class="fa fa-pencil-square-o"></i></a></td>
                     <td><i class="fa fa-trash-o"></i></td>

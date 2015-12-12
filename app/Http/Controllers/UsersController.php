@@ -26,7 +26,7 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {echo $id;
+    {
         $user = User::findOrFail($id);
 
         return view('users.view', compact('user'));
