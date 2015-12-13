@@ -30,7 +30,7 @@
                         <td width="200px">{{ \Carbon\Carbon::parse($entry->created_at)->format('d M Y') }}</td>
                         <td width="200px">{{ $entry->status }}</td>
                         <td width="40px"><a href="{{ route('admin.news.edit', $entry->id) }}"><i class="fa fa-pencil-square-o"></i></a></td>
-                        <td width="40px"><a href="{{ route('admin.news.destroy', $entry->id) }}"><i class="fa fa-trash-o"></i></a></td>
+                        <td width="40px"><a href="{{ route('admin.news.destroy', $entry->id) }}" class="delete-news" data-token="{{ csrf_token() }}"><i class="fa fa-trash-o"></i></a></td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -45,5 +45,4 @@
 @section('footer')
     {!! Html::script('datatables/dataTables.min.js') !!}
     {!! Html::script('datatables/news.js') !!}
-    @include('footer')
 @stop

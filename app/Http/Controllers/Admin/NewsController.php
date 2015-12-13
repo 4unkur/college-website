@@ -91,6 +91,9 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        News::destroy($id);
+        if (News::destroy($id)) {
+            return json_encode(true);
+        }
+        return json_encode(false);
     }
 }
