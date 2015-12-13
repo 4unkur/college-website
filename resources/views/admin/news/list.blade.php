@@ -31,8 +31,8 @@
                     <td>{{ $entry->title }}</td>
                     <td>{{ $entry->slug }}</td>
                     <td><span class="badge status-{{ $entry->status }}">{{ $entry->status }}</span></td>
-                    <td><a href="{!! route('admin.news.edit', [$entry]) !!}"><i class="fa fa-pencil-square-o"></i></a></td>
-                    <td><i class="fa fa-trash-o"></i></td>
+                    <td><a href="{!! route('admin.news.edit', $entry) !!}"><i class="fa fa-pencil-square-o"></i></a></td>
+                    <td><a href="{!! route('admin.news.destroy', $entry) !!}" id="delete-news" data-token="{{ csrf_token() }}"><i class="fa fa-trash-o"></i></a></td>
                 </tr>
                 @endforeach
             @endif
@@ -48,4 +48,8 @@
         </ul>
     </div>
 </div><!-- /.box -->
+@stop
+
+@section('footer')
+{!! Html::script('js/delete.js') !!}
 @stop
