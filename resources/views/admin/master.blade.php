@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" @yield('html')>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +11,9 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="/AdminLTE/all.css">
+    {!! Html::style('AdminLTE/all.css') !!}
+
+    @yield('head')
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -57,7 +59,7 @@
 @include('admin.footer')
 
 
-<script src="/AdminLTE/all.js"></script>
+{!! Html::script('AdminLTE/all.js') !!}
 
 @yield('footer')
 

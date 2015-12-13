@@ -52,4 +52,15 @@ elixir(function(mix) {
     ],
     'public/AdminLTE',
     'resources/assets/AdminLTE');
+
+    //datatable assets
+    mix.styles([
+        'dataTables.bootstrap.min.css'
+    ],
+    'public/datatables/dataTables.min.css');
+
+    mix.scripts([
+        'jquery.dataTables.min.js'
+    ],
+    'public/datatables/dataTables.min.js');
 });

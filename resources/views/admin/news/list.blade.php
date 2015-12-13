@@ -1,51 +1,49 @@
 @extends('admin.master')
 
-@section('content')
-<div class="box">
-    <div class="box-header with-border">
-        <h3 class="box-title">Bordered Table</h3>
-        <div class="box-tools">
-            <div class="input-group" style="width: 150px;">
-                <input type="text" name="table_search" class="form-control input-sm pull-right" placeholder="Search">
-                <div class="input-group-btn">
-                    <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-                </div>
-            </div>
-        </div>
-    </div><!-- /.box-header -->
+@section('head')
+    {!! Html::style('datatables/dataTables.min.css') !!}
+    {!! Html::style('datatables/news.css') !!}
+@stop
 
-    <div class="box-body">
-        <table class="table table-bordered">
-            <tr>
-                <th style="width: 10px">#</th>
-                <th>Title</th>
-                <th>Path</th>
-                <th style="width: 40px">Status</th>
-                <th>edit</th>
-                <th>delete</th>
-            </tr>
-            @if (count($news))
-                @foreach ($news as $entry)
+@section('content')
+    @if (isset($news) && count($news))
+    <div class="box">
+        <div class="box-header">
+        </div><!-- /.box-header -->
+        <div class="box-body">
+            <table id="news-table" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+                <thead>
                 <tr>
-                    <td>{{ $entry->id }}</td>
-                    <td>{{ $entry->title }}</td>
-                    <td>{{ $entry->slug }}</td>
-                    <td><span class="badge status-{{ $entry->status }}">{{ $entry->status }}</span></td>
-                    <td><a href="{!! route('admin.news.edit', [$entry]) !!}"><i class="fa fa-pencil-square-o"></i></a></td>
-                    <td><i class="fa fa-trash-o"></i></td>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Created</th>
+                    <th>Status</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
+                </thead>
+                <tbody>
+                @foreach ($news as $entry)
+                    <tr>
+                        <td width="40px">{{ $entry->id }}</td>
+                        <td><a href="{{ route('news.show', $entry->slug) }}" target="_blank">{{ $entry->title }}</a></td>
+                        <td width="200px">{{ \Carbon\Carbon::parse($entry->created_at)->format('d M Y') }}</td>
+                        <td width="200px">{{ $entry->status }}</td>
+                        <td width="40px"><a href="{{ route('admin.news.edit', $entry->id) }}"><i class="fa fa-pencil-square-o"></i></a></td>
+                        <td width="40px"><a href="{{ route('admin.news.destroy', $entry->id) }}"><i class="fa fa-trash-o"></i></a></td>
+                    </tr>
                 @endforeach
-            @endif
-        </table>
-    </div><!-- /.box-body -->
-    <div class="box-footer clearfix">
-        <ul class="pagination pagination-sm no-margin pull-right">
-            <li><a href="#">&laquo;</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">&raquo;</a></li>
-        </ul>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div><!-- /.box -->
+    @else
+    there is now entries
+    @endif
+@stop
+
+@section('footer')
+    {!! Html::script('datatables/dataTables.min.js') !!}
+    {!! Html::script('datatables/news.js') !!}
+    @include('footer')
 @stop
