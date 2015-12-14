@@ -10,6 +10,12 @@ use College\Http\Controllers\Controller;
 
 class RecipesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +35,7 @@ class RecipesController extends Controller
      */
     public function create()
     {
-        //
+        return view('recipes.create');
     }
 
     /**
@@ -40,7 +46,16 @@ class RecipesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $recipe = new Recipe([
+            'title' => $request->input('title'),
+            'body' => $request->input('body'),
+            'status' => config('college.recipe_statuses.approval'),
+            'user_id' => \Auth::id(),
+        ]);
+
+        $recipe->save();
+
+        return redirect(route('recipe.show', $recipe->slug));
     }
 
     /**
@@ -64,7 +79,12 @@ class RecipesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $recipe = Recipe::findOrFail($id);
+        if (!(\Auth::id() == $recipe->user_id)) {
+            abort(403);
+        }
+
+        return view('recipes.edit', compact('recipe'));
     }
 
     /**
@@ -76,6 +96,12 @@ class RecipesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $recipe = Recipe::findOrFail($id);
+        if (!(\Auth::id() == $recipe->user_id)) {
+            abort(403);
+        }
+        $recipe->update($request->all());
+
+        return redirect(route('recipe.show', $recipe->slug));
     }
 }
