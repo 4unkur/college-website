@@ -147,6 +147,8 @@ return [
 
         'Collective\Html\HtmlServiceProvider',
         'Cviebrock\EloquentSluggable\SluggableServiceProvider',
+        'Baum\Providers\BaumServiceProvider',
+
     ],
 
     /*
