@@ -16,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Recipe::creating(function($recipe) {
             $recipe->user_id = \Auth::id();
+            $recipe->image = $recipe->image->getClientOriginalName();
         });
     }
 

@@ -17,6 +17,7 @@ class Recipe extends Model implements SluggableInterface
         'body',
         'status',
         'user_id',
+        'image',
     ];
 
     protected $sluggable = [

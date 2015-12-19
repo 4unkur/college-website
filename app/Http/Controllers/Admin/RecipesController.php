@@ -7,9 +7,14 @@ use Illuminate\Http\Request;
 
 use College\Http\Requests;
 use College\Http\Controllers\Controller;
+use Imageupload;
 
 class RecipesController extends Controller
 {
+
+    protected $imageInput = 'image';
+
+    protected $imagePath = 'recipes';
     /**
      * Display a listing of the resource.
      *
@@ -44,8 +49,12 @@ class RecipesController extends Controller
             'title' => 'required',
             'body' => 'required',
             'status' => 'required',
+            'image' => 'required|image',
         ]);
+
         Recipe::create($request->all());
+
+        Imageupload::upload($request->file('image'), null, $this->imagePath);
 
         return redirect(route('admin.recipes.index'));
     }

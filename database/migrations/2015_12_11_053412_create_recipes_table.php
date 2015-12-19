@@ -17,6 +17,7 @@ class CreateRecipesTable extends Migration
             $table->string('title')->unique;
             $table->text('body');
             $table->string('slug');
+            $table->string('image', 500);
             $table->integer('user_id')->unsigned();
             $table->enum('status', config('college.recipe_statuses'))->default('inactive');
             $table->timestamps();

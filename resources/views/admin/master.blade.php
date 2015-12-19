@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     {!! Html::style('AdminLTE/all.css') !!}
+    {!! Html::style('sweetalert.css') !!}
 
     @yield('head')
 
@@ -60,6 +61,7 @@
 
 
 {!! Html::script('AdminLTE/all.js') !!}
+{!! Html::script('sweetalert.min.js') !!}
 
 @yield('footer')
 

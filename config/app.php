@@ -148,6 +148,7 @@ return [
         'Collective\Html\HtmlServiceProvider',
         'Cviebrock\EloquentSluggable\SluggableServiceProvider',
         'Baum\Providers\BaumServiceProvider',
+        Matriphe\Imageupload\ImageuploadServiceProvider::class,
 
     ],
 
@@ -200,6 +201,7 @@ return [
 
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
+        'Imageupload' => Matriphe\Imageupload\ImageuploadFacade::class,
 
     ],
 

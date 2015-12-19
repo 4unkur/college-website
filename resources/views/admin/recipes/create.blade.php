@@ -10,7 +10,8 @@
         </div><!-- /. tools -->
     </div><!-- /.box-header -->
     <div class="box-body pad">
-        {!! Form::open(['route' => 'admin.recipe.store']) !!}
+        {!! Form::open(['route' => 'admin.recipe.store', 'files' => true]) !!}
+            {!! Form::file('image') !!}
             @include('admin.recipes.form', ['buttonText' => 'Add'])
         {!! Form::close() !!}
     </div>

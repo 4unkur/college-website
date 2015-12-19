@@ -6,9 +6,18 @@ $(document).ready(function() {
 $('.delete-news').click(function(e) {
     e.preventDefault();
 
-    if (confirm('Do you really want to delete this news entry?')) {
-        $this = $(this);
-        $.ajax(this.href, {
+    var $this = $(this);
+    var url = this.href;
+
+    swal({
+        title: "Are you sure?",
+        text: "Yes, delete this item",
+        type: "info",
+        showCancelButton: true,
+        closeOnConfirm: false,
+        showLoaderOnConfirm: true
+    }, function(){
+        $.ajax(url, {
             type: 'delete',
             dataType: 'json',
             data: {
@@ -16,15 +25,20 @@ $('.delete-news').click(function(e) {
                 _method: 'delete'
             },
             success: function() {
-                window.location.reload(true);
+                swal({
+                    title: "Item deleted",
+                    type: "success",
+                    timer: 1000,
+                    showConfirmButton: true
+                }, function() {
+                    window.location.reload(true)
+                });
+
             },
             error: function(request, status, error) {
-                alert('Couldn\'n remove entry');
+                sweetAlert("Oops...", "Something went wrong!", "error");
                 console.log('error!', status, error);
             }
         });
-    }
-    else {
-        alert('canceled');
-    }
+    });
 });
