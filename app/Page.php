@@ -4,7 +4,7 @@ namespace College;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pages extends Model
+class Page extends Model
 {
-    //
+
 }

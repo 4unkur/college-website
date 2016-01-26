@@ -14,7 +14,7 @@ Route::group(
             return view('admin.master');
         });
         Route::resource('news', 'NewsController');
-        Route::resource('page', 'PagesController');
+        Route::resource('pages', 'PagesController');
         Route::resource('user', 'UsersController', ['except' => 'index']);
         Route::get('users', ['as' => 'admin.users.index', 'uses' => 'UsersController@index']); //TODO: check this for controller namespace
         Route::resource('recipe', 'RecipesController', ['except' => 'index']);

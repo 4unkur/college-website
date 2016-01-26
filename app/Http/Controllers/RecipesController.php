@@ -11,6 +11,9 @@ use College\Http\Controllers\Controller;
 class RecipesController extends Controller
 {
 
+	/**
+	 * constructor. only loggedin users can edit, delete and create the recipes
+	 */
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['index', 'show']]);
