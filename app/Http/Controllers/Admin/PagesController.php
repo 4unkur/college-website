@@ -2,6 +2,7 @@
 
 namespace College\Http\Controllers\Admin;
 
+use College\Page;
 use Illuminate\Http\Request;
 use College\Http\Requests;
 use College\Http\Controllers\Controller;
@@ -15,7 +16,9 @@ class PagesController extends Controller
      */
     public function index()
     {
+        $pages = Page::all();
 
+        return view('admin.pages.list', compact('pages'));
     }
 
     /**

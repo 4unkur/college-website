@@ -17,6 +17,7 @@ class CreatePagesTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->text('content');
+            $table->enum('status', config('college.statuses'))->default('inactive');
             $table->timestamps();
         });
     }
