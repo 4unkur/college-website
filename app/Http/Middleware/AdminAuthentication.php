@@ -5,6 +5,7 @@ namespace College\Http\Middleware;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\RedirectResponse;
+use Menu;
 
 class AdminAuthentication
 {

@@ -150,6 +150,12 @@ return [
         'Baum\Providers\BaumServiceProvider',
         Matriphe\Imageupload\ImageuploadServiceProvider::class,
 
+        // Laravel Menu:
+        Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
+        Illuminate\Auth\AuthServiceProvider::class,
+        Illuminate\Broadcasting\BroadcastServiceProvider::class,
+        'Lavary\Menu\ServiceProvider',
+
     ],
 
     /*
@@ -202,6 +208,9 @@ return [
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
         'Imageupload' => Matriphe\Imageupload\ImageuploadFacade::class,
+
+        // Laravel Menu:
+        'Menu'       => 'Lavary\Menu\Facade',
 
     ],
 

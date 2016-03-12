@@ -12,7 +12,8 @@
         "doctrine/dbal": "^2.5",
         "baum/baum": "~1.1",
         "matriphe/imageupload": "5.1.*",
-        "codecourse/notify": "^1.1"
+        "codecourse/notify": "^1.1",
+        "lavary/laravel-menu": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
