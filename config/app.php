@@ -146,7 +146,6 @@ return [
         College\Providers\RouteServiceProvider::class,
 
         'Collective\Html\HtmlServiceProvider',
-        'Cviebrock\EloquentSluggable\SluggableServiceProvider',
         'Baum\Providers\BaumServiceProvider',
         Matriphe\Imageupload\ImageuploadServiceProvider::class,
 
@@ -155,6 +154,7 @@ return [
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         'Lavary\Menu\ServiceProvider',
+        Dimsav\Translatable\TranslatableServiceProvider::class,
 
     ],
 

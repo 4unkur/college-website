@@ -3,14 +3,10 @@
 namespace College;
 
 use Illuminate\Database\Eloquent\Model;
-use Cviebrock\EloquentSluggable\SluggableInterface;
-use Cviebrock\EloquentSluggable\SluggableTrait;
 
 
-class Recipe extends Model implements SluggableInterface
+class Recipe extends Model
 {
-
-    use SluggableTrait;
 
     protected $fillable = [
         'title',
@@ -20,10 +16,6 @@ class Recipe extends Model implements SluggableInterface
         'image',
     ];
 
-    protected $sluggable = [
-        'build_from' => 'title',
-        'save_to' => 'slug',
-    ];
 
 //    public static function create(array $attributes = [])
 //    {

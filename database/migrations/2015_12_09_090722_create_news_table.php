@@ -14,11 +14,22 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title')->unique();
-            $table->text('body');
-            $table->string('slug');
+            $table->string('slug')->unique();
+            $table->string('code');
             $table->enum('status', config('college.news_statuses'))->default('inactive');
             $table->timestamps();
+        });
+
+        Schema::create('news_translations', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->integer('news_id')->unsigned();
+            $table->string('title');
+            $table->string('text');
+            $table->string('locale')->index();
+
+            $table->unique(['news_id','locale']);
+            $table->foreign('news_id')->references('id')->on('news')->onDelete('cascade');
         });
     }
 
@@ -29,6 +40,9 @@ class CreateNewsTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::drop('news');
+        Schema::drop('news_translations');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }
