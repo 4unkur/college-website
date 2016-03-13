@@ -12,12 +12,14 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
+
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         \College\Http\Middleware\EncryptCookies::class,
         \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
         \College\Http\Middleware\VerifyCsrfToken::class,
+
     ];
 
     /**
@@ -26,9 +28,16 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+
+        'localize' => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class,
+        'localizationRedirect' => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class,
+        'localeSessionRedirect' => \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class,
+
         'auth' => \College\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \College\Http\Middleware\RedirectIfAuthenticated::class,
         'admin' => \College\Http\Middleware\AdminAuthentication::class,
+        'admin.menu' => \College\Http\Middleware\AdminMenu::class,
+
     ];
 }

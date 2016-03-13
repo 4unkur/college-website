@@ -154,7 +154,10 @@ return [
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         'Lavary\Menu\ServiceProvider',
+
         Dimsav\Translatable\TranslatableServiceProvider::class,
+
+        Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
 
     ],
 
@@ -211,6 +214,8 @@ return [
 
         // Laravel Menu:
         'Menu'       => 'Lavary\Menu\Facade',
+
+        'LaravelLocalization'   => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
 
     ],
 

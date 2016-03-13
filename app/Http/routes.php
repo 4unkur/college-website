@@ -1,15 +1,33 @@
 <?php
 
-Route::get('', function () {
-    return view('layouts.index');
-});
 
-Route::group(
-    [
-        'prefix' => 'admin',
-        'middleware' => 'admin',
-        'namespace' => 'Admin'
-    ], function() {
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => [ 'localeSessionRedirect', 'localizationRedirect' ]
+], function()
+{
+    Route::get('', function () {
+        return view('layouts.index');
+    });
+
+    Route::resource('page', 'PagesController');
+
+    Route::resource('news', 'NewsController', ['only' => ['index', 'show']]);
+
+    Route::get('user/{id}/recipes', ['as' => 'user.recipes', 'uses' => 'UsersController@recipes']);
+    Route::get('user/{id}', ['as' => 'user.show', 'uses' => 'UsersController@show']);
+    Route::get('users', ['as' => 'users.index', 'uses' => 'UsersController@index']);
+
+    Route::resource('recipe', 'RecipesController', ['except' => ['index', 'destroy']]);
+    Route::get('recipes', ['as' => 'recipes.index', 'uses' => 'RecipesController@index']);
+
+    Route::group(
+        [
+            'prefix' => 'admin',
+            'middleware' => 'admin',
+            'namespace' => 'Admin',
+        ], function() {
+
         Route::get('',  ['as' => 'admin.dashboard', 'uses' => function () {
             return view('admin.master');
         }]);
@@ -22,21 +40,12 @@ Route::group(
 
         Menu::make('leftSidebarMenu', function($menu) {
             $menu->add('Home', ['route' => 'admin.dashboard']);
-
             $menu->add('News', ['class' => 'treeview']);
-                $menu->news->add('List', ['route' => 'admin.news.index']);
-                $menu->news->add('Add', ['route' => 'admin.news.create']);
-
-            $menu->add('Users', ['class' => 'treeview']);
-                $menu->users->add('List', ['route' => 'admin.users.index']);
-                $menu->users->add('Add', ['route' => 'admin.user.create']);
-
-            $menu->add('Recipes', ['class' => 'treeview']);
-                $menu->recipes->add('List', ['route' => 'admin.recipes.index']);
-                $menu->recipes->add('Add', ['route' => 'admin.recipe.create']);
+//            $menu->news->add('List', ['action' => 'admin.news.index']);
+//            $menu->news->add('Add', ['route' => 'admin.news.create']);
         });
-    }
-);
+    });
+});
 
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
@@ -45,13 +54,3 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-Route::resource('page', 'PagesController');
-
-Route::resource('news', 'NewsController', ['only' => ['index', 'show']]);
-
-Route::get('user/{id}/recipes', ['as' => 'user.recipes', 'uses' => 'UsersController@recipes']);
-Route::get('user/{id}', ['as' => 'user.show', 'uses' => 'UsersController@show']);
-Route::get('users', ['as' => 'users.index', 'uses' => 'UsersController@index']);
-
-Route::resource('recipe', 'RecipesController', ['except' => ['index', 'destroy']]);
-Route::get('recipes', ['as' => 'recipes.index', 'uses' => 'RecipesController@index']);

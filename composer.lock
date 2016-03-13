@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9f02758ca8362af6d7f9f7b517a818ed",
-    "content-hash": "07c93f70fa7d828afc42b28c2a8487cb",
+    "hash": "465d7d4660efe01ca5aba9a85b759f90",
+    "content-hash": "b2473dcf2bd04fef42cd0c2f648ab712",
     "packages": [
         {
             "name": "baum/baum",
@@ -1189,16 +1189,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.18",
+            "version": "1.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "b334d6c5f95364948e06d2f620ab93d084074c6e"
+                "reference": "635ee279a522233a567984756bf9da1db243d9bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/b334d6c5f95364948e06d2f620ab93d084074c6e",
-                "reference": "b334d6c5f95364948e06d2f620ab93d084074c6e",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/635ee279a522233a567984756bf9da1db243d9bf",
+                "reference": "635ee279a522233a567984756bf9da1db243d9bf",
                 "shasum": ""
             },
             "require": {
@@ -1268,7 +1268,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2016-03-07 21:01:43"
+            "time": "2016-03-12 19:04:33"
         },
         {
             "name": "matriphe/imageupload",
@@ -1326,17 +1326,65 @@
             "time": "2016-01-06 06:14:03"
         },
         {
-            "name": "monolog/monolog",
-            "version": "1.18.0",
+            "name": "mcamara/laravel-localization",
+            "version": "1.0.13",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "e19b764b5c855580e8ffa7e615f72c10fd2f99cc"
+                "url": "https://github.com/mcamara/laravel-localization.git",
+                "reference": "16349c6ceec03d5735bd78df4afda2e1b6adc12e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/e19b764b5c855580e8ffa7e615f72c10fd2f99cc",
-                "reference": "e19b764b5c855580e8ffa7e615f72c10fd2f99cc",
+                "url": "https://api.github.com/repos/mcamara/laravel-localization/zipball/16349c6ceec03d5735bd78df4afda2e1b6adc12e",
+                "reference": "16349c6ceec03d5735bd78df4afda2e1b6adc12e",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "3.0.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [],
+                "psr-0": {
+                    "Mcamara\\LaravelLocalization": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marc Cámara",
+                    "email": "mcamara88@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Easy localization for Laravel",
+            "homepage": "https://github.com/mcamara/laravel-localization",
+            "keywords": [
+                "laravel",
+                "localization",
+                "php"
+            ],
+            "time": "2016-01-26 13:35:27"
+        },
+        {
+            "name": "monolog/monolog",
+            "version": "1.18.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seldaek/monolog.git",
+                "reference": "a5f2734e8c16f3aa21b3da09715d10e15b4d2d45"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/a5f2734e8c16f3aa21b3da09715d10e15b4d2d45",
+                "reference": "a5f2734e8c16f3aa21b3da09715d10e15b4d2d45",
                 "shasum": ""
             },
             "require": {
@@ -1401,7 +1449,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-03-01 18:00:40"
+            "time": "2016-03-13 16:08:35"
         },
         {
             "name": "mtdowling/cron-expression",
