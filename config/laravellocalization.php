@@ -42,11 +42,11 @@ return [
 		//'et'          => ['name' => 'Estonian',               'script' => 'Latn', 'native' => 'eesti'],
 		//'na'          => ['name' => 'Nauru',                  'script' => 'Latn', 'native' => 'Ekakairũ Naoero'],
 		//'guz'         => ['name' => 'Ekegusii',               'script' => 'Latn', 'native' => 'Ekegusii'],
-		'en'          => ['name' => 'English',                'script' => 'Latn', 'native' => 'English'],
+		//'en'          => ['name' => 'English',                'script' => 'Latn', 'native' => 'English'],
 		//'en-AU'       => ['name' => 'Australian English',     'script' => 'Latn', 'native' => 'Australian English'],
 		//'en-GB'       => ['name' => 'British English',        'script' => 'Latn', 'native' => 'British English'],
 		//'en-US'       => ['name' => 'U.S. English',           'script' => 'Latn', 'native' => 'U.S. English'],
-//		'es'          => ['name' => 'Spanish',                'script' => 'Latn', 'native' => 'español'],
+		//'es'          => ['name' => 'Spanish',                'script' => 'Latn', 'native' => 'español'],
 		//'eo'          => ['name' => 'Esperanto',              'script' => 'Latn', 'native' => 'esperanto'],
 		//'eu'          => ['name' => 'Basque',                 'script' => 'Latn', 'native' => 'euskara'],
 		//'ewo'         => ['name' => 'Ewondo',                 'script' => 'Latn', 'native' => 'ewondo'],
@@ -210,7 +210,7 @@ return [
 		//'az-Cyrl'     => ['name' => 'Azerbaijani (Cyrillic)', 'script' => 'Cyrl', 'native' => 'Азәрбајҹан'],
 		//'ab'          => ['name' => 'Abkhazian',              'script' => 'Cyrl', 'native' => 'Аҧсуа'],
 		//'os'          => ['name' => 'Ossetic',                'script' => 'Cyrl', 'native' => 'Ирон'],
-		//'ky'          => ['name' => 'Kyrgyz',                 'script' => 'Cyrl', 'native' => 'Кыргыз'],
+		'kg'          => ['name' => 'Kyrgyz',                 'script' => 'Cyrl', 'native' => 'Кыргызча'],
 		//'sr'          => ['name' => 'Serbian (Cyrillic)',     'script' => 'Cyrl', 'native' => 'Српски'],
 		//'av'          => ['name' => 'Avaric',                 'script' => 'Cyrl', 'native' => 'авар мацӀ'],
 		//'ady'         => ['name' => 'Adyghe',                 'script' => 'Cyrl', 'native' => 'адыгэбзэ'],
@@ -221,7 +221,7 @@ return [
 		//'mk'          => ['name' => 'Macedonian',             'script' => 'Cyrl', 'native' => 'македонски'],
 		//'mn'          => ['name' => 'Mongolian (Cyrillic)',   'script' => 'Cyrl', 'native' => 'монгол'],
 		//'ce'          => ['name' => 'Chechen',                'script' => 'Cyrl', 'native' => 'нохчийн мотт'],
-		'ru'          => ['name' => 'Russian',                'script' => 'Cyrl', 'native' => 'русский'],
+		'ru'          => ['name' => 'Russian',                'script' => 'Cyrl', 'native' => 'Русский'],
 		//'sah'         => ['name' => 'Yakut',                  'script' => 'Cyrl', 'native' => 'саха тыла'],
 		//'tt'          => ['name' => 'Tatar',                  'script' => 'Cyrl', 'native' => 'татар теле'],
 		//'tg'          => ['name' => 'Tajik (Cyrillic)',       'script' => 'Cyrl', 'native' => 'тоҷикӣ'],
@@ -307,6 +307,6 @@ return [
     // IMPORTANT - When hideDefaultLocaleInURL is set to true, the unlocalized root is treated as the applications default locale "app.locale".
     // Because of this language negotiation using the Accept-Language header will NEVER occur when hideDefaultLocaleInURL is true.
     //
-	'hideDefaultLocaleInURL' => true,
+	'hideDefaultLocaleInURL' => false,
 
 ];

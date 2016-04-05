@@ -9,8 +9,11 @@
             <button class="btn btn-success btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
         </div><!-- /. tools -->
     </div><!-- /.box-header -->
+
+    @include ('admin.errors.list')
+
     <div class="box-body pad">
-        {!! Form::open(['route' => 'admin.news.store', 'class' => 'test']) !!}
+        {!! Form::open(['route' => 'admin.news.store', 'class' => 'test', 'files' => true]) !!}
             @include('admin.news.form', ['buttonText' => 'Add'])
         {!! Form::close() !!}
     </div>

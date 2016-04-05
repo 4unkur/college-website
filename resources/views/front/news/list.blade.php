@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('front.layouts.master')
 
 @section('content')
 <section class="recent-posts">
@@ -11,11 +11,13 @@
                 @if (count($news))
                     @foreach ($news as $entry)
                     <article>
-                        <img src="images/content__images/post1.jpg" alt="pic1" class="pull-left img-responsive">
+                        @if ($entry)
+                            {!! Html::image(url() . '/uploads/images/news/square/' . $entry->image, $entry->title, ['class' => 'pull-left img-responsive']) !!}
+                        @endif
                         <div class="text">
                             <h3>{!! link_to_route('news.show', $entry->title, $entry->slug) !!}</h3>
                             <p class="small-paragraph">{{ $entry->created_at->diffForHumans() }}</p>
-                            <p>{!! str_limit($entry->body, 100, '...') !!}</p>
+                            <p>{!! str_limit($entry->text, 100, '...') !!}</p>
                         </div>
                         <div class="clearfix"></div>
                     </article>
@@ -24,7 +26,6 @@
 
                 {!! $news->render() !!}
             </div>
-
 
             {{-- TODO: separate this to block, show popular news --}}
             <div class="col-md-3">
@@ -41,13 +42,7 @@
                     <h4><a href="#">Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus.</a></h4>
                 </div>
             </div>
-
-
-
-
-
-
-
+            {{-- END TODO: separate this to block, show popular news --}}
 
         </div>
     </div>

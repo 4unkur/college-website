@@ -2,38 +2,29 @@
 
 return [
 
-	'string' => 'lorem',
-
     'statuses' => [
-        'active' => 'active',
-        'inactive' => 'inactive',
+        'active',
+        'inactive',
     ],
 
     'user_statuses' => [
-        'active' => 'active',
-        'inactive' => 'inactive',
-        'unconfirmed' => 'unconfirmed',
+        'active', 
+        'inactive', 
+        'unconfirmed', 
     ],
 
 
     'user_types' => [
-        'admin' => 'admin',
-        'teacher' => 'teacher',
-        'student' => 'student',
-        'user' => 'user',
-    ],
-
-    'news_statuses' => [
-        'active' => 'active',
-        'inactive' => 'inactive',
-        'draft' => 'draft',
+        'admin', 
+        'teacher', 
+        'student', 
+        'user', 
     ],
 
     'recipe_statuses' => [
-        'active' => 'active',
-        'inactive' => 'inactive',
-        'draft' => 'draft',
-        'approval' => 'approval',
+        'active', 
+        'inactive', 
+        'approval', 
     ],
 
 ];

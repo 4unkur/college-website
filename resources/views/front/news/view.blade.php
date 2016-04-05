@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('front.layouts.master')
 
 @section('content')
 <div class="container">
@@ -6,17 +6,14 @@
         <section class="col-md-8 main-content">
             <h2>{{ $news->title }}</h2>
             <article>
-                {!! $news->body !!}
+                <figure>
+                    @if ($news->image)
+                        {!! Html::image(url() . '/uploads/images/news/' . $news->image, $news->title) !!}
+                    @endif
+                    {!! $news->text !!}
+                </figure>
             </article>
-            <br />
-            <br />
         </section>
-
-
-
-
-
-
 
         {{--TODO: separate this to block--}}
         <aside class="col-md-4">
@@ -37,9 +34,7 @@
                 <li><a href="#">Aenean dignissim pellentesque felis.</a></li>
             </ul>
         </aside>
-
-
-
+        {{-- END TODO: separate this to block--}}
 
 
     </div>

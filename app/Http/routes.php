@@ -3,16 +3,17 @@
 
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
-    'middleware' => [ 'localeSessionRedirect', 'localizationRedirect' ]
+    'middleware' => ['localeSessionRedirect', 'localizationRedirect']
 ], function()
 {
     Route::get('', function () {
-        return view('layouts.index');
+        return view('front.layouts.index');
     });
 
     Route::resource('page', 'PagesController');
 
-    Route::resource('news', 'NewsController', ['only' => ['index', 'show']]);
+    Route::get('news', ['as' => 'news.index', 'uses' => 'NewsController@index']);
+    Route::get('news/{slug}', ['as' => 'news.show', 'uses' => 'NewsController@show']);
 
     Route::get('user/{id}/recipes', ['as' => 'user.recipes', 'uses' => 'UsersController@recipes']);
     Route::get('user/{id}', ['as' => 'user.show', 'uses' => 'UsersController@show']);
@@ -31,7 +32,18 @@ Route::group([
         Route::get('',  ['as' => 'admin.dashboard', 'uses' => function () {
             return view('admin.master');
         }]);
-        Route::resource('news', 'NewsController');
+        
+        // Remove image:
+        Route::delete('delete-image/{id}', ['as' => 'admin.delete.image', 'uses' => 'NewsController@deleteImage']);
+
+        // News routes:
+        Route::get('news', ['as' => 'admin.news.index', 'uses' => 'NewsController@index']);
+        Route::get('news/create', ['as' => 'admin.news.create', 'uses' => 'NewsController@create']);
+        Route::post('news/store', ['as' => 'admin.news.store', 'uses' => 'NewsController@store']);
+        Route::get('news/{id}/edit', ['as' => 'admin.news.edit', 'uses' => 'NewsController@edit']);
+        Route::put('news/{id}', ['as' => 'admin.news.update', 'uses' => 'NewsController@update']);
+        Route::delete('news/{id}', ['as' => 'admin.news.destroy', 'uses' => 'NewsController@destroy']);
+
         Route::resource('pages', 'PagesController');
         Route::resource('user', 'UsersController', ['except' => 'index']);
         Route::get('users', ['as' => 'admin.users.index', 'uses' => 'UsersController@index']); //TODO: check this for controller namespace
@@ -41,8 +53,8 @@ Route::group([
         Menu::make('leftSidebarMenu', function($menu) {
             $menu->add('Home', ['route' => 'admin.dashboard']);
             $menu->add('News', ['class' => 'treeview']);
-//            $menu->news->add('List', ['action' => 'admin.news.index']);
-//            $menu->news->add('Add', ['route' => 'admin.news.create']);
+                $menu->news->add('List', 'admin/news');
+                $menu->news->add('Add', 'admin/news/create');
         });
     });
 });

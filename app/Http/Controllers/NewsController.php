@@ -18,7 +18,7 @@ class NewsController extends Controller
     {
         $news = News::paginate(5); //TODO: change it to value of config
 
-        return view('news.list', compact('news'));
+        return view('front.news.list', compact('news'));
     }
 
 
@@ -30,8 +30,12 @@ class NewsController extends Controller
      */
     public function show($slug)
     {
-        $news = News::findBySlugOrFail($slug);
+        $news = News::where('slug', $slug)->first();
 
-        return view('news.view', compact('news'));
+        if (empty($news)) {
+            abort(404);
+        }
+
+        return view('front.news.view', compact('news'));
     }
 }

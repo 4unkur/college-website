@@ -45,7 +45,7 @@
     </div>
 </header>
 
-@include('partials.slider')
+@include('front.partials.slider')
 
 <section class="main__middle__container homepage13">
     <div class="row text-center no-margin nothing">

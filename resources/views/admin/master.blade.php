@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     {!! Html::style('AdminLTE/all.css') !!}
+    {!! Html::style('AdminLTE/custom.css') !!}
     {!! Html::style('sweetalert.css') !!}
 
     @yield('head')

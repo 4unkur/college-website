@@ -8,11 +8,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class News extends Model
 {
-	use Translatable;
+    use Translatable;
 
-//	public $translationModel = \NewsTranslaion::class;
+    /**
+     * Array with the fields translated in the Translation table.
+     *
+     * @var array
+     */
+    public $translatedAttributes = ['title', 'text'];
+    /**
+     * @var array
+     */
+    protected $fillable = ['code', 'slug', 'status'];
 
-	public $translatedAttributes = ['title'];
-	protected $fillable = ['code', 'title', 'text'];
+
+    public function setSlugAttribute ($value)
+    {
+        $count = self::where('slug', $value)->count();
+        $this->attributes['slug'] = empty($count) ? $value : $value . $count . rand(1, 10);
+    }
 
 }

@@ -1,0 +1,21 @@
+.tab-pane-bordered {
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.bordered {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.admin-image {
+    position: relative;
+}
+
+.admin-image-remove-button {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}

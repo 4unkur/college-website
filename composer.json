@@ -14,7 +14,8 @@
         "codecourse/notify": "^1.1",
         "lavary/laravel-menu": "dev-master",
         "dimsav/laravel-translatable": "^5.5",
-        "mcamara/laravel-localization": "1.0.*"
+        "mcamara/laravel-localization": "1.0.*",
+        "guzzlehttp/guzzle": "~5.3|~6.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
