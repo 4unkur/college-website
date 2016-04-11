@@ -28,6 +28,8 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot($events);
 
-        //
+        $events->listen('mailer.sending', function ($message) {
+            // for debugging
+        });
     }
 }

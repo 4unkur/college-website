@@ -44,7 +44,7 @@
 </div>
 
 @section('footer')
-    <script src="https://cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
+    {!! Html::script('ckeditor/ckeditor.js') !!}
     <script>
         $('#news-tab a').click(function (e) {
             e.preventDefault();
