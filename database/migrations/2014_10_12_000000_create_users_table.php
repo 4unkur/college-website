@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->enum('status', ['active', 'inactive', 'uncomfirmed'])->default('uncomfirmed');
             $table->string('password', 60);
             $table->rememberToken();
+            $table->string('confirmation_code', 40);
             $table->timestamps();
             $table->unique(['first_name', 'last_name'], 'fullname');
         });

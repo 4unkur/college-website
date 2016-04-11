@@ -7,6 +7,7 @@ use Validator;
 use College\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Mail;
 
 class AuthController extends Controller
 {
@@ -60,11 +61,31 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+         $user = User::create([
+             'first_name' => $data['first_name'],
+             'last_name' => $data['last_name'],
+             'email' => $data['email'],
+             'password' => bcrypt($data['password']),
+             'confirmation_code' => str_random(30),
+         ]);
+
+        $data['code']  = $user->confirmation_code;
+
+        Mail::send('emails.registration', $data, function($message) use ($data) {
+            $message->from('no-reply@site.com', "Site name");
+            $message->subject("Welcome to site name");
+            $message->to($data['email']);
+        });
+
+        return $user;
+    }
+    
+    public function confirm($email, $code)
+    {
+        $user = User::where('email', $email)->where('confirmation_code', $code)->first();
+        $user->confirmation_code = null;
+        $user->status = 'active';
+
+        return \Redirect::route('login');
     }
 }

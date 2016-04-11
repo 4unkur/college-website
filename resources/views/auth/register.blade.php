@@ -43,14 +43,13 @@
             </div>
         {!! Form::close() !!}
 
-        <div class="social-auth-links text-center">
-            <p>- OR -</p>
-            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using Facebook</a>
-            <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using Google+</a>
-        </div>
+        {{--<div class="social-auth-links text-center">--}}
+            {{--<p>- OR -</p>--}}
+            {{--<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using Facebook</a>--}}
+            {{--<a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using Google+</a>--}}
+        {{--</div>--}}
 
         {!! link_to('auth/login', 'I already have a membership', ['class' => 'text-center']) !!}
     </div><!-- /.form-box -->
 </div><!-- /.register-box -->
-    {!! dd($errors) !!}
 @stop
