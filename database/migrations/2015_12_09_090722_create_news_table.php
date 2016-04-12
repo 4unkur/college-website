@@ -25,7 +25,7 @@ class CreateNewsTable extends Migration
             $table->increments('id');
             $table->integer('news_id')->unsigned();
             $table->string('title');
-            $table->string('text');
+            $table->text('text');
             $table->string('locale')->index();
 
             $table->unique(['news_id','locale']);

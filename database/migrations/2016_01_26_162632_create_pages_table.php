@@ -23,7 +23,7 @@ class CreatePagesTable extends Migration
             $table->increments('id');
             $table->integer('page_id')->unsigned();
             $table->string('title');
-            $table->string('content');
+            $table->text('content');
             $table->string('locale')->index();
 
             $table->unique(['page_id','locale']);

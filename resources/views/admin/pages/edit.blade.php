@@ -61,6 +61,7 @@
 @stop
 
 @section('footer')
+    @parent
     {!! Html::script('ckeditor/ckeditor.js') !!}
     <script>
         $('#page-tab a').click(function (e) {

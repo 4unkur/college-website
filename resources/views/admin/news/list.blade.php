@@ -2,7 +2,6 @@
 
 @section('head')
     {!! Html::style('datatables/dataTables.min.css') !!}
-    {!! Html::style('datatables/news.css') !!}
 @stop
 
 @section('content')
@@ -43,6 +42,7 @@
 @stop
 
 @section('footer')
+    @parent
     {!! Html::script('datatables/dataTables.min.js') !!}
     {!! Html::script('datatables/grid.js') !!}
 @stop

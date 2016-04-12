@@ -14,15 +14,20 @@ class CustomServiceProvider extends ServiceProvider
     public function boot()
     {
         $adminMenuItems = [
-            ['title' => 'Home', 'url' => route('admin.dashboard'), 'icon' => 'home'],
-            ['title' => 'News', 'url' => '#', 'icon' => 'newspaper-o', 'children' => [
-                    ['title' => 'Add News entry', 'url' => route('admin.news.create'), 'icon' => 'plus-square'],
-                    ['title' => 'List of News', 'url' => route('admin.news.index'), 'icon' => 'list'],
+            ['title' => 'Home', 'route' => 'admin.dashboard', 'icon' => 'home'],
+            ['title' => 'News', 'route' => '#', 'icon' => 'newspaper-o', 'children' => [
+                    ['title' => 'Add News entry', 'route' => 'admin.news.create', 'icon' => 'plus-square'],
+                    ['title' => 'List of News', 'route' => 'admin.news.index', 'icon' => 'list'],
                 ],
             ],
-            ['title' => 'Users', 'url' => '#', 'icon' => 'users', 'children' => [
-                    ['title' => 'Add User', 'url' => '#', 'icon' => 'user-plus'],
-                    ['title' => 'Users', 'url' => '#', 'icon' => 'list'],
+            ['title' => 'Users', 'route' => '#', 'icon' => 'users', 'children' => [
+                    ['title' => 'Add User', 'route' => '#', 'icon' => 'user-plus'],
+                    ['title' => 'Users', 'route' => '#', 'icon' => 'list'],
+                ],
+            ],
+            ['title' => 'Pages', 'route' => '#', 'icon' => 'file-text-o', 'children' => [
+                    ['title' => 'Add Page', 'route' => 'admin.page.create', 'icon' => 'plus-square'],
+                    ['title' => 'Page list', 'route' => 'admin.page.index', 'icon' => 'list'],
                 ],
             ],
         ];

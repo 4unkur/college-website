@@ -1,6 +1,6 @@
 @foreach($adminMenu as $item)
-    <li @if (isset($item['children'])) class="treeview" @endif>
-        <a href="{!! $item['url'] !!}">
+    <li class="@if ($item['route'] == app('request')->route()->getName()) active @endif @if (isset($item['children'])) treeview @endif">
+        <a href="{!! route($item['route']) !!}">
             <i class="fa fa-{{ isset($item['icon']) ? $item['icon']: 'info' }}"></i>
             <span>{!! $item['title']!!}</span> @if (isset($item['children']))<span class="fa fa-angle-left pull-right"></span> @endif
         </a>
@@ -11,3 +11,10 @@
         @endif
     </li>
 @endforeach
+
+@section('footer')
+    @parent
+    <script>
+        $('li.active').closest('li.treeview').addClass('active');
+    </script>
+@stop

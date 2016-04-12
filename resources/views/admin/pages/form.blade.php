@@ -25,6 +25,11 @@
 </div>
 <div class="content bordered">
     <div class="form-group">
+        {!! Form::label('slug', 'URL') !!}
+        <span class="fa fa-info-circle" data-toggle="tooltip" data-placement="top" title="URL of the page. Please do not include domain name"></span>
+        {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => 'Input URL']) !!}
+    </div>
+    <div class="form-group">
         <label for="status">Status</label>
         <select name="status" id="status" class="form-control">
             @foreach (config('college.statuses') as $status)
@@ -38,6 +43,7 @@
 </div>
 
 @section('footer')
+    @parent
     {!! Html::script('ckeditor/ckeditor.js') !!}
     <script>
         $('#page-tab a').click(function (e) {

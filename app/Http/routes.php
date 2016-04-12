@@ -1,5 +1,12 @@
 <?php
 
+Route::get('auth/login', ['as' => 'login', 'uses' => 'Auth\AuthController@getLogin']);
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
+Route::get('auth/confirm/{email}/{code}', ['as' => 'auth.confirm', 'uses' => 'Auth\AuthController@confirm']);
 
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
@@ -10,12 +17,8 @@ Route::group([
         return view('front.layouts.index');
     });
 
-    Route::resource('page', 'PagesController');
-
     Route::get('news', ['as' => 'news.index', 'uses' => 'NewsController@index']);
     Route::get('news/{slug}', ['as' => 'news.show', 'uses' => 'NewsController@show']);
-
-    Route::get('page/{slug}', ['as' => 'page.show', 'uses' => 'PagesController@show']);
 
     Route::get('user/{id}/recipes', ['as' => 'user.recipes', 'uses' => 'UsersController@recipes']);
     Route::get('user/{id}', ['as' => 'user.show', 'uses' => 'UsersController@show']);
@@ -28,6 +31,8 @@ Route::group([
             'middleware' => 'admin',
             'namespace' => 'Admin',
         ], function() {
+
+        Route::get('#', ['as' => '#', 'uses' => function() { return ''; }]);
 
         Route::get('',  ['as' => 'admin.dashboard', 'uses' => function () {
             return view('admin.master');
@@ -56,13 +61,8 @@ Route::group([
         Route::get('users', ['as' => 'admin.users.index', 'uses' => 'UsersController@index']); //TODO: check this for controller namespace
 
     });
+    Route::get('{slug}', ['as' => 'page.show', 'uses' => 'PagesController@show']);
 });
 
-Route::get('auth/login', ['as' => 'login', 'uses' => 'Auth\AuthController@getLogin']);
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');
-Route::get('auth/confirm/{email}/{code}', ['as' => 'auth.confirm', 'uses' => 'Auth\AuthController@confirm']);
 

@@ -44,6 +44,7 @@
 </div>
 
 @section('footer')
+    @parent
     {!! Html::script('ckeditor/ckeditor.js') !!}
     <script>
         $('#news-tab a').click(function (e) {

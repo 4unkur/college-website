@@ -46,7 +46,7 @@ class PagesController extends Controller
         ]);
 
         $page = new Page();
-        $page->slug = str_slug($request->input('title')[config('app.fallback_locale')]);
+        $page->slug = $request->input('slug') ? $request->input('slug') : str_slug($request->input('title')[config('app.fallback_locale')]);
         $page->status = $request->input('status');
         foreach (config('laravellocalization.supportedLocales') as $locale => $language)
         {
