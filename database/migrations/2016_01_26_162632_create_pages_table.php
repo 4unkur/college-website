@@ -19,7 +19,7 @@ class CreatePagesTable extends Migration
             $table->timestamps();
         });
         
-        Schema::create('pages_translations', function (Blueprint $table) {
+        Schema::create('page_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('page_id')->unsigned();
             $table->string('title');
@@ -40,7 +40,7 @@ class CreatePagesTable extends Migration
     {        
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::drop('pages');
-        Schema::drop('pages_translations');
+        Schema::drop('page_translations');
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
 
     }

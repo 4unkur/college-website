@@ -15,12 +15,12 @@ Route::group([
     Route::get('news', ['as' => 'news.index', 'uses' => 'NewsController@index']);
     Route::get('news/{slug}', ['as' => 'news.show', 'uses' => 'NewsController@show']);
 
+    Route::get('page/{slug}', ['as' => 'page.show', 'uses' => 'PagesController@show']);
+
     Route::get('user/{id}/recipes', ['as' => 'user.recipes', 'uses' => 'UsersController@recipes']);
     Route::get('user/{id}', ['as' => 'user.show', 'uses' => 'UsersController@show']);
     Route::get('users', ['as' => 'users.index', 'uses' => 'UsersController@index']);
 
-    Route::resource('recipe', 'RecipesController', ['except' => ['index', 'destroy']]);
-    Route::get('recipes', ['as' => 'recipes.index', 'uses' => 'RecipesController@index']);
 
     Route::group(
         [
@@ -44,11 +44,16 @@ Route::group([
         Route::put('news/{id}', ['as' => 'admin.news.update', 'uses' => 'NewsController@update']);
         Route::delete('news/{id}', ['as' => 'admin.news.destroy', 'uses' => 'NewsController@destroy']);
 
-        Route::resource('pages', 'PagesController');
+        // Page routes:
+        Route::get('pages', ['as' => 'admin.page.index', 'uses' => 'PagesController@index']);
+        Route::get('page/create', ['as' => 'admin.page.create', 'uses' => 'PagesController@create']);
+        Route::post('page/store', ['as' => 'admin.page.store', 'uses' => 'PagesController@store']);
+        Route::get('page/{id}/edit', ['as' => 'admin.page.edit', 'uses' => 'PagesController@edit']);
+        Route::put('page/{id}', ['as' => 'admin.page.update', 'uses' => 'PagesController@update']);
+        Route::delete('page/{id}', ['as' => 'admin.page.destroy', 'uses' => 'PagesController@destroy']);
+
         Route::resource('user', 'UsersController', ['except' => 'index']);
         Route::get('users', ['as' => 'admin.users.index', 'uses' => 'UsersController@index']); //TODO: check this for controller namespace
-        Route::resource('recipe', 'RecipesController', ['except' => 'index']);
-        Route::get('recipes', ['as' => 'admin.recipes.index', 'uses' => 'RecipesController@index']);//TODO: check this for controller namespace
 
     });
 });

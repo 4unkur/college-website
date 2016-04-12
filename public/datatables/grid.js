@@ -1,9 +1,9 @@
 $(document).ready(function() {
-    $('#news-table').DataTable();
+    $('#entries-table').DataTable();
 } );
 
 //deleting news entry through ajax
-$('.delete-news').click(function(e) {
+$('.delete-entry').click(function(e) {
     e.preventDefault();
 
     var $this = $(this);
