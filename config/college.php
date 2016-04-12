@@ -21,10 +21,4 @@ return [
         'user', 
     ],
 
-    'recipe_statuses' => [
-        'active', 
-        'inactive', 
-        'approval', 
-    ],
-
 ];

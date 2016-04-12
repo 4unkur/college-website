@@ -19,7 +19,7 @@ class News extends Model
     /**
      * @var array
      */
-    protected $fillable = ['code', 'slug', 'status'];
+    protected $fillable = ['slug', 'status'];
 
 
     public function setSlugAttribute ($value)

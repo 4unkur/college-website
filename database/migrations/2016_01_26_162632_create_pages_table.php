@@ -14,11 +14,20 @@ class CreatePagesTable extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('slug');
-            $table->text('content');
+            $table->string('slug')->unique();
             $table->enum('status', config('college.statuses'))->default('inactive');
             $table->timestamps();
+        });
+        
+        Schema::create('pages_translations', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('page_id')->unsigned();
+            $table->string('title');
+            $table->string('content');
+            $table->string('locale')->index();
+
+            $table->unique(['page_id','locale']);
+            $table->foreign('page_id')->references('id')->on('pages')->onDelete('cascade');
         });
     }
 
@@ -28,7 +37,11 @@ class CreatePagesTable extends Migration
      * @return void
      */
     public function down()
-    {
+    {        
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::drop('pages');
+        Schema::drop('pages_translations');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+
     }
 }

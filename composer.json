@@ -9,7 +9,6 @@
         "laravel/framework": "5.1.*",
         "laravelcollective/html": "~5.0",
         "doctrine/dbal": "^2.5",
-        "baum/baum": "~1.1",
         "matriphe/imageupload": "5.1.*",
         "codecourse/notify": "^1.1",
         "dimsav/laravel-translatable": "^5.5",
