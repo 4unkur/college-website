@@ -12,7 +12,6 @@
         "baum/baum": "~1.1",
         "matriphe/imageupload": "5.1.*",
         "codecourse/notify": "^1.1",
-        "lavary/laravel-menu": "dev-master",
         "dimsav/laravel-translatable": "^5.5",
         "mcamara/laravel-localization": "1.0.*",
         "guzzlehttp/guzzle": "~5.3|~6.0"

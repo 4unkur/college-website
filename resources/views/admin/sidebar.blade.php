@@ -30,7 +30,7 @@
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
             <li class="header">Menu</li>
-            @include('admin.menu.left-sidebar', ['items' => $leftSidebarMenu->roots()])
+            @include('admin.menu.left-sidebar')
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

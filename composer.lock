@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c13799040471e5cff43a55cae0ef4d5b",
-    "content-hash": "2459196e679f28487240d6a225fb5589",
+    "hash": "fcde566cdc7ec98501ba1366f53d2c65",
+    "content-hash": "58f6a367ae538cc826c6daa6f878bff5",
     "packages": [
         {
             "name": "baum/baum",
@@ -214,16 +214,16 @@
         },
         {
             "name": "dimsav/laravel-translatable",
-            "version": "v5.5",
+            "version": "v5.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dimsav/laravel-translatable.git",
-                "reference": "dd6c5dbbf76b4afe360679cfede9f178f88ee92d"
+                "reference": "f4c4c096998d5cc68d5bac90af6d11a636e8b3af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/dd6c5dbbf76b4afe360679cfede9f178f88ee92d",
-                "reference": "dd6c5dbbf76b4afe360679cfede9f178f88ee92d",
+                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/f4c4c096998d5cc68d5bac90af6d11a636e8b3af",
+                "reference": "f4c4c096998d5cc68d5bac90af6d11a636e8b3af",
                 "shasum": ""
             },
             "require": {
@@ -261,7 +261,7 @@
                 "laravel",
                 "translation"
             ],
-            "time": "2016-01-19 19:42:08"
+            "time": "2016-04-10 18:27:27"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1140,16 +1140,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.1.32",
+            "version": "v5.1.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "bdb01c499305ede9d6f8caec57649bbaca4dd5e3"
+                "reference": "0e73cba565b0ef5b158da62f641dc6770b806102"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/bdb01c499305ede9d6f8caec57649bbaca4dd5e3",
-                "reference": "bdb01c499305ede9d6f8caec57649bbaca4dd5e3",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/0e73cba565b0ef5b158da62f641dc6770b806102",
+                "reference": "0e73cba565b0ef5b158da62f641dc6770b806102",
                 "shasum": ""
             },
             "require": {
@@ -1264,7 +1264,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-04-01 18:52:14"
+            "time": "2016-04-07 14:12:37"
         },
         {
             "name": "laravelcollective/html",
@@ -1315,48 +1315,6 @@
                 }
             ],
             "time": "2015-11-28 08:27:09"
-        },
-        {
-            "name": "lavary/laravel-menu",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/lavary/laravel-menu.git",
-                "reference": "34d83c492cd2fc8a0022609e208ddd94a83d89d0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/lavary/laravel-menu/zipball/34d83c492cd2fc8a0022609e208ddd94a83d89d0",
-                "reference": "34d83c492cd2fc8a0022609e208ddd94a83d89d0",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": ">=5.0",
-                "illuminate/view": ">=5.0",
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Lavary\\Menu\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Lavary",
-                    "email": "mrl.8081@gmail.com"
-                }
-            ],
-            "description": "A quick way to create menus in Laravel 5",
-            "homepage": "https://github.com/lavary/laravel-menu",
-            "keywords": [
-                "laravel"
-            ],
-            "time": "2016-03-16 23:23:33"
         },
         {
             "name": "league/flysystem",
@@ -4185,9 +4143,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "lavary/laravel-menu": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

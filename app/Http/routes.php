@@ -50,12 +50,6 @@ Route::group([
         Route::resource('recipe', 'RecipesController', ['except' => 'index']);
         Route::get('recipes', ['as' => 'admin.recipes.index', 'uses' => 'RecipesController@index']);//TODO: check this for controller namespace
 
-        Menu::make('leftSidebarMenu', function($menu) {
-            $menu->add('Home', ['route' => 'admin.dashboard']);
-            $menu->add('News', ['class' => 'treeview']);
-                $menu->news->add('List', 'admin/news');
-                $menu->news->add('Add', 'admin/news/create');
-        });
     });
 });
 

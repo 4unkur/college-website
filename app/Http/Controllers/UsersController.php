@@ -31,11 +31,4 @@ class UsersController extends Controller
 
         return view('users.view', compact('user'));
     }
-
-    public function recipes($id)
-    {
-        $user = User::findOrFail($id);
-        $recipes = $user->recipes()->paginate(5);
-        return view('recipes.list', compact('recipes'));
-    }
 }
