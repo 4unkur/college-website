@@ -1,18 +1,18 @@
 <?php
 
-Route::get('auth/login', ['as' => 'login', 'uses' => 'Auth\AuthController@getLogin']);
 Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
-
-Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
-Route::get('auth/confirm/{email}/{code}', ['as' => 'auth.confirm', 'uses' => 'Auth\AuthController@confirm']);
 
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect']
 ], function()
 {
+    Route::get('auth/login', ['as' => 'login', 'uses' => 'Auth\AuthController@getLogin']);
+    Route::get('auth/logout', 'Auth\AuthController@getLogout');
+    Route::get('auth/register', 'Auth\AuthController@getRegister');
+    Route::get('auth/confirm/{email}/{code}', ['as' => 'auth.confirm', 'uses' => 'Auth\AuthController@confirm']);
+
     Route::get('', function () {
         return view('front.layouts.index');
     });
@@ -57,8 +57,13 @@ Route::group([
         Route::put('page/{id}', ['as' => 'admin.page.update', 'uses' => 'PagesController@update']);
         Route::delete('page/{id}', ['as' => 'admin.page.destroy', 'uses' => 'PagesController@destroy']);
 
-        Route::resource('user', 'UsersController', ['except' => 'index']);
-        Route::get('users', ['as' => 'admin.users.index', 'uses' => 'UsersController@index']); //TODO: check this for controller namespace
+        Route::get('users', ['as' => 'admin.user.index', 'uses' => 'UsersController@index']);
+        Route::get('user/create', ['as' => 'admin.user.create', 'uses' => 'UsersController@create']);
+        Route::get('user/{id}/edit', ['as' => 'admin.user.edit', 'uses' => 'UsersController@edit']);
+        Route::get('user/{id}', ['as' => 'admin.user.show', 'uses' => 'UsersController@show']);
+        Route::post('user/store', ['as' => 'admin.user.store', 'uses' => 'UsersController@store']);
+        Route::put('user/{id}', ['as' => 'admin.user.update', 'uses' => 'UsersController@update']);
+        Route::delete('user/{id}', ['as' => 'admin.user.destroy', 'uses' => 'UsersController@destroy']);
 
     });
     Route::get('{slug}', ['as' => 'page.show', 'uses' => 'PagesController@show']);

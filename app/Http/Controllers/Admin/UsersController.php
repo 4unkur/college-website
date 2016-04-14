@@ -19,6 +19,7 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::all();
+        
         return view('admin.users.list', compact('users'));
     }
 
@@ -40,9 +41,29 @@ class UsersController extends Controller
      */
     public function store(UserAdditionRequest $request)
     {
-        User::create($this->assignData($request->all()));
+        $user = new User();
 
-        return redirect(route('admin.users.index'));
+        foreach (['first_name', 'last_name', 'type', 'email', 'status', 'birth_date', 'phone', 'fb', 'twitter', 'gplus', 'instagram'] as $field) {
+            $user->$field = $request->input($field);
+        }
+        $user->slug = str_slug($request->input('first_name') . '_' . $request->input('last_name'));
+        $user->password = bcrypt($request->input('password'));
+
+        if ($request->hasFile('avatar')) {
+            $image = Imageupload::upload($request->file('avatar'), null, $this->imagePath);
+            $user->image = $image['original_filename'];
+        }
+
+        foreach (config('laravellocalization.supportedLocales') as $locale => $language)
+        {
+            $user->translateOrNew($locale)->education = $request->input('education')[$locale];
+            $user->translateOrNew($locale)->job = $request->input('job')[$locale];
+            $user->translateOrNew($locale)->bio = $request->input('bio')[$locale];
+        }
+
+        $user->save();
+
+        return redirect(route('admin.user.index'));
     }
 
     /**
@@ -94,17 +115,5 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    private function assignData($data)
-    {
-        return [
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
-            'type' => $data['type'],
-            'status' => $data['status'],
-            'password' => bcrypt($data['password']),
-        ];
     }
 }

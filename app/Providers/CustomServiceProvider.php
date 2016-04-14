@@ -14,20 +14,20 @@ class CustomServiceProvider extends ServiceProvider
     public function boot()
     {
         $adminMenuItems = [
-            ['title' => 'Home', 'route' => 'admin.dashboard', 'icon' => 'home'],
-            ['title' => 'News', 'route' => '#', 'icon' => 'newspaper-o', 'children' => [
-                    ['title' => 'Add News entry', 'route' => 'admin.news.create', 'icon' => 'plus-square'],
-                    ['title' => 'List of News', 'route' => 'admin.news.index', 'icon' => 'list'],
+            ['title' => trans('p.home'), 'route' => 'admin.dashboard', 'icon' => 'home'],
+            ['title' => trans('p.news'), 'route' => '#', 'icon' => 'newspaper-o', 'children' => [
+                    ['title' => trans('p.add'), 'route' => 'admin.news.create', 'icon' => 'plus-square'],
+                    ['title' => trans('p.list'), 'route' => 'admin.news.index', 'icon' => 'list'],
                 ],
             ],
-            ['title' => 'Users', 'route' => '#', 'icon' => 'users', 'children' => [
-                    ['title' => 'Add User', 'route' => '#', 'icon' => 'user-plus'],
-                    ['title' => 'Users', 'route' => '#', 'icon' => 'list'],
+            ['title' => trans('p.users'), 'route' => '#', 'icon' => 'users', 'children' => [
+                    ['title' => trans('p.add'), 'route' => 'admin.user.create', 'icon' => 'user-plus'],
+                    ['title' => trans('p.list'), 'route' => 'admin.user.index', 'icon' => 'list'],
                 ],
-            ],
-            ['title' => 'Pages', 'route' => '#', 'icon' => 'file-text-o', 'children' => [
-                    ['title' => 'Add Page', 'route' => 'admin.page.create', 'icon' => 'plus-square'],
-                    ['title' => 'Page list', 'route' => 'admin.page.index', 'icon' => 'list'],
+            ],  
+            ['title' => trans('p.pages'), 'route' => '#', 'icon' => 'file-text-o', 'children' => [
+                    ['title' => trans('p.add'), 'route' => 'admin.page.create', 'icon' => 'plus-square'],
+                    ['title' => trans('p.list'), 'route' => 'admin.page.index', 'icon' => 'list'],
                 ],
             ],
         ];

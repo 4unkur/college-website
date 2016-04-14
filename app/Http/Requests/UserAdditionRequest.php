@@ -22,12 +22,13 @@ class UserAdditionRequest extends Request
     public function rules()
     {
         return [
-            'first_name' => 'required|max:255|min:3',
-            'last_name' => 'required|max:255|min:3',
+            'first_name' => 'required|max:255|min:2',
+            'last_name' => 'required|max:255|min:2',
             'email' => 'required|email|max:255|unique:users',
             'type' => 'required',
             'status' => 'required',
             'password' => 'required|confirmed|min:4',
+            'avatart' => 'image',
         ];
     }
 }

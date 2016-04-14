@@ -9,12 +9,14 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Dimsav\Translatable\Translatable;
+
 
 class User extends Model implements AuthenticatableContract,
                                     AuthorizableContract,
                                     CanResetPasswordContract
 {
-    use Authenticatable, Authorizable, CanResetPassword;
+    use Authenticatable, Authorizable, CanResetPassword, Translatable;
 
     /**
      * The database table used by the model.
@@ -36,6 +38,7 @@ class User extends Model implements AuthenticatableContract,
         'password',
         'status',
         'confirmation_code',
+        'slug',
     ];
 
     /**
@@ -45,8 +48,19 @@ class User extends Model implements AuthenticatableContract,
      */
     protected $hidden = ['password', 'remember_token'];
 
-    public function recipes()
+    /**
+     * Array with the fields translated in the Translation table.
+     *
+     * @var array
+     */
+    public $translatedAttributes = ['education', 'job', 'bio'];
+    /**
+     * @var array
+     */
+
+    public function setSlugAttribute ($value)
     {
-        return $this->hasMany(Recipe::class);
+        $count = self::where('slug', $value)->count();
+        $this->attributes['slug'] = empty($count) ? $value : $value . $count . rand(1, 10);
     }
 }
