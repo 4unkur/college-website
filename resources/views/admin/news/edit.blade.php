@@ -1,12 +1,20 @@
 @extends('admin.master')
 
+@section('header')
+    {{ trans('p.news') }} :
+@stop
+
+@section('subheader')
+    {{ trans('p.edit') }}
+@stop
+
 @section('content')
 <div class="box box-success">
     <div class="box-header">
-        <h3 class="box-title">Edit News: {{ $news->title }}</h3>
+        <h3 class="box-title">{{ $news->title }}</h3>
         <!-- tools box -->
         <div class="pull-right box-tools">
-            <button class="btn btn-success btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+            <button class="btn btn-success btn-sm" data-widget="collapse" data-toggle="tooltip" title="{{ trans('p.collapse') }}"><i class="fa fa-minus"></i></button>
         </div><!-- /. tools -->
     </div><!-- /.box-header -->
     @include ('admin.errors.list')
@@ -29,7 +37,7 @@
                     <div role="tabpanel" class="tab-pane tab-pane-bordered @if ($language == reset($locales)) active @endif" id="tab-content-{{ $langCode }}">
                         <div class="content">
                             <div class="form-group">
-                                {!! Form::label('title', 'Title') !!}
+                                {!! Form::label('title', trans('p.title')) !!}
                                 <input type="text" name="title[{{ $langCode }}]" class="form-control" placeholder="Input title" value="{{ $news->{"title:$langCode"} }}">
                             </div>
                             <textarea name="text[{{ $langCode }}]" id="text[{{ $langCode }}]" cols="80" rows="10">
@@ -43,11 +51,11 @@
         </div>
         <div class="content bordered">
             <div class="form-group">
-                <label for="">Image</label>
+                <label for="">{{ trans('p.image') }}</label>
                 @if ($news->image)
                     <div class="form-group admin-image">
                         {!! Html::image(url() . '/uploads/images/news/square/' . $news->image) !!}
-                        <button class="btn btn-danger admin-image-remove-button" data-image="{{ $news->image }}" data-token="{{ csrf_token() }}" data-url="{{ route('admin.delete.image', [$news->id]) }}">
+                        <button class="btn btn-danger admin-image-remove-button" data-image="{{ $news->image }}" data-token="{{ csrf_token() }}" data-url="{{ route('admin.news.delete.image', [$news->id]) }}">
                             <span class="fa fa-close"></span>
                         </button>
                     </div>
@@ -56,16 +64,16 @@
             </div>
 
             <div class="form-group">
-                <label for="status">Status</label>
+                <label for="status">{{ trans('p.status') }}</label>
                 <select name="status" id="status" class="form-control">
                     @foreach (config('college.statuses') as $status)
-                        <option value="{{ $status }}" @if ($status == $news['status']) selected @endif>{{ $status }}</option>
+                        <option value="{{ $status }}" @if ($status == $news['status']) selected @endif>{{ trans('p.' . $status) }}</option>
                     @endforeach
                 </select>
             </div>
         </div>
         <div class="form-group">
-            {!! Form::submit('Update', ['class' => 'btn btn-success pull-right', 'style' => 'margin-top: 20px;']) !!}
+            {!! Form::submit(trans('p.save'), ['class' => 'btn btn-success pull-right', 'style' => 'margin-top: 20px;']) !!}
         </div>
         {!! Form::close() !!}
     </div>
@@ -73,7 +81,7 @@
 @stop
 
 @section('footer')
-    <script src="https://cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
+    {!! Html::script('ckeditor/ckeditor.js') !!}
     <script>
         $('#news-tab a').click(function (e) {
             e.preventDefault();
@@ -87,48 +95,6 @@
             $('#js-active-language').val(langCode);
         });
         $('a[data-toggle="tab"]:first', '#news-tab').trigger('shown.bs.tab');
-
-
-
-        $('.admin-image-remove-button').click(function (e) {
-            e.preventDefault();
-
-            var $this = $(this);
-            console.log($this.data('url'));
-
-            swal({
-                title: "Are you sure?",
-                text: "Yes, delete this item",
-                type: "info",
-                showCancelButton: true,
-                closeOnConfirm: false,
-                showLoaderOnConfirm: true
-            }, function(){
-                $.ajax($this.data('url'), {
-                    type: 'delete',
-                    dataType: 'json',
-                    data: {
-                        path: $this.data('image'),
-                        _token: $this.data('token'),
-                        _method: 'delete'
-                    },
-                    success: function() {
-                        swal({
-                            title: "Item deleted",
-                            type: "success",
-                            timer: 1000,
-                            showConfirmButton: true
-                        }, function() {
-                            window.location.reload(true)
-                        });
-
-                    },
-                    error: function(request, status, error) {
-                        sweetAlert("Oops...", "Something went wrong!", "error");
-                        console.log('error!', status, error);
-                    }
-                });
-            });
-        })
     </script>
+    {!! Html::script('js/delete-image.js') !!}
 @stop

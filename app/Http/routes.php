@@ -35,12 +35,9 @@ Route::group([
         Route::get('#', ['as' => '#', 'uses' => function() { return ''; }]);
 
         Route::get('',  ['as' => 'admin.dashboard', 'uses' => function () {
-            return view('admin.master');
+            return view('admin.index')->with(['header' => 'dashboard', 'subheader' => 'welcome']);
         }]);
         
-        // Remove image:
-        Route::delete('delete-image/{id}', ['as' => 'admin.delete.image', 'uses' => 'NewsController@deleteImage']);
-
         // News routes:
         Route::get('news', ['as' => 'admin.news.index', 'uses' => 'NewsController@index']);
         Route::get('news/create', ['as' => 'admin.news.create', 'uses' => 'NewsController@create']);
@@ -48,6 +45,7 @@ Route::group([
         Route::get('news/{id}/edit', ['as' => 'admin.news.edit', 'uses' => 'NewsController@edit']);
         Route::put('news/{id}', ['as' => 'admin.news.update', 'uses' => 'NewsController@update']);
         Route::delete('news/{id}', ['as' => 'admin.news.destroy', 'uses' => 'NewsController@destroy']);
+        Route::delete('news/delete/image/{id}', ['as' => 'admin.news.delete.image', 'uses' => 'NewsController@deleteImage']);
 
         // Page routes:
         Route::get('pages', ['as' => 'admin.page.index', 'uses' => 'PagesController@index']);
@@ -64,6 +62,7 @@ Route::group([
         Route::post('user/store', ['as' => 'admin.user.store', 'uses' => 'UsersController@store']);
         Route::put('user/{id}', ['as' => 'admin.user.update', 'uses' => 'UsersController@update']);
         Route::delete('user/{id}', ['as' => 'admin.user.destroy', 'uses' => 'UsersController@destroy']);
+        Route::delete('user/delete/image/{id}', ['as' => 'admin.user.delete.image', 'uses' => 'UsersController@deleteImage']);
 
     });
     Route::get('{slug}', ['as' => 'page.show', 'uses' => 'PagesController@show']);

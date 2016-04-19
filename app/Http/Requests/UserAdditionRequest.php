@@ -24,11 +24,11 @@ class UserAdditionRequest extends Request
         return [
             'first_name' => 'required|max:255|min:2',
             'last_name' => 'required|max:255|min:2',
-            'email' => 'required|email|max:255|unique:users',
+            'email' => $this->isMethod('post') ? 'required|email|max:255|unique:users' : 'required|email|max:255',
             'type' => 'required',
             'status' => 'required',
-            'password' => 'required|confirmed|min:4',
-            'avatart' => 'image',
+            'password' => $this->isMethod('post') ? 'required|confirmed|min:4' : '',
+            'avatar' => 'image',
         ];
     }
 }

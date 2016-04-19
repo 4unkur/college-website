@@ -100,7 +100,7 @@ class NewsController extends Controller
         ];
 
         if ($request->hasFile('image')) {
-            $rules['image']  = 'required|image';
+            $rules['image']  = 'image';
         }
 
         $this->validate($request, $rules);

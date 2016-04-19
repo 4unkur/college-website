@@ -6,11 +6,16 @@ use College\Http\Requests\UserAdditionRequest;
 use College\Http\Requests;
 use College\Http\Controllers\Controller;
 use College\User;
+use Imageupload;
+use File;
+use Input;
 
 
 class UsersController extends Controller
 {
+    protected $imageInput = 'avatar';
 
+    protected $imagePath = 'avatars';
     /**
      * Display a listing of the resource.
      *
@@ -51,7 +56,7 @@ class UsersController extends Controller
 
         if ($request->hasFile('avatar')) {
             $image = Imageupload::upload($request->file('avatar'), null, $this->imagePath);
-            $user->image = $image['original_filename'];
+            $user->avatar = $image['original_filename'];
         }
 
         foreach (config('laravellocalization.supportedLocales') as $locale => $language)
@@ -74,7 +79,9 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        
+        return view('admin.users.view', compact('user'));
     }
 
     /**
@@ -101,9 +108,30 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
 
-        $user->update($this->assignData($request->all()));
+        foreach (config('laravellocalization.supportedLocales') as $locale => $language)
+        {
+            $user->translateOrNew($locale)->education = $request->input('education')[$locale];
+            $user->translateOrNew($locale)->job = $request->input('job')[$locale];
+            $user->translateOrNew($locale)->bio = $request->input('bio')[$locale];
+        }
 
-        return redirect(route('admin.users.index'));
+        if ($request->hasFile('avatar')) {
+            $oldImage = $user->avatar;
+            $image = Imageupload::upload($request->file('avatar'), null, $this->imagePath);
+            $user->avatar = $image['original_filename'];
+            $this->deleteImage($id, $oldImage);
+        }
+
+        foreach (['first_name', 'last_name', 'type', 'email', 'status', 'birth_date', 'phone', 'fb', 'twitter', 'gplus', 'instagram'] as $field) {
+            $user->$field = $request->input($field);
+        }
+
+        if (!($request->input('password') == $user->password || empty($request->input('password')))) {
+            $user->password = bcrypt($request->input('password'));
+        }
+        $user->save();
+
+        return redirect(route('admin.user.index'));
     }
 
     /**
@@ -114,6 +142,29 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        if (User::destroy($id)) {
+            if ($user->avatar) {
+                self::deleteImage(null, $user->avatar);
+            }
+            return json_encode(true);
+        }
+
+        return json_encode(false);
+    }
+
+    public function deleteImage($id = null, $image = null)
+    {
+        $file = isset($image) ? $image : Input::get('path');
+        if ($file) {
+            $thumbpath = public_path() . '/uploads/images/avatars/' . $file;
+            $path = public_path() . '/uploads/images/avatars/square/' . $file;
+            File::delete($path);
+            File::delete($thumbpath);
+        }
+
+        empty($id) || User::where('id', $id)->update(['avatar' => '']);
+
+        return json_encode(true);
     }
 }

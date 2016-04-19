@@ -42,7 +42,7 @@ return array(
    */
    'dimensions' => array(
 
-     'square' => array(400, 250, false),
+     'square' => array(250, 250, true),
    ),
 
    /*

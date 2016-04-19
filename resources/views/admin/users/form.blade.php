@@ -1,7 +1,7 @@
 @section('head')
-@parent
+    @parent
 
-{!! Html::style('datepicker/datepicker3.css') !!}
+    {!! Html::style('datepicker/datepicker3.css') !!}
 @stop
 
 <div class="col-lg-8">
@@ -19,11 +19,11 @@
     </div>
     <div class="form-group">
         {!! Form::label('password', trans('p.password')) !!}
-        {!! Form::password('password', ['required', 'class' => 'form-control']) !!}
+        {!! Form::password('password', ['class' => 'form-control']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('password_confirmation', trans('p.repeat_password')) !!}
-        {!! Form::password('password_confirmation', ['required', 'class' => 'form-control']) !!}
+        {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('birth_date', trans('p.birth_date')) !!}
@@ -55,61 +55,21 @@
 
     <div class="form-group">
         {!! Form::label('type', trans('p.type')) !!}
-        {!! Form::select('type', array_map(function($status) {
-                return trans('p.' . $status);
-            }, config('college.user_types')), null, ['class' => 'form-control']) !!}
+        <select name="type" id="type" class="form-control">
+            @foreach (config('college.user_types') as $type)
+                <option value="{{ $type }}" @if (isset($user) && $type == $user->type) selected @endif>{{ trans('p.' . $type) }}</option>
+            @endforeach
+        </select>
     </div>
     <div class="form-group">
         {!! Form::label('status', trans('p.status')) !!}
-        {!! Form::select('status', array_map(function($status) {
-                return trans('p.' . $status);
-            }, config('college.user_statuses')), null, ['class' => 'form-control']) !!}
-    </div>
-
-    <div class="form-group">
-        <label for="avatar">{{ trans('p.avatar') }}</label>
-        <div>
-            {!! Form::file('avatar', ['id' => 'avatar']) !!}
-        </div>
-    </div>
-
-    <?php $locales = config('laravellocalization.supportedLocales') ?>
-    <ul class="nav nav-tabs" role="tablist" id="user-tab">
-        @foreach ($locales as $langCode => $language)
-            <li role="presentation" @if ($language == reset($locales)) class="active" @endif >
-                <a href="#tab-content-{{ $langCode }}" role="tab" data-toggle="tab" data-language="{{ $langCode }}">
-                    {{ $language['native'] }}
-                </a>
-            </li>
-        @endforeach
-    </ul>
-    <div class="tab-content">
-        @foreach ($locales as $langCode => $language)
-            <div role="tabpanel" class="tab-pane tab-pane-bordered @if ($language == reset($locales)) active @endif" id="tab-content-{{ $langCode }}">
-                <div class="content">
-                    <div class="form-group">
-                        {!! Form::label('job', trans('p.job', [], null, $langCode)) !!}
-                        {!! Form::text("job[$langCode]", null, ['class' => 'form-control']) !!}
-                    </div>
-                    <div class="form-group">
-                        {!! Form::label('education', trans('p.education', [], null, $langCode)) !!}
-                        {!! Form::textarea("education[$langCode]", null, ['class' => 'form-control', 'rows' => 3]) !!}
-                    </div>
-                    <div class="form-group">
-                        {!! Form::label("bio[$langCode]", trans('p.bio', [], null, $langCode)) !!}
-                    </div>
-                    {!! Form::textarea("bio[$langCode]", null, ['rows' => 10, 'cols' => 80, 'id' => "bio[$langCode]"]) !!}
-                </div>
-            </div>
-        @endforeach
-    </div>
-
-    <div class="form-group">
-        {!! Form::submit($buttonText, ['class' => 'btn btn-success pull-right', 'style' => 'margin-top: 20px;']) !!}
+        <select name="status" id="status" class="form-control">
+            @foreach (config('college.statuses') as $status)
+                <option value="{{ $status }}" @if (isset($user) && $status == $user->status) selected @endif>{{ trans('p.' . $status) }}</option>
+            @endforeach
+        </select>
     </div>
 </div>
-
-
 @section('footer')
     @parent
     {!! Html::script('ckeditor/ckeditor.js') !!}

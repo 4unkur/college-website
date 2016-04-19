@@ -4,6 +4,14 @@
     {!! Html::style('datatables/dataTables.min.css') !!}
 @stop
 
+@section('header')
+    {{ trans('p.news') }} :
+@stop
+
+@section('subheader')
+    {{ trans('p.list') }}
+@stop
+
 @section('content')
     @if (isset($news) && count($news))
     <div class="box">
@@ -44,5 +52,5 @@
 @section('footer')
     @parent
     {!! Html::script('datatables/dataTables.min.js') !!}
-    {!! Html::script('datatables/grid.js') !!}
+    {!! Html::script('js/grid.js') !!}
 @stop

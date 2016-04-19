@@ -1,6 +1,6 @@
 <!-- Main Header -->
 <header class="main-header">
-
+<?php $activeUser = Auth::user() ?>
     <!-- Logo -->
     <a href="index2.html" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -113,38 +113,27 @@
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <!-- The user image in the navbar-->
-                        <img src="/AdminLTE/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                        <img src="{{ url('uploads/images/avatars/square') . '/' . Auth::user()->avatar }}" class="user-image" alt="User Image">
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                        <span class="hidden-xs">Alexander Pierce</span>
+                        <span class="hidden-xs">{{ $activeUser->first_name . ' ' . $activeUser->last_name }}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- The user image in the menu -->
                         <li class="user-header">
-                            <img src="/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                            <img src="{{ url('uploads/images/avatars/square') . '/' . Auth::user()->avatar }}" class="img-circle" alt="User Image">
                             <p>
-                                Alexander Pierce - Web Developer
-                                <small>Member since Nov. 2012</small>
+                                {{ $activeUser->first_name . ' ' . $activeUser->last_name . ' - ' . $activeUser->job }}
+                                <small>{{ trans('p.registered_at') . ' ' . date('Y-m-d', strtotime($activeUser->created_at)) }}</small>
                             </p>
                         </li>
                         <!-- Menu Body -->
-                        <li class="user-body">
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Followers</a>
-                            </div>
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Sales</a>
-                            </div>
-                            <div class="col-xs-4 text-center">
-                                <a href="#">Friends</a>
-                            </div>
-                        </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="{{ route('admin.user.show', [$activeUser->id]) }}" class="btn btn-default btn-flat">{{ trans('p.profile') }}</a>
                             </div>
                             <div class="pull-right">
-                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="{{ url('auth/logout') }}" class="btn btn-default btn-flat">{{ trans('p.signout') }}</a>
                             </div>
                         </li>
                     </ul>

@@ -1,5 +1,9 @@
 @extends('admin.master')
 
+@section('head')
+    {!! Html::style('datatables/dataTables.min.css') !!}
+@stop
+
 @section('content')
 <div class="box">
     <div class="box-header with-border">
@@ -21,6 +25,7 @@
                 <th>First name</th>
                 <th>Last name</th>
                 <th>Email address</th>
+                <th style="width: 80px">View Profile</th>
                 <th style="width: 40px">Status</th>
                 <th>edit</th>
                 <th>delete</th>
@@ -32,9 +37,10 @@
                     <td>{{ $user->first_name }}</td>
                     <td>{{ $user->last_name }}</td>
                     <td>{{ $user->email }}</td>
+                    <td><a href="{!! route('admin.user.show', [$user]) !!}"><i class="fa fa-eye"></i></a></td>
                     <td><span class="badge status-{{ $user->status }}">{{ $user->status }}</span></td>
                     <td><a href="{!! route('admin.user.edit', [$user]) !!}"><i class="fa fa-pencil-square-o"></i></a></td>
-                    <td><i class="fa fa-trash-o"></i></td>
+                    <td><a class="delete-entry" data-token="{{ csrf_token() }}" href="{!! route('admin.user.destroy', [$user->id]) !!}"><i class="fa fa-trash-o"></i></a></td>
                 </tr>
                 @endforeach
             @endif
@@ -50,4 +56,10 @@
         </ul>
     </div>
 </div><!-- /.box -->
+@stop
+
+@section('footer')
+    @parent
+    {!! Html::script('datatables/dataTables.min.js') !!}
+    {!! Html::script('js/grid.js') !!}
 @stop
