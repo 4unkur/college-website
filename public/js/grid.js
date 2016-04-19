@@ -1,5 +1,11 @@
 $(document).ready(function() {
-    $('#entries-table').DataTable();
+    var locale = $('#locale').val();
+    locale = 'ru' == locale ? 'Russian' : 'Kyrgyz';
+    $('#entries-table').DataTable({
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.11/i18n/" + locale + ".json"
+        }
+    });
 } );
 
 //deleting news entry through ajax

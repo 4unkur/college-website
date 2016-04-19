@@ -1,6 +1,7 @@
 <!-- Main Header -->
 <header class="main-header">
 <?php $activeUser = Auth::user() ?>
+    <input type="hidden" value="{{ Lang::getLocale() }}" id="locale">
     <!-- Logo -->
     <a href="index2.html" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
