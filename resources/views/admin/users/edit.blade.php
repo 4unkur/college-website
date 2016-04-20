@@ -1,12 +1,20 @@
 @extends('admin.master')
 
+@section('header')
+    {{ trans('p.users') }} :
+@stop
+
+@section('subheader')
+    {{ trans('p.edit') }}
+@stop
+
 @section('content')
 
 @include ('admin.errors.list')
 
 <div class="box box-success">
     <div class="box-header">
-        <h3 class="box-title">Edit User: {{ $user->first_name }}</h3>
+        <h3 class="box-title">{{ trans('p.user') }}: {{ $user->first_name }} {{ $user->last_name }}</h3>
         <!-- tools box -->
         <div class="pull-right box-tools">
             <button class="btn btn-success btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>

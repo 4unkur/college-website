@@ -3,7 +3,7 @@
 <?php $activeUser = Auth::user() ?>
     <input type="hidden" value="{{ Lang::getLocale() }}" id="locale">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="{{ route('admin.dashboard') }}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>A</b>LT</span>
         <!-- logo for regular state and mobile devices -->
@@ -19,6 +19,7 @@
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
+                {{--
                 <!-- Messages: style can be found in dropdown.less-->
                 <li class="dropdown messages-menu">
                     <!-- Menu toggle button -->
@@ -109,6 +110,8 @@
                         </li>
                     </ul>
                 </li>
+
+                --}}
                 <!-- User Account Menu -->
                 <li class="dropdown user user-menu">
                     <!-- Menu Toggle Button -->

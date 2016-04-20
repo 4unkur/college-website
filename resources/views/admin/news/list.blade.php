@@ -21,12 +21,12 @@
             <table id="entries-table" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
                 <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Created</th>
-                    <th>Status</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th>№</th>
+                    <th>{{ trans('p.title') }}</th>
+                    <th>{{ trans('p.date') }}</th>
+                    <th>{{ trans('p.status') }}</th>
+                    <th>{{ trans('p.edit') }}</th>
+                    <th>{{ trans('p.remove') }}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -35,7 +35,7 @@
                         <td width="40px">{{ $entry->id }}</td>
                         <td><a href="{{ route('news.show', $entry->slug) }}" target="_blank">{{ $entry->title }}</a></td>
                         <td width="200px">{{ \Carbon\Carbon::parse($entry->created_at)->format('d M Y') }}</td>
-                        <td width="200px">{{ $entry->status }}</td>
+                        <td width="200px"><span class="badge status-{{ $entry->status }}">{{ $entry->status }}</span></td>
                         <td width="40px"><a href="{{ route('admin.news.edit', $entry->id) }}"><i class="fa fa-pencil-square-o"></i></a></td>
                         <td width="40px"><a href="{{ route('admin.news.destroy', $entry->id) }}" class="delete-entry" data-token="{{ csrf_token() }}"><i class="fa fa-trash-o"></i></a></td>
                     </tr>
@@ -53,4 +53,5 @@
     @parent
     {!! Html::script('datatables/dataTables.min.js') !!}
     {!! Html::script('js/grid.js') !!}
+    {!! Html::script('js/dataTables.bootstrap.min.js') !!}
 @stop

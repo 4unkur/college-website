@@ -1,5 +1,13 @@
 @extends('admin.master')
 
+@section('header')
+    {{ trans('p.users') }} :
+@stop
+
+@section('subheader')
+    {{ trans('p.add') }}
+@stop
+
 @section('content')
 
 @include ('admin.errors.list')

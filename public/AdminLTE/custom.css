@@ -19,3 +19,11 @@
     bottom: 10px;
     left: 10px;
 }
+
+.status-active {
+    background-color: #00a65a;
+}
+
+.status-inactive {
+    background-color: #dd4b39;
+}

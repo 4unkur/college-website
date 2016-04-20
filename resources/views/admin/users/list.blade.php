@@ -4,33 +4,34 @@
     {!! Html::style('datatables/dataTables.min.css') !!}
 @stop
 
+@section('header')
+    {{ trans('p.users') }} :
+@stop
+
+@section('subheader')
+    {{ trans('p.list') }}
+@stop
+
 @section('content')
 <div class="box">
-    <div class="box-header with-border">
-        <h3 class="box-title">Bordered Table</h3>
-        <div class="box-tools">
-            <div class="input-group" style="width: 150px;">
-                <input type="text" name="table_search" class="form-control input-sm pull-right" placeholder="Search">
-                <div class="input-group-btn">
-                    <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-                </div>
-            </div>
-        </div>
+    <div class="box-header">
     </div><!-- /.box-header -->
-
     <div class="box-body">
-        <table class="table table-bordered">
+        <table id="entries-table" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+            <thead>
             <tr>
-                <th style="width: 10px">#</th>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Email address</th>
-                <th style="width: 80px">View Profile</th>
-                <th style="width: 40px">Status</th>
-                <th>edit</th>
-                <th>delete</th>
+                <th style="width: 10px">№</th>
+                <th>{{ trans('p.first_name') }}</th>
+                <th>{{ trans('p.last_name') }}</th>
+                <th>{{ trans('p.email') }}</th>
+                <th style="width: 80px">{{ trans('p.view_profile') }}</th>
+                <th style="width: 40px">{{ trans('p.status') }}</th>
+                <th>{{ trans('p.edit') }}</th>
+                <th>{{ trans('p.remove') }}</th>
             </tr>
+            </thead>
             @if (count($users))
+                <tbody>
                 @foreach ($users as $user)
                 <tr>
                     <td>{{ $user->id }}</td>
@@ -43,18 +44,10 @@
                     <td><a class="delete-entry" data-token="{{ csrf_token() }}" href="{!! route('admin.user.destroy', [$user->id]) !!}"><i class="fa fa-trash-o"></i></a></td>
                 </tr>
                 @endforeach
+                </tbody>
             @endif
         </table>
     </div><!-- /.box-body -->
-    <div class="box-footer clearfix">
-        <ul class="pagination pagination-sm no-margin pull-right">
-            <li><a href="#">&laquo;</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">&raquo;</a></li>
-        </ul>
-    </div>
 </div><!-- /.box -->
 @stop
 
@@ -62,4 +55,5 @@
     @parent
     {!! Html::script('datatables/dataTables.min.js') !!}
     {!! Html::script('js/grid.js') !!}
+    {!! Html::script('js/dataTables.bootstrap.min.js') !!}
 @stop

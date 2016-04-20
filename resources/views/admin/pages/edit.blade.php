@@ -1,12 +1,20 @@
 @extends('admin.master')
 
+@section('header')
+    {{ trans('p.pages') }} :
+@stop
+
+@section('subheader')
+    {{ trans('p.edit') }}
+@stop
+
 @section('content')
 <div class="box box-success">
     <div class="box-header">
-        <h3 class="box-title">Edit page: {{ $page->title }}</h3>
+        <h3 class="box-title">{{ trans('p.edit') }}: {{ $page->title }}</h3>
         <!-- tools box -->
         <div class="pull-right box-tools">
-            <button class="btn btn-success btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+            <button class="btn btn-success btn-sm" data-widget="collapse" data-toggle="tooltip" title="{{ trans('p.collapse') }}"><i class="fa fa-minus"></i></button>
         </div><!-- /. tools -->
     </div><!-- /.box-header -->
     @include ('admin.errors.list')
@@ -29,7 +37,7 @@
                     <div role="tabpanel" class="tab-pane tab-pane-bordered @if ($language == reset($locales)) active @endif" id="tab-content-{{ $langCode }}">
                         <div class="content">
                             <div class="form-group">
-                                {!! Form::label('title', 'Title') !!}
+                                {!! Form::label('title', trans('p.title')) !!}
                                 <input type="text" name="title[{{ $langCode }}]" class="form-control" placeholder="Input title" value="{{ $page->{"title:$langCode"} }}">
                             </div>
                             <textarea name="content[{{ $langCode }}]" id="content[{{ $langCode }}]" cols="80" rows="10">
@@ -44,10 +52,10 @@
         <div class="content bordered">
 
             <div class="form-group">
-                <label for="status">Status</label>
+                <label for="status">{{ trans('p.status') }}</label>
                 <select name="status" id="status" class="form-control">
                     @foreach (config('college.statuses') as $status)
-                        <option value="{{ $status }}" @if ($status == $page['status']) selected @endif>{{ $status }}</option>
+                        <option value="{{ $status }}" @if ($status == $page['status']) selected @endif>{{ trans('p.' . $status) }}</option>
                     @endforeach
                 </select>
             </div>
