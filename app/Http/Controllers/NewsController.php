@@ -16,7 +16,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::paginate(5); //TODO: change it to value of config
+        $news = News::where('status', 'active')->paginate(5); //TODO: change it to value of config
 
         return view('front.news.list', compact('news'));
     }
@@ -30,7 +30,7 @@ class NewsController extends Controller
      */
     public function show($slug)
     {
-        $news = News::where('slug', $slug)->first();
+        $news = News::where('slug', $slug)->where('status', 'active')->first();
 
         if (empty($news)) {
             abort(404);

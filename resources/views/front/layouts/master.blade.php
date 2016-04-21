@@ -21,28 +21,12 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="navbar-header">
-                <h1 class="navbar-brand"><a href="index.html">UNIVERSITY</a></h1>
+                <h1 class="navbar-brand"><a href="{{ route('index') }}">UNIVERSITY</a></h1>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1,#bs-example-navbar-collapse-2"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
             </div>
             <div class="navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="index_fixed.html">Home / Fixed</a></li>
-                            <li><a href="index_with_blog.html">Home + Blog</a></li>
-                            <li><a href="portfolio.html">Portfolio</a></li>
-                            <li><a href="typography.html">Typography</a></li>
-                            <li><a href="shortcodes.html">Shortcodes</a></li>
-                            <li><a href="blog.html">Blog & News</a></li>
-                            <li><a href="tables.html">Tables</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="left_sidebar.html">left sidebar</a></li>
-                    <li><a href="right_sidebar.html">right sidebar</a></li>
-                    <li><a href="full_width.html">full page</a></li>
-                    <li><a href="contact.html">contact us</a></li>
+                    @include('front.partials.menu')
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -97,7 +81,7 @@
             </div>
         </div>
         <hr>
-        <p class="text-center">&copy; Copyright ABC Company. All Rights Reserved.</p>
+        <p class="text-center">&copy; {{ date('Y') . ' - ' . trans('p.copyright') }}</p>
     </div>
 </footer>
 

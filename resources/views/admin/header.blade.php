@@ -127,7 +127,7 @@
                             <img src="{{ url('uploads/images/avatars/square') . '/' . Auth::user()->avatar }}" class="img-circle" alt="User Image">
                             <p>
                                 {{ $activeUser->first_name . ' ' . $activeUser->last_name . ' - ' . $activeUser->job }}
-                                <small>{{ trans('p.registered_at') . ' ' . date('Y-m-d', strtotime($activeUser->created_at)) }}</small>
+                                <small>{{ trans('p.registered_at') . ' ' . \Carbon\Carbon::parse($activeUser->created_at)->format('d/m/Y') }}</small>
                             </p>
                         </li>
                         <!-- Menu Body -->

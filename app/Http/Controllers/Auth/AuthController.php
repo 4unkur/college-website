@@ -2,12 +2,15 @@
 
 namespace College\Http\Controllers\Auth;
 
-use College\User;
+use Mail;
+use Auth;
 use Validator;
+use College\User;
+use Illuminate\Http\Request;
 use College\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use Mail;
+
 
 class AuthController extends Controller
 {
@@ -35,6 +38,18 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
+    }
+
+    public function authenticate(Request $request)
+    {
+        if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password'), 'status' => 'active'])) {
+
+            return redirect()->intended($request->path());
+        }
+
+        return redirect($this->loginPath())->withErrors([
+            $request->input('email') => $this->getFailedLoginMessage(),
+        ]);
     }
 
     /**

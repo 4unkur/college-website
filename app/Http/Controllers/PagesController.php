@@ -12,7 +12,7 @@ class PagesController extends Controller
 
     public function show($slug)
     {
-        $page = Page::where('slug', $slug)->first();
+        $page = Page::where('slug', $slug)->where('status', 'active')->first();
         $page || abort(404);
 
         return view('front.pages.view', compact('page'));

@@ -119,7 +119,7 @@ class UsersController extends Controller
             $oldImage = $user->avatar;
             $image = Imageupload::upload($request->file('avatar'), null, $this->imagePath);
             $user->avatar = $image['original_filename'];
-            $this->deleteImage($id, $oldImage);
+            $this->deleteImage(null, $oldImage);
         }
 
         foreach (['first_name', 'last_name', 'type', 'email', 'status', 'birth_date', 'phone', 'fb', 'twitter', 'gplus', 'instagram'] as $field) {
@@ -157,10 +157,9 @@ class UsersController extends Controller
     {
         $file = isset($image) ? $image : Input::get('path');
         if ($file) {
-            $thumbpath = public_path() . '/uploads/images/avatars/' . $file;
-            $path = public_path() . '/uploads/images/avatars/square/' . $file;
-            File::delete($path);
-            File::delete($thumbpath);
+            foreach(['', 'square/', 'rect/'] as $path) {
+                File::delete(public_path() . '/uploads/images/avatars/' . $path . $file);
+            }
         }
 
         empty($id) || User::where('id', $id)->update(['avatar' => '']);

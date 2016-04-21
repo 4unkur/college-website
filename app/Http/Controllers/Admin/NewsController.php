@@ -115,7 +115,7 @@ class NewsController extends Controller
             $oldImage = $news->image;
             $image = Imageupload::upload($request->file('image'), null, $this->imagePath);
             $news->image = $image['original_filename'];
-            $this->deleteImage($id, $oldImage);
+            $this->deleteImage(null, $oldImage);
         }
 
         $news->status = $request->input('status');
@@ -134,12 +134,8 @@ class NewsController extends Controller
     {
         $news = News::find($id);
         if (News::destroy($id)) {
-            if ($news->image)
-            {
-                $thumbpath = public_path() . '/uploads/images/news/' . $news->image;
-                $path = public_path() . '/uploads/images/news/square/' . $news->image;
-                File::delete($path);
-                File::delete($thumbpath);
+            if ($news->image) {
+                self::deleteImage(null, $news->image);
             }
             return json_encode(true);
         }
@@ -147,17 +143,16 @@ class NewsController extends Controller
         return json_encode(false);
     }
 
-    public function deleteImage($id, $image = null)
+    public function deleteImage($id = null, $image = null)
     {
         $file = isset($image) ? $image : Input::get('path');
         if ($file) {
-            $thumbpath = public_path() . '/uploads/images/news/' . $file;
-            $path = public_path() . '/uploads/images/news/square/' . $file;
-            File::delete($path);
-            File::delete($thumbpath);
+            foreach(['', 'square/', 'rect/'] as $path) {
+                File::delete(public_path() . '/uploads/images/avatars/' . $path . $file);
+            }
         }
 
-        News::where('id', $id)->update(['image' => '']);
+        empty($id) || News::where('id', $id)->update(['image' => '']);
 
         return json_encode(true);
     }

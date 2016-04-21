@@ -1,6 +1,6 @@
 <?php
 
-Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::post('auth/login', 'Auth\AuthController@authenticate');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::group([
@@ -13,16 +13,15 @@ Route::group([
     Route::get('auth/register', 'Auth\AuthController@getRegister');
     Route::get('auth/confirm/{email}/{code}', ['as' => 'auth.confirm', 'uses' => 'Auth\AuthController@confirm']);
 
-    Route::get('', function () {
+    Route::get('', ['as' => 'index', 'uses' => function () {
         return view('front.layouts.index');
-    });
+    }]);
 
     Route::get('news', ['as' => 'news.index', 'uses' => 'NewsController@index']);
     Route::get('news/{slug}', ['as' => 'news.show', 'uses' => 'NewsController@show']);
 
-    Route::get('user/{id}/recipes', ['as' => 'user.recipes', 'uses' => 'UsersController@recipes']);
-    Route::get('user/{id}', ['as' => 'user.show', 'uses' => 'UsersController@show']);
-    Route::get('users', ['as' => 'users.index', 'uses' => 'UsersController@index']);
+    Route::get('user/{slug}', ['as' => 'user.show', 'uses' => 'UsersController@show']);
+    Route::get('users', ['as' => 'user.index', 'uses' => 'UsersController@index']);
 
 
     Route::group(

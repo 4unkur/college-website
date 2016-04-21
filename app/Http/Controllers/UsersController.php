@@ -16,7 +16,7 @@ class UsersController extends Controller
     {
         $users = User::paginate(20);
 
-        return view('users.list', compact('users'));
+        return view('front.users.list', compact('users'));
     }
 
     /**
@@ -25,10 +25,10 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $user = User::findOrFail($id);
+        $user = User::where('slug', $slug)->where('status', 'active')->first();
 
-        return view('users.view', compact('user'));
+        return view('front.users.view', compact('user'));
     }
 }

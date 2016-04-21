@@ -33,6 +33,14 @@ class CustomServiceProvider extends ServiceProvider
         ];
 
         view()->share('adminMenu', $adminMenuItems);
+        
+        $menuItems = [
+            ['title' => trans('p.home'), 'route' => 'index'],
+            ['title' => trans('p.news'), 'route' => 'news.index'],
+            ['title' => trans('p.users'), 'route' => 'user.index'],
+        ];
+
+        view()->share('menu', $menuItems);
     }
 
     /**
