@@ -25,7 +25,7 @@
 
                 {!! $news->render() !!}
             </div>
-            @include('front.news.block-recent')
+            @include('front.news.block-random')
         </div>
     </div>
 </section>

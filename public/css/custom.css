@@ -1,0 +1,8 @@
+.social > .fa {
+    font-size: 30px;
+    margin-right: 15px;
+}
+
+.social > .fa:hover {
+    color: #23bcf5;
+}

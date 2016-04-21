@@ -68,6 +68,7 @@ return [
     'collapse' => 'Кичирейтүү/Чоңойтуу',
     'tooltip_only_num' => 'Сан гана жазыңыз',
     'tooltip_dateformat' => 'yyyy/mm/dd форматында жазыңыз. Мисалы, 1993-03-24',
+    'tooltip_url_format' => 'URL\'ди доменсиз жазыңыз',
 
     'save' => 'Сактоо',
 

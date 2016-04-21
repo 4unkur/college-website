@@ -42,7 +42,7 @@ return array(
      */
     'dimensions' => array(
         'rect' => array(800, 480),
-        'square' => array(250, 250, true),
+        'square' => array(400, 400, true),
     ),
 
     /*

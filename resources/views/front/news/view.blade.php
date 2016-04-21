@@ -15,7 +15,7 @@
                 {!! $news->text !!}
             </article>
         </section>
-        @include('front.news.block-recent')
+        @include('front.news.block-random')
     </div>
 </div>
 @stop

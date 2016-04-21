@@ -14,7 +14,7 @@ Route::group([
     Route::get('auth/confirm/{email}/{code}', ['as' => 'auth.confirm', 'uses' => 'Auth\AuthController@confirm']);
 
     Route::get('', ['as' => 'index', 'uses' => function () {
-        return view('front.layouts.index');
+        return view('front.index');
     }]);
 
     Route::get('news', ['as' => 'news.index', 'uses' => 'NewsController@index']);

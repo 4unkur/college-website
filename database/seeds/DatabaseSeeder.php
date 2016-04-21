@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-use College\News;
+use College\Page;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,17 +16,18 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         foreach (range(0, 100) as $i) {
-            $news = new News();
-            $string = 'qwertyuiopjsdfbaksjdvxcnvzdfkhowialsdfasjdjvbzxcnvbjasdhdfqhwfjasdlfasldjfpoqwifasvbxc';
-            $title = substr(str_shuffle($string), 0, 10);
-            $news->slug = str_slug($title);
-            $status = ['active', 'inactive'];
-            $news->status = $status[rand(0,1)];
-            foreach (config('laravellocalization.supportedLocales') as $locale => $language)
-            {
-                $news->translateOrNew($locale)->title = $title;
-            }
-            $news->save();
+            $aboutPage = new Page();
+            $aboutPage->slug = 'about';
+            $aboutPage->status = 'active';
+            $aboutPage->translateOrNew('kg')->title = 'Биз жөнүндө';
+            $aboutPage->translateOrNew('ru')->title = 'О нас';
+            $aboutPage->translateOrNew('kg')->content = 'Nam eget dui. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Donec vitae sapien ut libero venenatis faucibus. Ut id nisl quis enim dignissim sagittis.
+
+In turpis. Phasellus gravida semper nisi. Fusce fermentum odio nec arcu. Sed mollis, eros et ultrices tempus, mauris ipsum aliquam libero, non adipiscing dolor urna a orci. Phasellus magna.';
+            $aboutPage->translateOrNew('ru')->content = 'Nam eget dui. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Donec vitae sapien ut libero venenatis faucibus. Ut id nisl quis enim dignissim sagittis.
+
+In turpis. Phasellus gravida semper nisi. Fusce fermentum odio nec arcu. Sed mollis, eros et ultrices tempus, mauris ipsum aliquam libero, non adipiscing dolor urna a orci. Phasellus magna.';
+            $aboutPage->save();
         }
 
         Model::reguard();

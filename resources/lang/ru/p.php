@@ -58,6 +58,7 @@ return [
     'collapse' => 'Свернуть/Развернуть',
     'tooltip_only_num' => 'Введите только цифры',
     'tooltip_dateformat' => 'Введите дату в формате: yyyy/mm/dd. Например, 1993-03-24',
+    'tooltip_url_format' => 'Введите URL без домена',
 
     'save' => 'Сохранить',
 
