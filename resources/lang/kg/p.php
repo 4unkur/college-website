@@ -54,7 +54,7 @@ return [
     'phone' => 'Телефон',
 
     'profile' => 'Жеке баракчасы',
-    'signout' => 'Чыгуу',
+    'logout' => 'Чыгуу',
 
     'registered_at' => 'Катталган:',
 

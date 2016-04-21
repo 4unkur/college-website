@@ -137,7 +137,7 @@
                                 <a href="{{ route('admin.user.show', [$activeUser->id]) }}" class="btn btn-default btn-flat">{{ trans('p.profile') }}</a>
                             </div>
                             <div class="pull-right">
-                                <a href="{{ url('auth/logout') }}" class="btn btn-default btn-flat">{{ trans('p.signout') }}</a>
+                                <a href="{{ url('auth/logout') }}" class="btn btn-default btn-flat">{{ trans('p.logout') }}</a>
                             </div>
                         </li>
                     </ul>

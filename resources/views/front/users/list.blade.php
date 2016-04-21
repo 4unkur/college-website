@@ -3,9 +3,9 @@
 @section('content')
     <section class="recent-posts">
         <div class="container">
-            <h2 class="text-center">our blog</h2>
+            <h2 class="text-center">{{ trans('p.users') }}</h2>
             <span class="text-center separator"></span>
-            <p class="small-paragraph text-center">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
+            <p class="small-paragraph text-center"></p>
             <div class="row no_padding">
                 <div class="col-md-9">
                     @if (count($users))
