@@ -2,9 +2,7 @@
 
 namespace College\Http\Controllers;
 
-use Illuminate\Http\Request;
 use College\Http\Requests;
-use College\Http\Controllers\Controller;
 use College\News;
 
 class NewsController extends Controller
@@ -16,9 +14,10 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::where('status', 'active')->paginate(5); //TODO: change it to value of config
+        $news = News::where('status', 'active')->orderBy('created_at', 'desc')->paginate(config('college.news_per_page'));
+        $blockData = News::where('status', 'active')->orderByRaw("RAND()")->limit(4)->get();
 
-        return view('front.news.list', compact('news'));
+        return view('front.news.list')->with('news', $news)->with('blockData', $blockData);
     }
 
 
@@ -30,12 +29,14 @@ class NewsController extends Controller
      */
     public function show($slug)
     {
-        $news = News::where('slug', $slug)->where('status', 'active')->first();
-
+        $news = News::where('slug', $slug)->where('status', 'active')->get();
+        $blockData = News::where('status', 'active')->orderByRaw("RAND()")->limit(4)->get();
+        $news = $news[0];
+        $random = isset($news[1]) ? $news[1] : [];
         if (empty($news)) {
             abort(404);
         }
 
-        return view('front.news.view', compact('news'));
+        return view('front.news.view')->with('news', $news)->with('blockData', $blockData)->with('random', $random);
     }
 }

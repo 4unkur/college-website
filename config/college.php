@@ -20,5 +20,7 @@ return [
         'student', 
         'user', 
     ],
+    
+    'news_per_page' => 5,
 
 ];

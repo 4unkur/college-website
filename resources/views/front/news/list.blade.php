@@ -25,24 +25,7 @@
 
                 {!! $news->render() !!}
             </div>
-
-            {{-- TODO: separate this to block, show popular news --}}
-            <div class="col-md-3">
-                <div class="icon-item"> <img src="images/content__images/small_post1.jpg" alt="small-post-img" class="img-responsive">
-                    <h4><a href="#">Donec odio. Quisque volutpat mattis eros.</a></h4>
-                </div>
-                <div class="icon-item"> <img src="images/content__images/small_post2.jpg" alt="small-post-img" class="img-responsive">
-                    <h4><a href="#">Lorem ipsum dolor sit consectetuer adipiscing elit. Donec odio.</a></h4>
-                </div>
-                <div class="icon-item"> <img src="images/content__images/small_post3.jpg" alt="small-post-img" class="img-responsive">
-                    <h4><a href="#">Quisque volutpat mattis eros. Aliquam erat volutpat. Nam dui mi.</a></h4>
-                </div>
-                <div class="icon-item"> <img src="images/content__images/small_post4.jpg" alt="small-post-img" class="img-responsive">
-                    <h4><a href="#">Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus.</a></h4>
-                </div>
-            </div>
-            {{-- END TODO: separate this to block, show popular news --}}
-
+            @include('front.news.block-recent')
         </div>
     </div>
 </section>

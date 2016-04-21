@@ -14,7 +14,7 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('slug')->unique();
+            $table->string('slug')->unique()->index();
             $table->enum('status', config('college.statuses'))->default('inactive');
             $table->string('image');
             $table->timestamps();
