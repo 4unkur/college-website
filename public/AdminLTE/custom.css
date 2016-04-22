@@ -27,3 +27,7 @@
 .status-inactive {
     background-color: #dd4b39;
 }
+
+.user-panel>.image>img {
+    height: 45px;
+}

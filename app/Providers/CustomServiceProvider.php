@@ -34,6 +34,11 @@ class CustomServiceProvider extends ServiceProvider
                     ['title' => trans('p.list'), 'route' => 'admin.page.index', 'icon' => 'list'],
                 ],
                 ],
+                ['title' => trans('p.import'), 'route' => '#', 'icon' => 'database', 'children' => [
+                    ['title' => trans('p.list'), 'route' => 'admin.import.index', 'icon' => 'list'],
+                    ['title' => trans('p.examresults'), 'route' => 'admin.import.examresult', 'icon' => 'check-square-o'],
+                ],
+                ],
             ]);
         });
 

@@ -67,6 +67,13 @@ Route::group([
         Route::put('user/{id}', ['as' => 'admin.user.update', 'uses' => 'UsersController@update']);
         Route::delete('user/{id}', ['as' => 'admin.user.destroy', 'uses' => 'UsersController@destroy']);
         Route::delete('user/delete/image/{id}', ['as' => 'admin.user.delete.image', 'uses' => 'UsersController@deleteImage']);
+        
+        Route::get('import', ['as' => 'admin.import.index', 'uses' => 'ImportController@index']);
+        Route::get('import/examresult', ['as' => 'admin.import.examresult', 'uses' => 'ImportController@examresult']);
+
+        Route::get('examresults', ['as' => 'admin.examresult.index', 'uses' => 'ExamResultsController@index']);
+//        Route::get('examresult/create', ['as' => 'admin.examresult.create', 'uses' => 'ExamResultsController@create']);
+        Route::post('examresult/store', ['as' => 'admin.examresult.store', 'uses' => 'ExamResultsController@store']);
 
     });
     Route::get('{slug}', ['as' => 'page.show', 'uses' => 'PagesController@show']);
