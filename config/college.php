@@ -22,5 +22,6 @@ return [
     ],
     
     'news_per_page' => 5,
+    'users_per_page' => 10,
 
 ];

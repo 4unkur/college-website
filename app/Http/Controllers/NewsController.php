@@ -15,9 +15,8 @@ class NewsController extends Controller
     public function index()
     {
         $news = News::where('status', 'active')->orderBy('created_at', 'desc')->paginate(config('college.news_per_page'));
-        $blockData = News::where('status', 'active')->orderByRaw("RAND()")->limit(4)->get();
 
-        return view('front.news.list')->with('news', $news)->with('blockData', $blockData);
+        return view('front.news.list')->with('news', $news);
     }
 
 
@@ -29,14 +28,11 @@ class NewsController extends Controller
      */
     public function show($slug)
     {
-        $news = News::where('slug', $slug)->where('status', 'active')->get();
-        $blockData = News::where('status', 'active')->orderByRaw("RAND()")->limit(4)->get();
-        $news = $news[0];
-        $random = isset($news[1]) ? $news[1] : [];
+        $news = News::where('slug', $slug)->where('status', 'active')->first();
         if (empty($news)) {
             abort(404);
         }
 
-        return view('front.news.view')->with('news', $news)->with('blockData', $blockData)->with('random', $random);
+        return view('front.news.view')->with('news', $news);
     }
 }

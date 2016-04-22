@@ -55,23 +55,23 @@
             </div>
         </div>
     </div>
+    @if ($latestNews)
     <div class="row  three__blocks text-center no_padding no-margin">
         <div class="container">
-            <h2>WHAT WE DO</h2>
+            <h2>{{ trans('p.news_latest') }}</h2>
             <span class="separator"></span>
-            <p class="small-paragraph">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
-            <div class="col-md-6 img-rounded"> <img src="/front/images/content__images/pic1.jpg" alt="pic" class="img-rounded img-responsive">
-                <h3>Commodo id natoque malesuada sollicitudin elit suscipit.</h3>
-                <p class="smaller">Praesent semper mod quis eget mi. Etiam eu ante risus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-                <p><a href="#" class="btn btn-info btn-lg">Learn more</a></p>
+            <p class="small-paragraph"></p>
+            @foreach ($latestNews as $news)
+            <div class="col-md-6 img-rounded"> {!! Html::image('uploads/images/news/rect/' . $news->image, null, ['class' => 'img-rounded img-responsive', 'alt' => $news->title]) !!}
+                <h3>{{ $news->title }}</h3>
+                <p class="smaller">{{ \Carbon\Carbon::parse($news->created_at)->format('d/m/Y') }}</p>
+                <p>
+                    {!! str_limit(strip_tags($news->text), 300) !!}
+                </p>
+                <p><a href="{{ route('news.show', [$news->slug]) }}" class="btn btn-info btn-lg">{{ trans('p.read_more') }}</a></p>
             </div>
-            <div class="col-md-6 img-rounded"> <img src="/front/images/content__images/pic2.jpg" alt="pic" class="img-rounded img-responsive">
-                <h3>Aliquam luctus et mattis lectus Nam nec turpis consequat.</h3>
-                <p class="smaller">Praesent semper mod quis eget mi. Etiam eu ante risus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-                <p><a href="#" class="btn btn-info btn-lg">Learn more</a></p>
-            </div>
+            @endforeach
         </div>
     </div>
+    @endif
 @stop

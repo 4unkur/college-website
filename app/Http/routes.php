@@ -20,10 +20,15 @@ Route::group([
     Route::get('news', ['as' => 'news.index', 'uses' => 'NewsController@index']);
     Route::get('news/{slug}', ['as' => 'news.show', 'uses' => 'NewsController@show']);
 
-    Route::get('user/{slug}', ['as' => 'user.show', 'uses' => 'UsersController@show']);
     Route::get('users', ['as' => 'user.index', 'uses' => 'UsersController@index']);
+    Route::get('user/{slug}', ['as' => 'user.show', 'uses' => 'UsersController@show']);
 
+    Route::get('staff', ['as' => 'staff.index', 'uses' => 'UsersController@staffList']);
+    Route::get('staff/{slug}', ['as' => 'staff.show', 'uses' => 'UsersController@show']);
 
+    Route::get('students', ['as' => 'student.index', 'uses' => 'UsersController@studentList']);
+    Route::get('student/{slug}', ['as' => 'student.show', 'uses' => 'UsersController@show']);
+    
     Route::group(
         [
             'prefix' => 'admin',

@@ -2,6 +2,7 @@
 
 namespace College\Providers;
 
+use Auth;
 use College\News;
 use College\Page;
 use Illuminate\Support\ServiceProvider;
@@ -37,17 +38,28 @@ class CustomServiceProvider extends ServiceProvider
         });
 
         view()->composer('front.partials.menu', function($view) {
-            $view->with('menu', [
+            $items = [
                 ['title' => trans('p.home'), 'route' => 'index'],
                 ['title' => trans('p.news'), 'route' => 'news.index'],
-                ['title' => trans('p.users'), 'route' => 'user.index'],
-            ]);
+            ];
+
+            if (Auth::check()) {
+                $items[] = ['title' => trans('p.users'), 'route' => 'user.index'];
+                $items[] = ['title' => trans('p.staff'), 'route' => 'staff.index'];
+                $items[] = ['title' => trans('p.students'), 'route' => 'student.index'];
+            }
+
+            $view->with('menu', $items);
         });
 
         view()->composer('front.news.block-random', function($view) {
-            $news = News::latest()->limit(4)->get();
+            $news = News::where('status', 'active')->orderByRaw('RAND()')->limit(4)->get();
             $random = $news->shift();
-            $view->with('randomNews', $random)->with('latestNews', $news);
+            $view->with('randomNewsEntry', $random)->with('randomNews', $news);
+        });
+
+        view()->composer('front.index', function($view) {
+            $view->with('latestNews', News::where('status', 'active')->latest()->limit(2)->get());
         });
         
         view()->composer('front.partials.footer', function($view) {

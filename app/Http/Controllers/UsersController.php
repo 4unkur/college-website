@@ -14,9 +14,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(20);
+        $users = User::where('type', 'user')->paginate(config('college.users_per_page'));
 
-        return view('front.users.list', compact('users'));
+        return view('front.users.list', compact('users'))->with('list', 'user');
     }
 
     /**
@@ -30,5 +30,19 @@ class UsersController extends Controller
         $user = User::where('slug', $slug)->where('status', 'active')->first();
 
         return view('front.users.view', compact('user'));
+    }
+
+    public function staffList()
+    {
+        $users = User::where('type', 'teacher')->paginate(config('college.users_per_page'));
+
+        return view('front.users.list', compact('users'))->with('list', 'staff');
+    }   
+    
+    public function studentList()
+    {
+        $users = User::where('type', 'student')->paginate(config('college.users_per_page'));
+
+        return view('front.users.list', compact('users'))->with('list', 'student');
     }
 }

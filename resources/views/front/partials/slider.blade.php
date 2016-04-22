@@ -1,7 +1,7 @@
 <section class="slider">
     <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
-            @foreach (range(1, 2) as $i)
+            @foreach (range(1, 3) as $i)
                 <div class="item @if (1 == $i) active @endif"> <img data-src="front/images/slider/slider{{ $i }}.jpg" alt="First slide" src="front/images/slider/slider{{ $i }}.jpg">
                     <div class="container">
                         <div class="carousel-caption">
