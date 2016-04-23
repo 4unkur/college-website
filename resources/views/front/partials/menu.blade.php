@@ -1,6 +1,6 @@
 @foreach($menu as $item)
     <li class="@if ($item['route'] == app('request')->route()->getName()) active @endif">
-        <a href="{!! route($item['route']) !!}">{!! $item['title']!!}</a>
+        <a href="{!! route($item['route'], isset($item['param']) ? [$item['param']] : []) !!}">{!! $item['title']!!}</a>
     </li>
 @endforeach
 @if (Auth::check())

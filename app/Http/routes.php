@@ -29,6 +29,8 @@ Route::group([
     Route::get('students', ['as' => 'student.index', 'uses' => 'UsersController@studentList']);
     Route::get('student/{slug}', ['as' => 'student.show', 'uses' => 'UsersController@show']);
     
+    Route::get('examresult/{email}', ['as' => 'examresult.show', 'uses' => 'ExamResultsController@show', 'middleware' => 'auth']);
+    
     Route::group(
         [
             'prefix' => 'admin',

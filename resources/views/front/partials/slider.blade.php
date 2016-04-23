@@ -9,6 +9,8 @@
                             <h1>Nullam at nulla consequat purus feugiat vehicula</h1>
                             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat.</p>
                             <p><a class="btn btn-default btn-lg" href="#" role="button">learn more</a></p>
+                            @if (Auth::check() && Auth::user()->type == 'student' && Auth::user()->result()->first())@endif {{-- TODO exam result text--}}
+
                         </div>
                     </div>
                 </div>

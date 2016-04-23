@@ -6,3 +6,7 @@
 .social > .fa:hover {
     color: #23bcf5;
 }
+
+.navbar-default .navbar-nav > li {
+    margin-left: 0;
+}

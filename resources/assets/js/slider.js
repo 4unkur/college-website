@@ -1,4 +1,4 @@
 $('.carousel').carousel({
-    interval: 3500, // in milliseconds
-    pause: 'none' // set to 'true' to pause slider on mouse hover
+    interval: 7000, // in milliseconds
+    pause: 'true' // set to 'true' to pause slider on mouse hover
 });

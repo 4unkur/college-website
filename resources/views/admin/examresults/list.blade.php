@@ -19,7 +19,7 @@
             <div class="box-header">
                 <h4>
                     <a href="{{ route('admin.import.examresult') }}" >
-                        <i class="fa fa-plus-square"></i> <span>{{ trans('p.new_examresults') }}</span>
+                        <i class="fa fa-plus-square"></i> <span>{{ trans('p.import_examresults') }}</span>
                     </a>
                 </h4>
                 </div>

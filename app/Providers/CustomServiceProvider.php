@@ -36,7 +36,7 @@ class CustomServiceProvider extends ServiceProvider
                 ],
                 ['title' => trans('p.import'), 'route' => '#', 'icon' => 'database', 'children' => [
                     ['title' => trans('p.add'), 'route' => 'admin.import.index', 'icon' => 'plus-square'],
-                    ['title' => trans('p.examresults'), 'route' => 'admin.import.examresult', 'icon' => 'check-square-o'],
+                    ['title' => trans('p.import_examresults_br'), 'route' => 'admin.import.examresult', 'icon' => 'check-square-o'],
                 ],
                 ],
                 ['title' => trans('p.examresults'), 'route' => 'admin.examresult.index', 'icon' => 'check-square-o']
@@ -53,6 +53,10 @@ class CustomServiceProvider extends ServiceProvider
                 $items[] = ['title' => trans('p.users'), 'route' => 'user.index'];
                 $items[] = ['title' => trans('p.staff'), 'route' => 'staff.index'];
                 $items[] = ['title' => trans('p.students'), 'route' => 'student.index'];
+                $user = Auth::user();
+                if ($user->type = 'student' && $user->result()->first()) {
+                    $items[] = ['title' => trans('p.examresults'), 'route' => 'examresult.show', 'param' => $user->email];
+                }
             }
 
             $view->with('menu', $items);

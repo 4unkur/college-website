@@ -63,4 +63,9 @@ class User extends Model implements AuthenticatableContract,
         $count = self::where('slug', $value)->count();
         $this->attributes['slug'] = empty($count) ? $value : $value . $count . rand(1, 10);
     }
+
+    public function result()
+    {
+        return $this->hasOne(ExamResult::class, 'student_id');
+    }
 }
