@@ -34,12 +34,17 @@ class CustomServiceProvider extends ServiceProvider
                     ['title' => trans('p.list'), 'route' => 'admin.page.index', 'icon' => 'list'],
                 ],
                 ],
+                ['title' => trans('p.videocourses'), 'route' => '#', 'icon' => 'play-circle', 'children' => [
+                    ['title' => trans('p.add'), 'route' => 'admin.videocourse.create', 'icon' => 'plus-square'],
+                    ['title' => trans('p.list'), 'route' => 'admin.videocourse.index', 'icon' => 'list'],
+                ],
+                ],
+                ['title' => trans('p.examresults'), 'route' => 'admin.examresult.index', 'icon' => 'check-square-o'],
                 ['title' => trans('p.import'), 'route' => '#', 'icon' => 'database', 'children' => [
                     ['title' => trans('p.add'), 'route' => 'admin.import.index', 'icon' => 'plus-square'],
                     ['title' => trans('p.import_examresults_br'), 'route' => 'admin.import.examresult', 'icon' => 'check-square-o'],
                 ],
                 ],
-                ['title' => trans('p.examresults'), 'route' => 'admin.examresult.index', 'icon' => 'check-square-o']
             ]);
         });
 

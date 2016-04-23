@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('header')
-    {{ trans('p.news') }} :
+    {{ trans('p.videocourses') }} :
 @stop
 
 @section('subheader')

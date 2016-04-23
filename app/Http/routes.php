@@ -74,8 +74,10 @@ Route::group([
         Route::get('import/examresult', ['as' => 'admin.import.examresult', 'uses' => 'ImportController@examresult']);
 
         Route::get('examresults', ['as' => 'admin.examresult.index', 'uses' => 'ExamResultsController@index']);
-//        Route::get('examresult/create', ['as' => 'admin.examresult.create', 'uses' => 'ExamResultsController@create']);
         Route::post('examresult/store', ['as' => 'admin.examresult.store', 'uses' => 'ExamResultsController@store']);
+        
+        Route::get('videocourses', ['as' => 'admin.videocourse.index', 'uses' => 'VideoCoursesController@index']);
+        Route::get('videocourse/create', ['as' => 'admin.videocourse.create', 'uses' => 'VideoCoursesController@create']);
 
     });
     Route::get('{slug}', ['as' => 'page.show', 'uses' => 'PagesController@show']);
