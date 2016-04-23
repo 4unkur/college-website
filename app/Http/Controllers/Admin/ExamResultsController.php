@@ -18,7 +18,9 @@ class ExamResultsController extends Controller
      */
     public function index()
     {
-        //
+        $examresults = ExamResult::all();
+
+        return view('admin.examresults.list', compact('examresults'));
     }
 
     /**
@@ -47,6 +49,7 @@ class ExamResultsController extends Controller
         $csv = array_map('str_getcsv', file($file->getRealPath()));
         array_shift($csv);
         if ($csv) {
+            ExamResult::truncate();
             foreach ($csv as $row) {
                 if ($user = User::where('email', $row[0])->first()) {
                     $examresult = new ExamResult();
@@ -54,7 +57,6 @@ class ExamResultsController extends Controller
                     $examresult->points = $row[1];
                     $examresult->save();
                 }
-
             }
         }
 

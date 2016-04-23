@@ -22,7 +22,7 @@
                 {{--</li>--}}
             {{--</ul>--}}
 
-            <a href="mailto:{{ $user->email }}" class="btn btn-primary btn-block"><b>Send email</b></a>
+            <a href="mailto:{{ $user->email }}" class="btn btn-primary btn-block"><b>{{ trans('p.send_email') }}</b></a>
         </div><!-- /.box-body -->
     </div><!-- /.box -->
 
@@ -32,11 +32,11 @@
             <h3 class="box-title">About Me</h3>
         </div><!-- /.box-header -->
         <div class="box-body">
-            <strong><i class="fa fa-book margin-r-5"></i>  Education</strong>
+            <strong><i class="fa fa-book margin-r-5"></i> {{ trans('p.education') }}</strong>
             <p class="text-muted">{{ $user->education }}</p>
             <hr>
 
-            <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
+            <strong><i class="fa fa-map-marker margin-r-5"></i> {{ trans('p.location') }}</strong>
             <p class="text-muted">Бишкек, Кыргызстан</p>
             <hr>
 
@@ -50,20 +50,20 @@
             {{--</p>--}}
             {{--<hr>--}}
 
-            <strong><i class="fa fa-calendar margin-r-5"></i> Date of birth</strong>
+            <strong><i class="fa fa-calendar margin-r-5"></i> {{ trans('p.birth_date') }}</strong>
             <p class="text-muted">{{ $user->birth_date }}</p>
             <hr>
 
-            <strong><i class="fa fa-file-text-o margin-r-5"></i> Bio</strong>
+            <strong><i class="fa fa-file-text-o margin-r-5"></i> {{ trans('p.bio') }}</strong>
             <div>{!! $user->bio !!}</div>
             <hr>
 
-            <strong><i class="fa fa-inbox margin-r-5"></i> Contacts</strong>
+            <strong><i class="fa fa-inbox margin-r-5"></i> {{ trans('p.contacts') }}</strong>
             <p><span class="fa fa-phone"> <a href="tel:{{ $user->phone }}">{{ $user->phone }}</a></span></p>
             <p><span class="fa fa-envelope"> <a href="mailto:{{ $user->email }}">{{ $user->email }}</a></span></p>
             <hr>
 
-            <strong><i class="fa fa-share-alt margin-r-5"></i> Social</strong>
+            <strong><i class="fa fa-share-alt margin-r-5"></i> {{ trans('p.social') }}</strong>
             <div>
                 @if ($user->fb) <p><span class="fa fa-facebook-official"></span> <a href="https://facebook.com/{{ $user->fb }}">{{ $user->fb }}</a></p> @endif
                 @if ($user->twitter) <p><span class="fa fa-twitter"></span> <a href="https://twitter.com/{{ $user->twitter }}">&commat;{{ $user->twitter }}</a></p> @endif

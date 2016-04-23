@@ -1,5 +1,14 @@
 @extends('admin.master')
 
+@section('header')
+    {{ trans('p.import') }} :
+@stop
+
+@section('subheader')
+    {{ trans('p.examresults') }}
+@stop
+
+@section('content')
 @section('content')
     <section class="content">
         <div class="row">

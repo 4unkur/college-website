@@ -88,6 +88,19 @@ return [
     'news_latest' => 'Акыркы жаңылыктар',
     'about' => 'Биз жөнүндө',
     'contacts' => 'Байланыш',
-    'location' => 'Дарек'
+    'location' => 'Дарек',
+
+    'name' => 'Аты',
+    'passed' => 'Өттү',
+    'points' => 'Упайы',
+    'examresults' => 'Сынак жыйынтыгы',
+    'import' => 'Импорт',
+    'import_examresults' => 'Сынак жыйынтыктарын базага жүктөө',
+    'csv_file' => 'CSV файл',
+    
+    'social' => 'Социалдык тармактар',
+    'send_email' => 'Кат жөнөтүү',
+    'new_examresults' => 'Жаңы жыйынтыктарды жүктөө',
+
 
 ];

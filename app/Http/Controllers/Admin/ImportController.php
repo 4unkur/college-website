@@ -21,7 +21,7 @@ class ImportController extends Controller
 
     public function examresult()
     {
-        return view('admin.import.examresults.list');
+        return view('admin.examresults.create');
     }
     /**
      * Show the form for creating a new resource.
