@@ -54,7 +54,7 @@ class CustomServiceProvider extends ServiceProvider
                 $items[] = ['title' => trans('p.staff'), 'route' => 'staff.index'];
                 $items[] = ['title' => trans('p.students'), 'route' => 'student.index'];
                 $user = Auth::user();
-                if ($user->type = 'student' && $user->result()->first()) {
+                if ('student' == $user->type && $user->result()->first()) {
                     $items[] = ['title' => trans('p.examresults'), 'route' => 'examresult.show', 'param' => $user->email];
                 }
             }
