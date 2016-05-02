@@ -105,4 +105,12 @@ return [
     'your_points' => 'Сиз :points балл алдыңыз',
     'fail' => 'Тилекке каршы, сиз өтпөй калдыңыз...',
     'success' => 'Куттуктайбыз. сиз ийгиликтүү өттүңүз!',
+
+    'videocourses' => 'Видеосабактар',
+    'full_youtube_video_url' => 'Толук Youtube URL',
+    'attach_files' => 'Файлдарды тиркөө',
+    'attached_files' => 'Тиркелген файлдар',
+    'watch_on_youtube' => 'Youtube\'та көрүү',
+    'video' => 'Видео',
+
 ];

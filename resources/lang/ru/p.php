@@ -94,4 +94,10 @@ return [
     'fail' => 'К сожалению, вы не прошли...',
     'success' => 'Позравляем. вы успешно прошли!',
 
+    'videocourses' => 'Видеоуроки',
+    'full_youtube_video_url' => 'Полный Youtube URL',
+    'attach_files' => 'Прикрепить файлы',
+    'attached_files' => 'Прикрепленные файлы',
+    'watch_on_youtube' => 'Смотреть на Youtube',
+
 ];

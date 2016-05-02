@@ -52,10 +52,11 @@ class CustomServiceProvider extends ServiceProvider
             $items = [
                 ['title' => trans('p.home'), 'route' => 'index'],
                 ['title' => trans('p.news'), 'route' => 'news.index'],
+                ['title' => trans('p.videocourses'), 'route' => 'videocourse.index'],
             ];
 
             if (Auth::check()) {
-                $items[] = ['title' => trans('p.users'), 'route' => 'user.index'];
+//                $items[] = ['title' => trans('p.users'), 'route' => 'user.index'];
                 $items[] = ['title' => trans('p.staff'), 'route' => 'staff.index'];
                 $items[] = ['title' => trans('p.students'), 'route' => 'student.index'];
                 $user = Auth::user();

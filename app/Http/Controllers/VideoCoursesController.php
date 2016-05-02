@@ -2,6 +2,7 @@
 
 namespace College\Http\Controllers;
 
+use College\VideoCourse;
 use Illuminate\Http\Request;
 
 use College\Http\Requests;
@@ -16,7 +17,9 @@ class VideoCoursesController extends Controller
      */
     public function index()
     {
-        return 'list';
+        $videocourses = VideoCourse::where('status', 'active')->paginate(config('college.news_per_page'));
+        
+        return view('front.videocourses.list', compact('videocourses'));
     }
 
     /**
@@ -27,6 +30,8 @@ class VideoCoursesController extends Controller
      */
     public function show($slug)
     {
-        return 'view' . $slug;
+        $videocourse = VideoCourse::where('status', 'active')->where('slug', $slug)->first();
+
+        return view('front.videocourses.view', compact('videocourse'));
     }
 }

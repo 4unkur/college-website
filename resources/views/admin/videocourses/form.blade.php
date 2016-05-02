@@ -4,7 +4,7 @@
         {!! Form::text('video', null, ['class' => 'form-control']) !!}
     </div>
     <div class="form-group">
-        <label for="">{{ trans('p.files') }}</label>
+        <label for="">{{ trans('p.attach_files') }}</label>
         <div>
             <input type="file" name="files[]" multiple>
         </div>
@@ -12,6 +12,7 @@
             <?php $files = unserialize($videocourse['files']); ?>
             @if ($files)
                     <br>
+                <label>{{ trans('p.attached_files') }}</label>
                 @foreach($files as $file)
                     <div><span class="fa fa-file"></span> <a href="{{ url() . '/uploads/' . $file }}" download>{{ $file }}</a>
                         <a class="text-danger admin-file-remove-button" href="{{ route('admin.videocourse.delete.file', [$videocourse->id]) }}" data-file="{{ $file }}" data-token="{{ csrf_token() }}"><span class="fa fa-close"></span></a></div>
