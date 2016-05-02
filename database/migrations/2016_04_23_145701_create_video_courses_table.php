@@ -17,7 +17,7 @@ class CreateVideoCoursesTable extends Migration
             $table->string('slug')->unique()->index();
             $table->enum('status', config('college.statuses'))->default('inactive');
             $table->integer('user_id')->unsigned()->nullable();
-            $table->string('image');
+            $table->string('video');
             $table->string('files');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');

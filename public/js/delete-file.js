@@ -1,7 +1,8 @@
-$('.admin-image-remove-button').click(function (e) {
+$('.admin-file-remove-button').click(function (e) {
 	e.preventDefault();
 
 	var $this = $(this);
+	var url = this.href;
 
 	swal({
 		title: "Are you sure?",
@@ -11,11 +12,11 @@ $('.admin-image-remove-button').click(function (e) {
 		closeOnConfirm: false,
 		showLoaderOnConfirm: true
 	}, function(){
-		$.ajax($this.data('url'), {
+		$.ajax(url, {
 			type: 'delete',
 			dataType: 'json',
 			data: {
-				path: $this.data('image'),
+				path: $this.data('file'),
 				_token: $this.data('token'),
 				_method: 'delete'
 			},

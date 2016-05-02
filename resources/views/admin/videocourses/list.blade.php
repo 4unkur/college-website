@@ -5,7 +5,7 @@
 @stop
 
 @section('header')
-    {{ trans('p.news') }} :
+    {{ trans('p.videocourses') }} :
 @stop
 
 @section('subheader')
@@ -13,7 +13,7 @@
 @stop
 
 @section('content')
-    @if (isset($news) && count($news))
+    @if (isset($videocourses) && count($videocourses))
     <div class="box">
         <div class="box-header">
         </div><!-- /.box-header -->
@@ -23,6 +23,8 @@
                 <tr>
                     <th>№</th>
                     <th>{{ trans('p.title') }}</th>
+                    <th>{{ trans('p.watch_on_youtube') }} <span class="fa fa-youtube"></span></th>
+                    <th>{{ trans('p.video') }}</th>
                     <th>{{ trans('p.date') }}</th>
                     <th>{{ trans('p.status') }}</th>
                     <th>{{ trans('p.edit') }}</th>
@@ -30,14 +32,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach ($news as $entry)
+                @foreach ($videocourses as $entry)
                     <tr>
                         <td width="40px">{{ $entry->id }}</td>
-                        <td><a href="{{ route('news.show', $entry->slug) }}" target="_blank">{{ $entry->title }}</a></td>
+                        <td>{{ $entry->title }}</td>
+                        <td><a href="https://youtu.be/{{ $entry->video }}" target="_blank"><span class="fa fa-play"></span></a></td>
+                        <td><a href="{{ route('videocourse.show', [$entry->slug]) }}" target="_blank"><span class="fa fa-eye"></span></a></td>
                         <td width="200px">{{ \Carbon\Carbon::parse($entry->created_at)->format('d/m/Y') }}</td>
                         <td width="200px"><span class="badge status-{{ $entry->status }}">{{ $entry->status }}</span></td>
-                        <td width="40px"><a href="{{ route('admin.news.edit', $entry->id) }}"><i class="fa fa-pencil-square-o"></i></a></td>
-                        <td width="40px"><a href="{{ route('admin.news.destroy', $entry->id) }}" class="delete-entry" data-token="{{ csrf_token() }}"><i class="fa fa-trash-o"></i></a></td>
+                        <td width="40px"><a href="{{ route('admin.videocourse.edit', $entry->id) }}"><i class="fa fa-pencil-square-o"></i></a></td>
+                        <td width="40px"><a href="{{ route('admin.videocourse.destroy', $entry->id) }}" class="delete-entry" data-token="{{ csrf_token() }}"><i class="fa fa-trash-o"></i></a></td>
                     </tr>
                 @endforeach
                 </tbody>

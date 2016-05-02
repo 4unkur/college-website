@@ -3,8 +3,8 @@
 @section('content')
     <div class="row blue__line">
         <div class="container text-center">
-            <h1>{{ $student->first_name . ' ' . $student->last_name }}</h1>
-            <p class="big-paragraph">{{ trans('p.your_points', ['points' => $result->points]) }}</p>
+            <h1>{{ trans('p.your_points', ['points' => $result->points]) }}</h1>
+            <p class="big-paragraph">{{ $student->first_name . ' ' . $student->last_name }}</p>
         </div>
     </div>
     <div class="row">

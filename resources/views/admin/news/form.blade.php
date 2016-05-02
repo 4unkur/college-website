@@ -15,7 +15,7 @@
                 <div class="content">
                     <div class="form-group">
                         {!! Form::label('title', trans('p.title')) !!}
-                        {!! Form::text("title[$langCode]", null, ['class' => 'form-control', 'placeholder' => 'Input title']) !!}
+                        {!! Form::text("title[$langCode]", null, ['class' => 'form-control']) !!}
                     </div>
                     {!! Form::textarea("text[$langCode]", null, ['rows' => 10, 'cols' => 80, 'id' => "text[$langCode]"]) !!}
                 </div>

@@ -30,6 +30,9 @@ Route::group([
     Route::get('student/{slug}', ['as' => 'student.show', 'uses' => 'UsersController@show']);
     
     Route::get('examresult/{email}', ['as' => 'examresult.show', 'uses' => 'ExamResultsController@show', 'middleware' => 'auth']);
+
+    Route::get('videocourses', ['as' => 'videocourse.index', 'uses' => 'VideoCoursesController@index']);
+    Route::get('videocourse/{slug}', ['as' => 'videocourse.show', 'uses' => 'VideoCoursesController@show']);
     
     Route::group(
         [
@@ -78,6 +81,11 @@ Route::group([
         
         Route::get('videocourses', ['as' => 'admin.videocourse.index', 'uses' => 'VideoCoursesController@index']);
         Route::get('videocourse/create', ['as' => 'admin.videocourse.create', 'uses' => 'VideoCoursesController@create']);
+        Route::post('videocourse/store', ['as' => 'admin.videocourse.store', 'uses' => 'VideoCoursesController@store']);
+        Route::get('videocourse/{id}/edit', ['as' => 'admin.videocourse.edit', 'uses' => 'VideoCoursesController@edit']);
+        Route::put('videocourse/{id}/update', ['as' => 'admin.videocourse.update', 'uses' => 'VideoCoursesController@update']);
+        Route::delete('videocourse/destroy/{id}', ['as' => 'admin.videocourse.destroy', 'uses' => 'VideoCoursesController@destroy']);
+        Route::delete('videocourse/delete/file/{id}', ['as' => 'admin.videocourse.delete.file', 'uses' => 'VideoCoursesController@deleteFile']);
 
     });
     Route::get('{slug}', ['as' => 'page.show', 'uses' => 'PagesController@show']);

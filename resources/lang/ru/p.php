@@ -78,7 +78,7 @@ return [
     'students' => 'Студенты',
     'news_latest' => 'Последние новости',
     'about' => 'О нас',
-    'contacts' => 'Конакты',
+    'contacts' => 'Контакты',
     'location' => 'Адрес',
 
     'name' => 'Имя',

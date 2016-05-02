@@ -1,34 +1,23 @@
-<div>
-    <?php $locales = config('laravellocalization.supportedLocales') ?>
-    <ul class="nav nav-tabs" role="tablist" id="news-tab">
-        @foreach ($locales as $langCode => $language)
-            <li role="presentation" @if ($language == reset($locales)) class="active" @endif >
-                <a href="#tab-content-{{ $langCode }}" role="tab" data-toggle="tab" data-language="{{ $langCode }}">
-                    {{ $language['native'] }}
-                </a>
-            </li>
-        @endforeach
-    </ul>
-    <div class="tab-content">
-        @foreach ($locales as $langCode => $language)
-            <div role="tabpanel" class="tab-pane tab-pane-bordered @if ($language == reset($locales)) active @endif" id="tab-content-{{ $langCode }}">
-                <div class="content">
-                    <div class="form-group">
-                        {!! Form::label('title', trans('p.title')) !!}
-                        {!! Form::text("title[$langCode]", null, ['class' => 'form-control', 'placeholder' => 'Input title']) !!}
-                    </div>
-                    {!! Form::textarea("text[$langCode]", null, ['rows' => 10, 'cols' => 80, 'id' => "text[$langCode]"]) !!}
-                </div>
-            </div>
-        @endforeach
-    </div>
-</div>
 <div class="content bordered">
     <div class="form-group">
-        <label for="">{{ trans('p.image') }}</label>
+        {!! Form::label('video', trans('p.full_youtube_video_url')) !!}
+        {!! Form::text('video', null, ['class' => 'form-control']) !!}
+    </div>
+    <div class="form-group">
+        <label for="">{{ trans('p.files') }}</label>
         <div>
-            {!! Form::file('image') !!}
+            <input type="file" name="files[]" multiple>
         </div>
+        @if (isset($videocourse['files']) && $videocourse['files'])
+            <?php $files = unserialize($videocourse['files']); ?>
+            @if ($files)
+                    <br>
+                @foreach($files as $file)
+                    <div><span class="fa fa-file"></span> <a href="{{ url() . '/uploads/' . $file }}" download>{{ $file }}</a>
+                        <a class="text-danger admin-file-remove-button" href="{{ route('admin.videocourse.delete.file', [$videocourse->id]) }}" data-file="{{ $file }}" data-token="{{ csrf_token() }}"><span class="fa fa-close"></span></a></div>
+                @endforeach
+            @endif
+        @endif
     </div>
     <div class="form-group">
         <label for="status">{{ trans('p.status') }}</label>
@@ -47,17 +36,18 @@
     @parent
     {!! Html::script('ckeditor/ckeditor.js') !!}
     <script>
-        $('#news-tab a').click(function (e) {
+        $('#videocourses-tab a').click(function (e) {
             e.preventDefault();
             $(this).tab('show');
         });
-        $('a[data-toggle="tab"]', '#news-tab').on('shown.bs.tab', function()
+        $('a[data-toggle="tab"]', '#videocourses-tab').on('shown.bs.tab', function()
         {
             var langCode = $(this).data('language');
-            CKEDITOR.instances['text[' + langCode + ']'] || CKEDITOR.replace('text[' + langCode + ']');
+            CKEDITOR.instances['description[' + langCode + ']'] || CKEDITOR.replace('description[' + langCode + ']');
 
             $('#js-active-language').val(langCode);
         });
-        $('a[data-toggle="tab"]:first', '#news-tab').trigger('shown.bs.tab');
+        $('a[data-toggle="tab"]:first', '#videocourses-tab').trigger('shown.bs.tab');
     </script>
+    {!! Html::script('js/delete-file.js') !!}
 @stop
