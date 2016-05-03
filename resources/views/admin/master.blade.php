@@ -52,10 +52,6 @@
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 
-
-
-@include ('admin.sidebar-right')
-
 </div><!-- ./wrapper -->
 
 @include('admin.footer')
