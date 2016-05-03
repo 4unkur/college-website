@@ -11,15 +11,15 @@
         <div class="col-md-12">
             <div class="error-template">
                 <h1>
-                    Oops!</h1>
+                    403</h1>
                 <h2>
-                    403 Forbidden</h2>
+                    {{ trans('p.oops') }}</h2>
                 <div class="error-details">
-                    Sorry, an error has occured, The action is not allowed!
+                    {{ trans('p.forbidden') }}
                 </div>
                 <div class="error-actions">
-                    <a href="#" class="btn btn-default btn-lg"><span class="fa fa-home"></span>Take Me Home </a>
-                    <a href="#" class="btn btn-success btn-lg"><span class="fa fa-envelope"></span> Contact Support </a>
+                    <a href="{{ route('index') }}" class="btn btn-default"><span class="fa fa-home"></span> {{ trans('p.go_home') }}</a>
+                    <a href="mailto:{{ \Setting::get('site_email') }}" class="btn btn-default"><span class="fa fa-envelope"></span> {{ trans('p.contact_support') }}</a>
                 </div>
             </div>
         </div>

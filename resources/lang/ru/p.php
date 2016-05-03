@@ -100,4 +100,10 @@ return [
     'attached_files' => 'Прикрепленные файлы',
     'watch_on_youtube' => 'Смотреть на Youtube',
 
+    'oops' => 'Просим извинения',
+    'not_found' => 'Запрашиваемая страница не найдена',
+    'go_home' => 'Домой',
+    'contact_support' => 'Связаться',
+    'forbidden' => 'Действие запрещено'
+
 ];
