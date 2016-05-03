@@ -45,6 +45,7 @@ class CustomServiceProvider extends ServiceProvider
                     ['title' => trans('p.import_examresults_br'), 'route' => 'admin.import.examresult', 'icon' => 'check-square-o'],
                 ],
                 ],
+                ['title' => trans('p.settings'), 'route' => 'admin.settings.index', 'icon' => 'gear'],
             ]);
         });
 

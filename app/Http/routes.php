@@ -86,6 +86,9 @@ Route::group([
         Route::put('videocourse/{id}/update', ['as' => 'admin.videocourse.update', 'uses' => 'VideoCoursesController@update']);
         Route::delete('videocourse/destroy/{id}', ['as' => 'admin.videocourse.destroy', 'uses' => 'VideoCoursesController@destroy']);
         Route::delete('videocourse/delete/file/{id}', ['as' => 'admin.videocourse.delete.file', 'uses' => 'VideoCoursesController@deleteFile']);
+        
+        Route::get('settings', ['as' => 'admin.settings.index', 'uses' => 'SettingsController@index']);
+        Route::post('settings', ['as' => 'admin.settings.store', 'uses' => 'SettingsController@store']);
 
     });
     Route::get('{slug}', ['as' => 'page.show', 'uses' => 'PagesController@show']);

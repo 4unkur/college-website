@@ -154,6 +154,7 @@ return [
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
 
         College\Providers\CustomServiceProvider::class,
+        anlutro\LaravelSettings\ServiceProvider::class,
 
     ],
 
@@ -209,6 +210,7 @@ return [
         'Imageupload' => Matriphe\Imageupload\ImageuploadFacade::class,
 
         'LaravelLocalization'   => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
+        'Setting' => 'anlutro\LaravelSettings\Facade',
 
     ],
 
