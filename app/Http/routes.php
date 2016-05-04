@@ -72,12 +72,14 @@ Route::group([
         Route::put('user/{id}', ['as' => 'admin.user.update', 'uses' => 'UsersController@update']);
         Route::delete('user/{id}', ['as' => 'admin.user.destroy', 'uses' => 'UsersController@destroy']);
         Route::delete('user/delete/image/{id}', ['as' => 'admin.user.delete.image', 'uses' => 'UsersController@deleteImage']);
-        
+        Route::post('user/import', ['as' => 'admin.user.import', 'uses' => 'UsersController@import']);
+
         Route::get('import', ['as' => 'admin.import.index', 'uses' => 'ImportController@index']);
         Route::get('import/examresult', ['as' => 'admin.import.examresult', 'uses' => 'ImportController@examresult']);
+        Route::get('import/user', ['as' => 'admin.import.user', 'uses' => 'ImportController@user']);
 
         Route::get('examresults', ['as' => 'admin.examresult.index', 'uses' => 'ExamResultsController@index']);
-        Route::post('examresult/store', ['as' => 'admin.examresult.store', 'uses' => 'ExamResultsController@store']);
+        Route::post('examresult/import', ['as' => 'admin.examresult.import', 'uses' => 'ExamResultsController@import']);
         
         Route::get('videocourses', ['as' => 'admin.videocourse.index', 'uses' => 'VideoCoursesController@index']);
         Route::get('videocourse/create', ['as' => 'admin.videocourse.create', 'uses' => 'VideoCoursesController@create']);

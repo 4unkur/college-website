@@ -29,7 +29,7 @@ class ExamResultsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function import(Request $request)
     {
         $this->validate($request, ['csv' => 'required']);
         $file = $request->file('csv');

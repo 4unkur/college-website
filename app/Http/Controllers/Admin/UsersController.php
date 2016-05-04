@@ -4,6 +4,7 @@ namespace College\Http\Controllers\Admin;
 
 use College\Http\Requests\UserAdditionRequest;
 use College\Http\Requests;
+use Illuminate\Http\Request;
 use College\Http\Controllers\Controller;
 use College\User;
 use Imageupload;
@@ -165,5 +166,30 @@ class UsersController extends Controller
         empty($id) || User::where('id', $id)->update(['avatar' => '']);
 
         return json_encode(true);
+    }
+
+    public function import(Request $request)
+    {
+        $this->validate($request, ['csv' => 'required']);
+        $file = $request->file('csv');
+        if ('csv' != $file->getClientOriginalExtension()) {
+            return redirect()->back()->withErrors('incorrect_type');
+        }
+        $csv = array_map('str_getcsv', file($file->getRealPath()));
+        array_shift($csv);
+        if ($csv) {
+            foreach ($csv as $row) {
+                if ($user = User::where('email', $row[0])->first()) {
+                    $newUser = new User();
+                    $newUser->email = $row[0];
+                    $newUser->first_name = $row[1];
+                    $newUser->last_name = $row[2];
+                    $newUser->type = $row[3];
+                    $newUser->save();
+                }
+            }
+        }
+
+        return redirect(route('admin.examresult.index'));
     }
 }

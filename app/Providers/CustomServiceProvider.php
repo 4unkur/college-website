@@ -43,6 +43,7 @@ class CustomServiceProvider extends ServiceProvider
                 ['title' => trans('p.import'), 'route' => '#', 'icon' => 'database', 'children' => [
                     ['title' => trans('p.add'), 'route' => 'admin.import.index', 'icon' => 'plus-square'],
                     ['title' => trans('p.import_examresults_br'), 'route' => 'admin.import.examresult', 'icon' => 'check-square-o'],
+                    ['title' => trans('p.import_users_br'), 'route' => 'admin.import.user', 'icon' => 'user-plus'],
                 ],
                 ],
                 ['title' => trans('p.settings'), 'route' => 'admin.settings.index', 'icon' => 'gear'],
