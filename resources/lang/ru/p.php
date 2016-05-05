@@ -124,6 +124,7 @@ return [
     'slider_button_url' => 'URL кнопки слайдера',
     'view_full' => 'Смотреть полностью',
     'latest_videocourses' => 'Последние видеоуроки',
-    'view_on_map' => 'Посмотреть на карте'
+    'view_on_map' => 'Посмотреть на карте',
+    'site_info' => 'Информация о сайте'
 
 ];
