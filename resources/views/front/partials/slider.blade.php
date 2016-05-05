@@ -8,7 +8,7 @@
                             <p class="little"><span>{{ Setting::get('slider_text_top') }}</span></p>
                             <h1>{{ Setting::get('slider_text_center') }}</h1>
                             <p>{{ Setting::get('slider_text_bottom') }}</p>
-                            <p><a class="btn btn-default btn-lg" href="{{ Setting::get('slider_buttom_url') }}" role="button">{{ Setting::get('slider_text_button') }}</a></p>
+                            <p><a class="btn btn-default btn-lg" href="{{ Setting::get('slider_button_url') }}" role="button">{{ Setting::get('slider_text_button') }}</a></p>
                             @if (Auth::check() && Auth::user()->type == 'student' && Auth::user()->result()->first())@endif {{-- TODO exam result text--}}
                         </div>
                     </div>
