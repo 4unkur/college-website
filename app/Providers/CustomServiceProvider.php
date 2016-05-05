@@ -5,6 +5,7 @@ namespace College\Providers;
 use Auth;
 use College\News;
 use College\Page;
+use College\VideoCourse;
 use Illuminate\Support\ServiceProvider;
 
 class CustomServiceProvider extends ServiceProvider
@@ -58,7 +59,6 @@ class CustomServiceProvider extends ServiceProvider
             ];
 
             if (Auth::check()) {
-//                $items[] = ['title' => trans('p.users'), 'route' => 'user.index'];
                 $items[] = ['title' => trans('p.staff'), 'route' => 'staff.index'];
                 $items[] = ['title' => trans('p.students'), 'route' => 'student.index'];
                 $user = Auth::user();
@@ -78,6 +78,7 @@ class CustomServiceProvider extends ServiceProvider
 
         view()->composer('front.index', function($view) {
             $view->with('latestNews', News::where('status', 'active')->latest()->limit(2)->get());
+            $view->with('latestVideocourses', VideoCourse::where('status', 'active')->latest()->limit(3)->get());
         });
         
         view()->composer('front.partials.footer', function($view) {

@@ -124,5 +124,22 @@ return [
     'site_name' => 'Сайттын аты',
     'site_url' => 'URL',
     'site_email' => 'Эл. Почта',
-    'settings' => 'Настройкалар'
+    'settings' => 'Настройкалар',
+
+    'terms_agreement' => 'Колдонуу <a href=":url">эрежелери</a> менен тааныштым',
+
+    'links' => 'Шилтемелер',
+    'terms_of_use' => 'Колдонуу эрежелери',
+    'authors' => 'Авторлор',
+    'site_phone' => 'Сайттын телефону',
+
+    'slider' => 'Слайдер',
+    'slider_text_top' => 'Слайдердин үстүндөгү текст',
+    'slider_text_center' => 'Слайдердин ортосундагы текст',
+    'slider_text_bottom' => 'Слайдердин астындагы текст',
+    'slider_text_button' => 'Слайдер баскычынын тексти',
+    'slider_button_url' => 'Слайдер баскычынын URL\'и',
+    'view_full' => 'Толук көрүү',
+    'latest_videocourses' => 'Акыркы видеосабактар',
+    'view_on_map' => 'Картадан көрүү',
 ];

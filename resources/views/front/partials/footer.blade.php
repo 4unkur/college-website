@@ -9,22 +9,23 @@
         </div>
 
         <div class="col-md-4">
-            <h3>Бул жерге дерСкий бир нерсе койулат</h3>
-            <p>буюрса...</p>
-            <br />
-            {!! Html::image('http://loremflickr.com/300/200/mountain') !!}
+            <h3>{!! trans('p.links') !!}</h3>
+            <p>{!! link_to_route('contacts', trans('p.contacts')) !!}</p>
+            <p>{!! link_to_route('user.index', trans('p.users')) !!}</p>
+            <p>{!! link_to_route('terms', trans('p.terms_of_use')) !!}</p>
+            <p>{!! link_to('https://github.com/4unkur', trans('p.authors')) !!}</p>
         </div>
         <div class="col-md-4">
             <h3>{{ trans('p.contacts') }}</h3>
-            <p>{{ trans('p.location') }}: Чуңкур, Бишкек, Кыргызстан</p>
-            <p>{{ trans('p.phone') }}: +996 772 18 23 15</p>
-            <p>{{ trans('p.email') }}: <a href="mailto:info@diploma.com">info@diploma.com</a></p>
+            <p>{{ trans('p.location') }}: {{ Setting::get('location') }}</p>
+            <p>{{ trans('p.phone') }}: {{ Setting::get('site_phone') }}</p>
+            <p>{{ trans('p.email') }}: <a href="mailto:{{ Setting::get('site_email') }}">{{ Setting::get('site_email') }}</a></p>
 
-            <div class="social">
-                <span class="fa fa-facebook"><a href="#"></a></span>
-                <span class="fa fa-google-plus"><a href="#"></a></span>
-                <span class="fa fa-twitter"><a href="#"></a></span>
-                <span class="fa fa-instagram"><a href="#"></a></span>
+            <div class="social" style="font-size:40px">
+                <a href="https://fb.com/{{ Setting::get('fb') }}"><span class="fa fa-facebook"></span></a>
+                <a href="https://plus.google.com/{{ Setting::get('gplus') }}"><span class="fa fa-google-plus"></span></a>
+                <a href="https://twitter.com/{{ Setting::get('twitter') }}"><span class="fa fa-twitter"></span></a>
+                <a href="https://instagram.com/{{ Setting::get('instagram') }}"><span class="fa fa-instagram"></span></a>
             </div>
         </div>
     </div>

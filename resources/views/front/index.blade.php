@@ -13,45 +13,33 @@
     @include('front.partials.slider')
     <div class="row text-center no-margin nothing">
         <div class="container headings">
-            <p class="little"><span>Lorem ipsum dolor site</span></p>
-            <h2 class="page_title">PARALLAX ELEMENTS<br />
-                <span>clean</span> and <span>high quality
-                    </span>
-                website.</h2>
-            <p class="small-paragraph">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+            <p class="little"></p>
+            <h2 class="page_title"><span>{!! trans('p.welcome') !!}</span></h2>
         </div>
     </div>
     <div class="row  three__blocks text-center no_padding no-margin">
         <div class="container">
-            <h2>OUR CREATIVE SERVICES</h2>
+            <h2>{{ trans('p.latest_videocourses') }}</h2>
             <span class="separator"></span>
-            <p class="small-paragraph">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
-            <div class="col-md-4 img-rounded"> <img src="/front/images/content__images/img1.jpg" alt="image" class="img-responsive img-rounded">
-                <h3><a href="#">Creative Design</a></h3>
-                <p class="smaller">Vestibulum auctor dapibus neque.</p>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
-                <p><a class="btn btn-info btn-lg" href="#" role="button">Learn more</a>
-            </div>
-            <div class="col-md-4 img-rounded middle"> <img src="/front/images/content__images/img2.jpg" alt="image" class="img-responsive img-rounded">
-                <h3><a href="#">ONLINE MARKETING</a></h3>
-                <p class="smaller">Vestibulum auctor dapibus neque.</p>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
-                <p><a class="btn btn-info btn-lg" href="#" role="button">Learn more</a>
-            </div>
-            <div class="col-md-4 img-rounded"> <img src="/front/images/content__images/img3.jpg" alt="image" class="img-responsive img-rounded">
-                <h3><a href="#">SOCIAL MEDIA</a></h3>
-                <p class="smaller">Vestibulum auctor dapibus neque.</p>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
-                <p><a class="btn btn-info btn-lg" href="#" role="button">Learn more</a>
-            </div>
+            @if ($latestVideocourses)
+                @foreach ($latestVideocourses as $videocourse)
+                <div class="col-md-4 img-rounded"> <img src="http://img.youtube.com/vi/{{ $videocourse->video }}/hqdefault.jpg" alt="{{ $videocourse->title }}" class="img-responsive img-rounded">
+                    <h3><a href="#">{{ $videocourse->title }}</a></h3>
+                    <p class="smaller">{{ $videocourse->created_at }}</p>
+                    <p>{{ str_limit(strip_tags($videocourse->description), 100) }}</p>
+                    <p><a class="btn btn-info btn-lg" href="{{ route('videocourse.show', [$videocourse->slug]) }}" role="button">{{ trans('p.view_full') }}</a>
+                </div>
+                @endforeach
+            @endif
         </div>
     </div>
-    <div class="text-center three-blocks">
-        <div class="container">
-            <div class="row white__heading">
-                <h2>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi Sed arcu. Cras consequat.</h2>
-                <p class="little">Richard Johnson</p>
-                <p><a class="btn btn-info btn-lg" href="#">read more</a></p>
+    <div style="position: relative;">
+        <div id="googleMap" style="width: 100%; height: 400px;pointer-events:none"></div>
+        <div class="text-map text-center" style="position: absolute; z-index: 9000;margin-left: auto;margin-right: auto;left: 0;right: 0;top:220px">
+            <div style="border: none; border-radius: 10px;background: #ccc; display: inline-block;padding: 20px;">
+                <h4>{{ Setting::get('location') }}</h4>
+                <br>
+                <p><a class="btn btn-info btn-lg" href="{{ route('contacts') }}">{{ trans('p.view_on_map') }}</a></p>
             </div>
         </div>
     </div>
@@ -74,4 +62,28 @@
         </div>
     </div>
     @endif
+@stop
+
+@section('footer')
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script>
+        function initialize() {
+            var myLatLng = {lat: 42.8406508, lng: 74.5594599};
+
+            var mapProp = {
+                center: myLatLng,
+                zoom:15,
+                mapTypeId:google.maps.MapTypeId.ROADMAP
+            };
+
+            var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'Бул жерде!'
+            });
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 @stop

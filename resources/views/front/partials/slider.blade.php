@@ -5,12 +5,11 @@
                 <div class="item @if (1 == $i) active @endif"> <img data-src="front/images/slider/slider{{ $i }}.jpg" alt="First slide" src="front/images/slider/slider{{ $i }}.jpg">
                     <div class="container">
                         <div class="carousel-caption">
-                            <p class="little"><span>Quisque et tellus lorem</span></p>
-                            <h1>Nullam at nulla consequat purus feugiat vehicula</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat.</p>
-                            <p><a class="btn btn-default btn-lg" href="#" role="button">learn more</a></p>
+                            <p class="little"><span>{{ Setting::get('slider_text_top') }}</span></p>
+                            <h1>{{ Setting::get('slider_text_center') }}</h1>
+                            <p>{{ Setting::get('slider_text_bottom') }}</p>
+                            <p><a class="btn btn-default btn-lg" href="{{ Setting::get('slider_buttom_url') }}" role="button">{{ Setting::get('slider_text_button') }}</a></p>
                             @if (Auth::check() && Auth::user()->type == 'student' && Auth::user()->result()->first())@endif {{-- TODO exam result text--}}
-
                         </div>
                     </div>
                 </div>

@@ -110,5 +110,20 @@ return [
     'site_name' => 'Имя сайта',
     'site_email' => 'Эл. Почта',
     'settings' => 'Настройки',
+    'terms_agreement' => 'Я ознакомился(лась) с <a href=":url">правилами пользования</a>',
+
+    'links' => 'Ссылки',
+    'terms_of_use' => 'Политика использования',
+    'authors' => 'Авторы',
+    'site_phone' => 'Телефон сайта',
+
+    'slider_text_top' => 'Верхний текст слайдера',
+    'slider_text_center' => 'Текст слайдера в центре',
+    'slider_text_bottom' => 'Нижний текст слайдера',
+    'slider_text_button' => 'Текст кнопки слайдера',
+    'slider_button_url' => 'URL кнопки слайдера',
+    'view_full' => 'Смотреть полностью',
+    'latest_videocourses' => 'Последние видеоуроки',
+    'view_on_map' => 'Посмотреть на карте'
 
 ];

@@ -3,7 +3,7 @@
 @section('content')
 <div class="register-box">
     <div class="register-logo">
-        <a href="#"><b>Admin</b>LTE</a>
+        <a href="{{ route('index') }}">{{ Setting::get('site_name') }}</a>
     </div>
 
     <div class="register-box-body">
@@ -32,24 +32,13 @@
             </div>
             <div class="row">
                 <div class="col-xs-8">
-                    <div class="checkbox icheck">
-                        <label>
-                            <input type="checkbox"> I agree to the <a href="#">terms</a>
-                        </label>
-                    </div>
+                    <p><input type="checkbox"> {!! trans('p.terms_agreement', ['url' => route('terms')]) !!}</p>
                 </div><!-- /.col -->
                 <div class="col-xs-4">
                     <button type="submit" class="btn btn-primary btn-block btn-flat">{{ trans('p.register') }}</button>
                 </div><!-- /.col -->
             </div>
         {!! Form::close() !!}
-
-        {{--<div class="social-auth-links text-center">--}}
-            {{--<p>- OR -</p>--}}
-            {{--<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using Facebook</a>--}}
-            {{--<a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using Google+</a>--}}
-        {{--</div>--}}
-
         {!! link_to('auth/login', trans('p.sign_in'), ['class' => 'text-center']) !!}
     </div><!-- /.form-box -->
 </div><!-- /.register-box -->

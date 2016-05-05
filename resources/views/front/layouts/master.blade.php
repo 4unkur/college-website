@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Reponsive HTML Template</title>
+    <title>{{ Setting::get('site_name') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
@@ -24,7 +24,7 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="navbar-header">
-                <h1 class="navbar-brand"><a href="{{ route('index') }}">UNIVERSITY</a></h1>
+                <h1 class="navbar-brand"><a href="{{ route('index') }}">{{ Setting::get('site_name') }}</a></h1>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1,#bs-example-navbar-collapse-2"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
             </div>
             <div class="navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">

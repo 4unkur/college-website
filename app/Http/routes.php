@@ -14,6 +14,18 @@ Route::group([
     Route::get('auth/confirm/{email}/{code}', ['as' => 'auth.confirm', 'uses' => 'Auth\AuthController@confirm']);
 
     Route::get('', ['as' => 'index', 'uses' => function () {
+
+//        $data = [
+//            'first_name' => 'First Name',
+//            'code' => 'Code',
+//            'email' => 'Email',
+//        ];
+//        Mail::send('emails.registration', $data, function($message) use ($data) {
+//            $message->from(\Setting::get('site_email'), \Setting::get('site_name'));
+//            $message->subject('Welcome to ' . \Setting::get('site_name'));
+//            $message->to(\Setting::get('site_email'));
+//        });
+
         return view('front.index');
     }]);
 
@@ -33,6 +45,14 @@ Route::group([
 
     Route::get('videocourses', ['as' => 'videocourse.index', 'uses' => 'VideoCoursesController@index']);
     Route::get('videocourse/{slug}', ['as' => 'videocourse.show', 'uses' => 'VideoCoursesController@show']);
+
+    Route::get('contacts', ['as' => 'contacts', 'uses' => function () {
+        return view('front.contacts');
+    }]);    
+    
+    Route::get('terms-of-use', ['as' => 'terms', 'uses' => function () {
+        return view('front.terms');
+    }]);
     
     Route::group(
         [
