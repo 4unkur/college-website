@@ -142,5 +142,8 @@ return [
     'view_full' => 'Толук көрүү',
     'latest_videocourses' => 'Акыркы видеосабактар',
     'view_on_map' => 'Картадан көрүү',
-    'site_info' => 'Сайт жөнүнүдө маалымат'
+    'site_info' => 'Сайт жөнүнүдө маалымат',
+
+    'site_under_construction' => 'Сайтта жумуштар жүргүзүлүп жатат',
+    'available_soon' => 'Буюрса, ачылабыз'
 ];

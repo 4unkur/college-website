@@ -30,5 +30,5 @@
         </div>
     </div>
     <hr>
-    <p class="text-center">&copy; {{ date('Y') . ' - ' . trans('p.copyright') }}</p>
+    <p class="text-center">&copy; {{ date('Y') . ' - ' . trans('p.copyright') }}. {!! link_to_route('index', Setting::get('site_name')) !!}</p>
 </div>
