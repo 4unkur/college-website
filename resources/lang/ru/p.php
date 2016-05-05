@@ -106,6 +106,7 @@ return [
     'contact_support' => 'Связаться',
     'forbidden' => 'Действие запрещено',
     'import_users' => 'Импорт пользователей',
+    'import_users_br' => 'Загрузить пользователей',
 
     'site_name' => 'Имя сайта',
     'site_email' => 'Эл. Почта',
