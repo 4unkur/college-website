@@ -34,7 +34,7 @@
         <!-- /.search form -->
 
         <!-- Sidebar Menu -->
-        <ul class="sidebar-menu">
+        <ul class="sidebar-menu" id="sidebar-menu">
             <li class="header">{{ trans('p.menu') }}</li>
             @include('admin.menu.left-sidebar')
         </ul><!-- /.sidebar-menu -->

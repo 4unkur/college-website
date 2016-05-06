@@ -11,10 +11,3 @@
         @endif
     </li>
 @endforeach
-
-@section('footer')
-    @parent
-    <script>
-        $('li.active').closest('li.treeview').addClass('active');  {{-- TODO: add to js file --}}
-    </script>
-@stop

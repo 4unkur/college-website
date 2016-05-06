@@ -50,5 +50,4 @@
         });
         $('a[data-toggle="tab"]:first', '#videocourses-tab').trigger('shown.bs.tab');
     </script>
-    {!! Html::script('js/delete-file.js') !!}
 @stop

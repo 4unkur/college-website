@@ -96,5 +96,4 @@
         });
         $('a[data-toggle="tab"]:first', '#news-tab').trigger('shown.bs.tab');
     </script>
-    {!! Html::script('js/delete-image.js') !!}
 @stop

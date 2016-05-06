@@ -1,9 +1,5 @@
 @extends('admin.master')
 
-@section('head')
-    {!! Html::style('datatables/dataTables.min.css') !!}
-@stop
-
 @section('header')
     {{ trans('p.examresults') }} :
 @stop
@@ -50,13 +46,6 @@
             </div>
         </div>
     @else
-        there is now entries
+        {{ trans('p.empty_list') }}
     @endif
-@stop
-
-@section('footer')
-    @parent
-    {!! Html::script('datatables/dataTables.min.js') !!}
-    {!! Html::script('js/grid.js') !!}
-    {!! Html::script('js/dataTables.bootstrap.min.js') !!}
 @stop

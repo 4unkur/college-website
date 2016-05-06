@@ -145,5 +145,6 @@ return [
     'site_info' => 'Сайт жөнүнүдө маалымат',
 
     'site_under_construction' => 'Сайтта жумуштар жүргүзүлүп жатат',
-    'available_soon' => 'Буюрса, ачылабыз'
+    'available_soon' => 'Буюрса, ачылабыз',
+    'empty_list' => 'Эч нерсе жок',
 ];

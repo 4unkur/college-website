@@ -78,8 +78,3 @@
     </div>
 </div><!-- /.box -->
 @stop
-
-@section('footer')
-    @parent
-    {!! Html::script('js/delete-image.js') !!}
-@stop

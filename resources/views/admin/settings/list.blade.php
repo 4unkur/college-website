@@ -97,9 +97,13 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-6">
                                 {!! Form::label('slider_button_url', trans('p.slider_button_url')) !!}
                                 {!! Form::text('slider_button_url', null, ['class' => 'form-control', 'id' => 'slider_button_url']) !!}
+                            </div>
+                            <div class="form-group col-md-6">
+                                {!! Form::label('slider_speed', trans('p.slider_speed')) !!}
+                                {!! Form::text('slider_speed', null, ['class' => 'form-control', 'id' => 'slider_speed']) !!}
                             </div>
                         </div>
                     </div>

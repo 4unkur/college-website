@@ -1,0 +1,1 @@
+$('li.active', '#sidebar-menu').closest('li.treeview').addClass('active');

@@ -17,3 +17,12 @@
         </div>
         <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon carousel-control-left"></span></a> <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon carousel-control-right"></span></a> </div>
 </section>
+
+@section('footer')
+    <script>
+        $('.carousel').carousel({
+            interval: {{ Setting::get('slider_speed') * 1000 }},
+            pause: 'true'
+        });
+    </script>
+@stop

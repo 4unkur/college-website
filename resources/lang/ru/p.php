@@ -129,5 +129,6 @@ return [
     'site_info' => 'Информация о сайте',
 
     'site_under_construction' => 'Ведутся работы на сайте',
-    'available_soon' => 'Будем доступны в ближайшее время'
+    'available_soon' => 'Будем доступны в ближайшее время',
+    'empty_list' => 'Пусто',
 ];
