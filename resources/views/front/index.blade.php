@@ -34,7 +34,7 @@
         </div>
     </div>
     <div style="position: relative;">
-        <div id="googleMap" style="width: 100%; height: 400px;pointer-events:none"></div>
+        <div id="googleMap" style="width: 100%; height: 400px;"></div>
         <div class="text-map text-center" style="position: absolute; z-index: 9000;margin-left: auto;margin-right: auto;left: 0;right: 0;top:220px">
             <div style="border: none; border-radius: 10px;background: #ccc; display: inline-block;padding: 20px;">
                 <h4>{{ Setting::get('location') }}</h4>
@@ -65,6 +65,7 @@
 @stop
 
 @section('footer')
+    @parent
     <script src="http://maps.googleapis.com/maps/api/js"></script>
     <script>
         function initialize() {
@@ -73,7 +74,8 @@
             var mapProp = {
                 center: myLatLng,
                 zoom:15,
-                mapTypeId:google.maps.MapTypeId.ROADMAP
+                mapTypeId:google.maps.MapTypeId.ROADMAP,
+                scrollwheel: false
             };
 
             var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);

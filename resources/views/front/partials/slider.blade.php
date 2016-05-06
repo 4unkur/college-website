@@ -19,6 +19,7 @@
 </section>
 
 @section('footer')
+    @parent
     <script>
         $('.carousel').carousel({
             interval: {{ Setting::get('slider_speed') * 1000 }},
