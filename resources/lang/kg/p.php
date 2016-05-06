@@ -147,4 +147,6 @@ return [
     'site_under_construction' => 'Сайтта жумуштар жүргүзүлүп жатат',
     'available_soon' => 'Буюрса, ачылабыз',
     'empty_list' => 'Эч нерсе жок',
+    'slider_speed' => 'Сладдардын алмашуу ылдамдыгы',
+    'tooltip_slider_speed' => 'Секунда менен'
 ];

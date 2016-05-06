@@ -131,4 +131,6 @@ return [
     'site_under_construction' => 'Ведутся работы на сайте',
     'available_soon' => 'Будем доступны в ближайшее время',
     'empty_list' => 'Пусто',
+    'slider_speed' => 'Скорость смены слайдов',
+    'tooltip_slider_speed' => 'В секундах'
 ];
