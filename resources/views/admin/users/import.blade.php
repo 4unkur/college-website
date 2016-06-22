@@ -18,7 +18,7 @@
                         <h3 class="box-title">{{ trans('p.import_users') }}</h3>
                     </div>
                     <div class="box-body">
-                        {!! Form::open(['route' => 'admin.import.user', 'files' => true]) !!}
+                        {!! Form::open(['route' => 'admin.user.import', 'files' => true]) !!}
                         <div class="form-group">
                             {!! Form::label('csv', trans('p.csv_file')) !!}
 

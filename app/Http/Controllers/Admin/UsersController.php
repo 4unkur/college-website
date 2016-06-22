@@ -176,20 +176,20 @@ class UsersController extends Controller
             return redirect()->back()->withErrors('incorrect_type');
         }
         $csv = array_map('str_getcsv', file($file->getRealPath()));
-        array_shift($csv);
         if ($csv) {
             foreach ($csv as $row) {
-                if ($user = User::where('email', $row[0])->first()) {
+                if (!User::where('email', $row[0])->first()) {
                     $newUser = new User();
                     $newUser->email = $row[0];
                     $newUser->first_name = $row[1];
                     $newUser->last_name = $row[2];
                     $newUser->type = $row[3];
+                    $newUser->status = 'active';
                     $newUser->save();
                 }
             }
         }
 
-        return redirect(route('admin.examresult.index'));
+        return redirect(route('admin.user.index'));
     }
 }
