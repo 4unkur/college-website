@@ -176,6 +176,7 @@ class UsersController extends Controller
             return redirect()->back()->withErrors('incorrect_type');
         }
         $csv = array_map('str_getcsv', file($file->getRealPath()));
+        array_shift($csv);
         if ($csv) {
             foreach ($csv as $row) {
                 if (!User::where('email', $row[0])->first()) {
